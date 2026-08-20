@@ -1,0 +1,54 @@
+.action-bar {
+  display: flex;
+  align-items: center;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid #F0F0F0;
+}
+
+.action-bar__item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  padding: var(--spacing-xs) 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-bar__item:active {
+  opacity: 0.6;
+}
+
+.action-bar__item--bookmark {
+  flex: 0 0 auto;
+  padding-left: var(--spacing-sm);
+}
+
+.action-bar__icon {
+  font-size: 32px;
+  margin-right: 4px;
+  transition: transform 0.2s ease;
+}
+
+.action-bar__item:active .action-bar__icon {
+  transform: scale(1.2);
+}
+
+.action-bar__icon--liked {
+  animation: heartBeat 0.3s ease;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.action-bar__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.action-bar__text--liked {
+  color: var(--color-primary);
+}

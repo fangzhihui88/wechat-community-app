@@ -1,0 +1,40 @@
+.topic-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-primary-bg);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topic-tag:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+.topic-tag--small {
+  padding: 4px 12px;
+  font-size: 22px;
+}
+
+.topic-tag--medium {
+  padding: 8px 16px;
+  font-size: 24px;
+}
+
+.topic-tag--large {
+  padding: 12px 20px;
+  font-size: 28px;
+}
+
+.topic-tag__sharp {
+  color: var(--color-primary);
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.topic-tag__name {
+  color: var(--color-primary);
+  font-weight: 500;
+}

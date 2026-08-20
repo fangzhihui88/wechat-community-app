@@ -1,0 +1,97 @@
+.feed-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.feed-card__header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+}
+
+.feed-card__user-info {
+  margin-left: var(--spacing-sm);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-card__user-top {
+  display: flex;
+  align-items: center;
+}
+
+.feed-card__username {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.feed-card__meta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 4px;
+}
+
+.feed-card__content {
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+}
+
+.feed-card__text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.feed-card__expand {
+  color: #576B95;
+  font-size: var(--font-size-sm);
+  margin-left: 8px;
+}
+
+.feed-card__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* 图片网格布局 */
+.feed-card__images {
+  display: grid;
+  gap: 8px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.feed-card__images--1 {
+  grid-template-columns: 1fr;
+}
+
+.feed-card__images--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.feed-card__images--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.feed-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: #F0F0F0;
+}
+
+.feed-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

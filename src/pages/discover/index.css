@@ -1,0 +1,117 @@
+.discover-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+
+.discover-page__nav {
+  background-color: var(--color-bg-card);
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.discover-page__nav-content {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discover-page__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.discover-page__content {
+  flex: 1;
+  height: calc(100vh - 88px - 80px);
+}
+
+/* Tab 切换 */
+.discover-tabs {
+  display: flex;
+  position: relative;
+  background-color: var(--color-bg-card);
+  padding: 0 var(--spacing-md);
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.discover-tabs__item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md) 0;
+}
+
+.discover-tabs__text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-tertiary);
+  transition: all 0.3s ease;
+}
+
+.discover-tabs__item--active .discover-tabs__text {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.discover-tabs__indicator {
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: left 0.3s ease;
+}
+
+/* 内容区块 */
+.discover-section {
+  padding: var(--spacing-md);
+}
+
+.discover-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.discover-section__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.discover-section__more {
+  padding: 4px 12px;
+}
+
+.discover-section__more-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+}
+
+/* 话题横向滚动 */
+.discover-topics {
+  display: flex;
+  white-space: nowrap;
+  padding-bottom: var(--spacing-sm);
+}
+
+.discover-topics__item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+}
+
+.discover-topics__count {
+  font-size: 20px;
+  color: var(--color-text-tertiary);
+  margin-top: 8px;
+}

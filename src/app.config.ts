@@ -1,0 +1,62 @@
+export default defineAppConfig({
+  pages: [
+    'pages/index/index',
+    'pages/discover/index',
+    'pages/publish/index',
+    'pages/message/index',
+    'pages/profile/index',
+  ],
+  window: {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#FFFFFF',
+    navigationBarTitleText: '社区',
+    navigationBarTextStyle: 'black',
+    navigationStyle: 'custom',
+    enablePullDownRefresh: true,
+    backgroundColor: '#F7F7F7',
+  },
+  tabBar: {
+    color: '#999999',
+    selectedColor: '#FF4757',
+    backgroundColor: '#FFFFFF',
+    borderStyle: 'white',
+    list: [
+      {
+        pagePath: 'pages/index/index',
+        text: '首页',
+        iconPath: 'assets/icons/home.png',
+        selectedIconPath: 'assets/icons/home-active.png',
+      },
+      {
+        pagePath: 'pages/discover/index',
+        text: '发现',
+        iconPath: 'assets/icons/discover.png',
+        selectedIconPath: 'assets/icons/discover-active.png',
+      },
+      {
+        pagePath: 'pages/publish/index',
+        text: '发布',
+        iconPath: 'assets/icons/publish.png',
+        selectedIconPath: 'assets/icons/publish-active.png',
+      },
+      {
+        pagePath: 'pages/message/index',
+        text: '消息',
+        iconPath: 'assets/icons/message.png',
+        selectedIconPath: 'assets/icons/message-active.png',
+      },
+      {
+        pagePath: 'pages/profile/index',
+        text: '我的',
+        iconPath: 'assets/icons/profile.png',
+        selectedIconPath: 'assets/icons/profile-active.png',
+      },
+    ],
+  },
+  permission: {
+    'scope.userLocation': {
+      desc: '你的位置信息将用于展示附近内容',
+    },
+  },
+  requiredPrivateInfos: ['getLocation'],
+})

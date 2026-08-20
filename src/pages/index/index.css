@@ -1,0 +1,44 @@
+.index-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+
+.index-page__nav {
+  background-color: var(--color-bg-card);
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.index-page__nav-content {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-md);
+}
+
+.index-page__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.index-page__list {
+  flex: 1;
+  height: calc(100vh - 88px - 80px);
+}
+
+.index-page__loading,
+.index-page__no-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.index-page__loading-text,
+.index-page__no-more-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
