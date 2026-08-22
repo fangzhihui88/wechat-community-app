@@ -134,6 +134,62 @@ const sections: HubSection[] = [
       { label: '工具箱', url: '/pages/tools-center/index' },
     ],
   },
+  // ===== 300 项功能新增导航 =====
+  {
+    title: '健康·生活',
+    emoji: '🏃',
+    color: '#34C759',
+    items: [
+      { label: '健康打卡', url: '/pages/health/index' },
+      { label: '学习中心', url: '/pages/study/index' },
+      { label: '美食菜谱', url: '/pages/recipes/index' },
+      { label: '旅游攻略', url: '/pages/travel/index' },
+    ],
+  },
+  {
+    title: '垂直社区',
+    emoji: '🐾',
+    color: '#FF9500',
+    items: [
+      { label: '宠物社区', url: '/pages/pet/index' },
+      { label: '宠物详情', url: '/pages/pet-detail/index' },
+      { label: '车友圈', url: '/pages/car/index' },
+      { label: '房产信息', url: '/pages/estate/index' },
+      { label: '婚庆服务', url: '/pages/wedding/index' },
+    ],
+  },
+  {
+    title: '文化·艺术',
+    emoji: '📚',
+    color: '#AF52DE',
+    items: [
+      { label: '读书社区', url: '/pages/reading/index' },
+      { label: '音乐分享', url: '/pages/music/index' },
+      { label: '摄影天地', url: '/pages/photo/index' },
+      { label: '艺术画廊', url: '/pages/art/index' },
+    ],
+  },
+  {
+    title: '兴趣·垂直',
+    emoji: '⭐',
+    color: '#FF2D55',
+    items: [
+      { label: '追星圈', url: '/pages/star/index' },
+      { label: '健身中心', url: '/pages/fitness-hub/index' },
+      { label: '母婴育儿', url: '/pages/mom-baby/index' },
+      { label: '心理健康', url: '/pages/mental-health/index' },
+      { label: '美容美妆', url: '/pages/beauty/index' },
+    ],
+  },
+  {
+    title: '公益·其他',
+    emoji: '🌍',
+    color: '#007AFF',
+    items: [
+      { label: '公益活动', url: '/pages/charity/index' },
+      { label: '生活预测', url: '/pages/forecast/index' },
+    ],
+  },
 ]
 
 const Hub = memo(() => {
@@ -146,8 +202,8 @@ const Hub = memo(() => {
       <View className="hub-banner">
         <Text className="hub-banner__emoji">🚀</Text>
         <View className="hub-banner__info">
-          <Text className="hub-banner__title">微信社区小程序</Text>
-          <Text className="hub-banner__sub">共 {total} 个功能页面 · 10 大模块</Text>
+          <Text className="hub-banner__title">源头社区</Text>
+          <Text className="hub-banner__sub">共 {total} 个功能页面 · 15 大模块</Text>
         </View>
         <View className="hub-banner__tag">v2.0</View>
       </View>

@@ -15,7 +15,7 @@ const mockStreamer = {
   avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80',
   nickname: '小甜心',
   followers: 123456,
-  streamUrl: 'https://fangzhihui88.github.io/wechat-community-app/videos/live-stream.mp4',
+  streamUrl: 'https://fangzhihui88.github.io/yuantou-community/videos/live-stream.mp4',
   streamCover: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1280&h=720&fit=crop&q=80',
 }
 

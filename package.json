@@ -1,8 +1,8 @@
 {
-  "name": "wechat-community-app",
+  "name": "yuantou-community",
   "version": "1.0.0",
   "private": true,
-  "description": "微信社区小程序 - React + Taro",
+  "description": "源头社区小程序 - React + Taro",
   "template": "taro",
   "scripts": {
     "dev:weapp": "taro build --type weapp --watch",

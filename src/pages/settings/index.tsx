@@ -36,7 +36,7 @@ const Settings = memo(() => {
     {
       title: '关于',
       items: [
-        { label: '关于社区', type: 'arrow', onClick: () => Taro.showModal({ title: '微信社区', content: '版本 v1.0.0\n一个用 React + Taro 构建的社区小程序 Demo' }) },
+        { label: '关于社区', type: 'arrow', onClick: () => Taro.showModal({ title: '源头社区', content: '版本 v1.0.0\n一个用 React + Taro 构建的社区小程序 Demo' }) },
         { label: '检查更新', type: 'arrow', onClick: () => Taro.showToast({ title: '已是最新版本', icon: 'none' }) },
         { label: '退出登录', type: 'arrow', value: '', onClick: () => {
           Taro.showModal({
@@ -75,7 +75,7 @@ const Settings = memo(() => {
           </View>
         ))}
         <View className="settings-page__footer">
-          <Text className="settings-page__version">微信社区 v1.0.0</Text>
+          <Text className="settings-page__version">源头社区 v1.0.0</Text>
         </View>
       </View>
     </View>

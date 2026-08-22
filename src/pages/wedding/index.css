@@ -1,0 +1,259 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__content {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+}
+
+/* 分类 Tabs */
+.cat-tabs {
+  background: var(--color-bg-card, #fff);
+  border-bottom: 1px solid #F0F0F0;
+  padding: 12px 0 8px;
+}
+
+.cat-tabs__scroll {
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.cat-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  margin-right: 10px;
+  background: #F5F5F5;
+  flex-shrink: 0;
+  min-width: 56px;
+}
+
+.cat-tab--active {
+  background: #FFF0F5;
+  border: 1px solid #FF6B9D;
+}
+
+.cat-tab__emoji {
+  font-size: 20px;
+}
+
+.cat-tab__text {
+  font-size: 12px;
+  color: var(--color-text-secondary, #666);
+}
+
+.cat-tab--active .cat-tab__text {
+  color: #FF6B9D;
+  font-weight: 600;
+}
+
+/* Section */
+.section {
+  padding: 16px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 服务商卡片 */
+.vendor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vendor-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.vendor-card__cover {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.vendor-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vendor-card__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.vendor-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.vendor-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.vendor-card__stars {
+  font-size: 12px;
+  color: #FFB800;
+}
+
+.vendor-card__rating-text {
+  font-size: 13px;
+  color: var(--color-text-primary, #333);
+  font-weight: 500;
+}
+
+.vendor-card__location {
+  font-size: 12px;
+  color: var(--color-text-secondary, #888);
+}
+
+.vendor-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vendor-card__price {
+  font-size: 14px;
+  color: var(--color-primary, #FF4757);
+  font-weight: 600;
+}
+
+.vendor-card__btn {
+  background: linear-gradient(135deg, #FF6B9D, #FF4757);
+  border-radius: 16px;
+  padding: 5px 16px;
+}
+
+.vendor-card__btn-text {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 婚礼灵感集 Grid */
+.inspiration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.inspiration-item {
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: 3/4;
+}
+
+.inspiration-item__img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 筹备进度 */
+.progress-bar {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.progress-step__dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F0F0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  z-index: 1;
+}
+
+.progress-step__dot--done {
+  background: var(--color-primary, #FF4757);
+}
+
+.progress-step__icon {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-secondary, #888);
+}
+
+.progress-step__dot--done .progress-step__icon {
+  color: #fff;
+}
+
+.progress-step__label {
+  font-size: 12px;
+  color: var(--color-text-secondary, #888);
+  font-weight: 500;
+}
+
+.progress-step__label--done {
+  color: var(--color-primary, #FF4757);
+  font-weight: 600;
+}
+
+.progress-step__line {
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 18px);
+  width: calc(100% - 36px);
+  height: 2px;
+  background: #F0F0F0;
+  z-index: 0;
+}
+
+.progress-step__line--done {
+  background: var(--color-primary, #FF4757);
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}

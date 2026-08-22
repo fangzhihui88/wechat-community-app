@@ -1,0 +1,30 @@
+.forecast-page { background: #0a0a1a; }
+.forecast-page__scroll { height: calc(100vh - 88px - env(safe-area-inset-top)); }
+
+.forecast-picker-wrap { padding: 16px; }
+.forecast-picker { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.1); margin: 0 16px; padding: 14px 16px; border-radius: 16px; }
+.forecast-picker__label { font-size: 26px; color: rgba(255,255,255,0.6); }
+.forecast-picker__value { display: flex; align-items: center; gap: 8px; }
+.forecast-picker__value text { font-size: 28px; color: #FFD700; font-weight: 600; }
+.forecast-picker__arrow { font-size: 20px; color: rgba(255,255,255,0.5); }
+
+.forecast-card { margin: 16px; padding: 20px; border-radius: 20px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); }
+.forecast-card--today { background: linear-gradient(135deg, rgba(124,77,255,0.3), rgba(255,71,87,0.3)); border-color: rgba(124,77,255,0.4); }
+.forecast-card--tomorrow { background: rgba(255,255,255,0.05); }
+.forecast-card__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.forecast-card__title { font-size: 30px; font-weight: 700; color: #fff; }
+.forecast-card__sign { font-size: 28px; color: #FFD700; font-weight: 700; }
+.forecast-card__overall { font-size: 26px; color: rgba(255,255,255,0.85); line-height: 1.6; display: block; margin-bottom: 16px; }
+
+.forecast-dimensions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.forecast-dim { display: flex; align-items: center; justify-content: space-between; }
+.forecast-dim__label { font-size: 26px; color: rgba(255,255,255,0.7); min-width: 80px; }
+.forecast-dim__stars { font-size: 28px; letter-spacing: 2px; }
+
+.forecast-lucky { display: flex; align-items: center; }
+.forecast-lucky__item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.forecast-lucky__label { font-size: 22px; color: rgba(255,255,255,0.5); }
+.forecast-lucky__value { font-size: 28px; color: #FFD700; font-weight: 700; }
+.forecast-lucky__divider { width: 1px; height: 48px; background: rgba(255,255,255,0.2); }
+
+.forecast-share-btn { margin: 16px; padding: 16px; text-align: center; border-radius: 40px; background: linear-gradient(135deg, #FF4757, #7C4DFF); color: #fff; font-size: 28px; font-weight: 600; }

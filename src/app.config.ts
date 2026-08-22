@@ -83,6 +83,27 @@ export default defineAppConfig({
     'pages/collection/index',         // 内容合集
     'pages/feedback-list/index',      // 我的反馈
     'pages/hub/index',                // 功能中心（预览总览）
+    // ===== 300 项功能扩展页面 =====
+    'pages/health/index',              // 健康打卡
+    'pages/study/index',               // 学习中心
+    'pages/recipes/index',             // 美食菜谱
+    'pages/travel/index',               // 旅游攻略
+    'pages/pet/index',                 // 宠物社区
+    'pages/car/index',                 // 车友圈
+    'pages/estate/index',              // 房产信息
+    'pages/wedding/index',             // 婚庆服务
+    'pages/reading/index',              // 读书社区
+    'pages/music/index',               // 音乐分享
+    'pages/photo/index',               // 摄影天地
+    'pages/art/index',                 // 艺术画廊
+    'pages/star/index',                // 追星圈
+    'pages/fitness-hub/index',         // 健身中心
+    'pages/mom-baby/index',            // 母婴育儿
+    'pages/pet-detail/index',         // 宠物详情
+    'pages/mental-health/index',       // 心理健康
+    'pages/beauty/index',              // 美容美妆
+    'pages/charity/index',             // 公益活动
+    'pages/forecast/index',             // 生活预测
   ],
   window: {
     backgroundTextStyle: 'light',
