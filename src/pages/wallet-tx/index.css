@@ -1,0 +1,65 @@
+.wallettx-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.wallettx-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.wallettx-page__summary {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-md);
+}
+.wallettx-page__summary-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  display: block;
+}
+.wallettx-page__summary-num {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  display: block;
+  margin-top: 4px;
+}
+.wallettx-page__list {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+.wallettx-page__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.wallettx-page__item:last-child {
+  border-bottom: none;
+}
+.wallettx-page__item-info {
+  display: flex;
+  flex-direction: column;
+}
+.wallettx-page__item-title {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+.wallettx-page__item-time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+.wallettx-page__item-amount {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+.wallettx-page__item-amount--in { color: #22C55E; }
+.wallettx-page__item-amount--out { color: #EF4444; }

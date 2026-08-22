@@ -1,0 +1,103 @@
+.coupons-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.coupons-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.coupons-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+}
+.coupons-page__empty-icon {
+  font-size: 80px;
+}
+.coupons-page__empty-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-top: var(--spacing-sm);
+}
+.coupon-card {
+  display: flex;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-md);
+}
+.coupon-card--used {
+  opacity: 0.5;
+}
+.coupon-card__left {
+  width: 220px;
+  background: var(--color-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.coupon-card__left::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-bg-page);
+}
+.coupon-card__value {
+  color: #FFFFFF;
+  font-size: 56px;
+  font-weight: 800;
+}
+.coupon-card__threshold {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-xs);
+  margin-top: 4px;
+}
+.coupon-card__right {
+  flex: 1;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.coupon-card__name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.coupon-card__expire {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 4px;
+}
+.coupon-card__btn {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-gradient);
+  border-radius: var(--radius-full);
+  padding: 6px 20px;
+}
+.coupon-card__btn--used {
+  background: var(--color-bg-hover);
+}
+.coupon-card__btn-text {
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+}
+.coupon-card__btn--used .coupon-card__btn-text {
+  color: var(--color-text-tertiary);
+}

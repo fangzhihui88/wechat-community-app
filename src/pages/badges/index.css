@@ -1,0 +1,89 @@
+.badges-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.badges-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.badges-page__hero {
+  background: var(--color-gradient);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-primary);
+  margin-bottom: var(--spacing-md);
+}
+.badges-page__hero-count {
+  color: #FFFFFF;
+  font-size: 72px;
+  font-weight: 800;
+}
+.badges-page__hero-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-sm);
+}
+.badges-page__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+.badges-page__badge {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+.badges-page__badge--locked {
+  opacity: 0.55;
+}
+.badges-page__badge-icon-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-xs);
+}
+.badges-page__badge--locked .badges-page__badge-icon-wrap {
+  background: var(--color-bg-hover);
+}
+.badges-page__badge-icon {
+  font-size: 56px;
+}
+.badges-page__badge-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.badges-page__badge-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+  text-align: center;
+}
+.badges-page__share {
+  margin-top: var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.badges-page__share-text {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}

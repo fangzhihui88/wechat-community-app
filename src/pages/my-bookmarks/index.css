@@ -1,0 +1,14 @@
+.mybookmarks-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.mybookmarks-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.mybookmarks-page__item {
+  margin-bottom: var(--spacing-md);
+}

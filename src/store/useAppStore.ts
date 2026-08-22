@@ -2,6 +2,9 @@ import { create } from 'zustand'
 import type {
   User, Post, Notification, Conversation, Topic, Comment,
   FeedTab, ThemeMode, SearchType,
+  Activity, RankingItem, WalletTx, Coupon, MallProduct, ExchangeRecord,
+  Badge, LevelInfo, CheckinInfo, LotteryPrize, Draft, Visitor,
+  NotificationPrefs, UserSettings, FAQItem,
 } from '../types'
 
 // ============== Mock 数据 ==============
@@ -16,7 +19,13 @@ const mockCurrentUser: User = {
   followers: 1024,
   posts: 56,
   isVip: true,
+  level: 8,
 }
+
+const mkUser = (id: string, nickname: string, seed: number, extra: Partial<User> = {}): User => ({
+  id, nickname, avatar: `https://picsum.photos/${200 + seed}`, following: 0, followers: 100 + seed * 37,
+  posts: 1, ...extra,
+})
 
 const mkPost = (
   id: string, user: Partial<User> & { id: string; nickname: string; avatar: string },
@@ -31,11 +40,11 @@ const mockPosts: Post[] = [
   mkPost('post_001',
     { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', followers: 5200, isVip: true },
     '今天分享一个 React 性能优化的技巧 —— 使用 useMemo 和 useCallback 来避免不必要的重新渲染。#前端 #React',
-    { images: ['https://picsum.photos/400/300', 'https://picsum.photos/400/301'], topics: [{ id: 'topic_001', name: '前端', posts: 10000 }], likes: 328, comments: 45, shares: 12 }),
+    { images: ['https://picsum.photos/400/300', 'https://picsum.photos/400/301'], topics: [{ id: 'topic_001', name: '前端', posts: 10000 }], likes: 328, comments: 45, shares: 12, isHot: true }),
   mkPost('post_002',
     { id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202', followers: 8900 },
     '分享一组极简风格的 UI 设计稿，大家觉得怎么样？',
-    { images: ['https://picsum.photos/400/302', 'https://picsum.photos/400/303', 'https://picsum.photos/400/304'], topics: [{ id: 'topic_002', name: 'UI设计', posts: 8500 }], likes: 567, comments: 89, shares: 34, location: '深圳·南山' }),
+    { images: ['https://picsum.photos/400/302', 'https://picsum.photos/400/303', 'https://picsum.photos/400/304'], topics: [{ id: 'topic_002', name: 'UI设计', posts: 8500 }], likes: 567, comments: 89, shares: 34, location: '深圳·南山', isHot: true }),
   mkPost('post_003',
     { id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203', followers: 3200, isVip: true },
     'TypeScript 4.9 发布！这些新特性你一定要知道...',
@@ -43,33 +52,134 @@ const mockPosts: Post[] = [
   mkPost('post_004',
     { id: 'user_005', nickname: '技术大V', avatar: 'https://picsum.photos/204', followers: 50000, isVip: true },
     '一分钟看懂前端工程化演进 🚀',
-    { videos: ['https://www.w3schools.com/html/mov_bbb.mp4'], type: 'video', topics: [{ id: 'topic_004', name: '工程化', posts: 3100 }], likes: 1203, comments: 156, shares: 89 }),
+    { videos: ['https://www.w3schools.com/html/mov_bbb.mp4'], type: 'video', topics: [{ id: 'topic_004', name: '工程化', posts: 3100 }], likes: 1203, comments: 156, shares: 89, isHot: true }),
+  mkPost('post_005',
+    { id: 'user_006', nickname: '咖啡爱好者', avatar: 'https://picsum.photos/205', followers: 860 },
+    '周末手冲咖啡日记 ☕ 今天的豆子是埃塞俄比亚耶加雪菲，花果香很足！',
+    { images: ['https://picsum.photos/400/306'], topics: [{ id: 'topic_009', name: '生活方式', posts: 2600 }], likes: 89, comments: 12, shares: 3, location: '深圳·福田' }),
+  mkPost('post_006',
+    { id: 'user_007', nickname: '摄影达人', avatar: 'https://picsum.photos/206', followers: 15600, isVip: true },
+    '黄昏时分的深圳湾，绝美！📷',
+    { images: ['https://picsum.photos/400/307', 'https://picsum.photos/400/308'], topics: [{ id: 'topic_010', name: '摄影', posts: 4100 }], likes: 890, comments: 45, shares: 23, location: '深圳·南山' }),
 ]
 
 const mockTopics: Topic[] = [
-  { id: 'topic_001', name: '前端', posts: 10000, description: '前端开发技术交流', isFollowed: true },
-  { id: 'topic_002', name: 'UI设计', posts: 8500, description: 'UI/UX 设计分享' },
-  { id: 'topic_003', name: 'React', posts: 7200 },
-  { id: 'topic_004', name: 'TypeScript', posts: 6500 },
-  { id: 'topic_005', name: 'Vue', posts: 5800 },
-  { id: 'topic_006', name: '小程序', posts: 5200 },
-  { id: 'topic_007', name: 'Node.js', posts: 4800 },
-  { id: 'topic_008', name: '产品经理', posts: 4200 },
+  { id: 'topic_001', name: '前端', posts: 10000, description: '前端开发技术交流', isFollowed: true, category: '技术' },
+  { id: 'topic_002', name: 'UI设计', posts: 8500, description: 'UI/UX 设计分享', category: '设计' },
+  { id: 'topic_003', name: 'React', posts: 7200, description: 'React 生态交流', category: '技术' },
+  { id: 'topic_004', name: 'TypeScript', posts: 6500, description: 'TS 类型体操', category: '技术' },
+  { id: 'topic_005', name: 'Vue', posts: 5800, category: '技术' },
+  { id: 'topic_006', name: '小程序', posts: 5200, category: '技术' },
+  { id: 'topic_007', name: 'Node.js', posts: 4800, category: '技术' },
+  { id: 'topic_008', name: '产品经理', posts: 4200, category: '职场' },
+  { id: 'topic_009', name: '生活方式', posts: 2600, category: '生活' },
+  { id: 'topic_010', name: '摄影', posts: 4100, category: '生活' },
 ]
 
 const mockNotifications: Notification[] = [
-  { id: 'notif_001', type: 'like', user: { ...mockCurrentUser, id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201' }, content: '赞了你的动态', post: mockPosts[0], isRead: false, createdAt: '2026-08-21T12:00:00Z' },
-  { id: 'notif_002', type: 'comment', user: { ...mockCurrentUser, id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202' }, content: '评论了你的动态：「写得很好！」', post: mockPosts[0], isRead: false, createdAt: '2026-08-21T11:30:00Z' },
-  { id: 'notif_003', type: 'follow', user: { ...mockCurrentUser, id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203' }, content: '关注了你', isRead: true, createdAt: '2026-08-21T10:00:00Z' },
+  { id: 'notif_001', type: 'like', user: mkUser('user_002', '产品经理小王', 1), content: '赞了你的动态', post: mockPosts[0], isRead: false, createdAt: '2026-08-21T12:00:00Z' },
+  { id: 'notif_002', type: 'comment', user: mkUser('user_003', '设计师阿美', 2), content: '评论了你的动态：「写得很好！」', post: mockPosts[0], isRead: false, createdAt: '2026-08-21T11:30:00Z' },
+  { id: 'notif_003', type: 'follow', user: mkUser('user_004', '全栈工程师', 3), content: '关注了你', isRead: true, createdAt: '2026-08-21T10:00:00Z' },
   { id: 'notif_004', type: 'system', content: '欢迎加入社区！记得完善个人资料哦~', isRead: false, createdAt: '2026-08-20T09:00:00Z' },
+  { id: 'notif_005', type: 'mention', user: mkUser('user_006', '咖啡爱好者', 5), content: '在评论中提到了你', post: mockPosts[4], isRead: false, createdAt: '2026-08-21T09:00:00Z' },
 ]
 
 const mockConversations: Conversation[] = [
-  { id: 'conv_001', user: { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', following: 0, followers: 5200 }, lastMessage: '那个需求文档你看了吗？', lastTime: '2026-08-21T18:00:00Z', unread: 2, messages: [
+  { id: 'conv_001', user: mkUser('user_002', '产品经理小王', 1), lastMessage: '那个需求文档你看了吗？', lastTime: '2026-08-21T18:00:00Z', unread: 2, messages: [
     { id: 'm1', conversationId: 'conv_001', senderId: 'user_002', content: '在吗？', createdAt: '2026-08-21T17:50:00Z' },
     { id: 'm2', conversationId: 'conv_001', senderId: 'user_002', content: '那个需求文档你看了吗？', createdAt: '2026-08-21T18:00:00Z' },
   ] },
-  { id: 'conv_002', user: { id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202', following: 0, followers: 8900 }, lastMessage: '[图片]', lastTime: '2026-08-20T20:30:00Z', unread: 0, messages: [] },
+  { id: 'conv_002', user: mkUser('user_003', '设计师阿美', 2), lastMessage: '[图片]', lastTime: '2026-08-20T20:30:00Z', unread: 0, messages: [] },
+]
+
+// ============== 新功能域 Mock ==============
+const mockActivities: Activity[] = [
+  { id: 'act_001', title: '深圳前端技术 Meetup 2026', cover: 'https://picsum.photos/500/300', location: '深圳·南山区科兴科学园', startTime: '2026-09-05T14:00:00Z', participants: 86, maxParticipants: 120, joined: false, host: mkUser('user_005', '技术大V', 4), desc: '前端新技术趋势分享，现场交流，免费参加' },
+  { id: 'act_002', title: 'UI 设计工作坊：从 0 到 1', cover: 'https://picsum.photos/500/301', location: '深圳·福田区设计产业园', startTime: '2026-09-12T09:30:00Z', participants: 32, maxParticipants: 40, joined: true, host: mkUser('user_003', '设计师阿美', 2), desc: '手把手带你完成一个完整的设计项目' },
+  { id: 'act_003', title: '周末摄影外拍活动', cover: 'https://picsum.photos/500/302', location: '深圳·深圳湾公园', startTime: '2026-08-30T16:00:00Z', participants: 18, maxParticipants: 30, joined: false, host: mkUser('user_007', '摄影达人', 6), desc: '一起拍日落，交流摄影技巧' },
+]
+
+const mockRankings: RankingItem[] = [
+  { id: 'rk_001', rank: 1, user: mkUser('user_005', '技术大V', 4), score: 99999, title: '本周互动王', trend: 'up' },
+  { id: 'rk_002', rank: 2, user: mkUser('user_003', '设计师阿美', 2), score: 85600, title: '本周互动王', trend: 'up' },
+  { id: 'rk_003', rank: 3, user: mkUser('user_007', '摄影达人', 6), score: 72300, title: '本周互动王', trend: 'same' },
+  { id: 'rk_004', rank: 4, user: mkUser('user_002', '产品经理小王', 1), score: 65400, title: '本周互动王', trend: 'down' },
+  { id: 'rk_005', rank: 5, user: mockCurrentUser, score: 43200, title: '本周互动王', trend: 'up' },
+]
+
+const mockWalletTxs: WalletTx[] = [
+  { id: 'tx_001', type: 'income', amount: 500, title: '每日签到奖励', createdAt: '2026-08-21T09:00:00Z' },
+  { id: 'tx_002', type: 'expense', amount: 200, title: '积分商城兑换', createdAt: '2026-08-20T15:00:00Z' },
+  { id: 'tx_003', type: 'income', amount: 1200, title: '发布优质内容奖励', createdAt: '2026-08-19T10:00:00Z' },
+]
+
+const mockCoupons: Coupon[] = [
+  { id: 'cp_001', name: '商城满减券', value: 20, threshold: 100, expiredAt: '2026-09-30T00:00:00Z', used: false },
+  { id: 'cp_002', name: 'VIP 体验券', value: 30, threshold: 0, expiredAt: '2026-08-31T00:00:00Z', used: true },
+]
+
+const mockMallProducts: MallProduct[] = [
+  { id: 'mp_001', name: '社区定制帆布袋', image: 'https://picsum.photos/300/300', points: 1500, stock: 20 },
+  { id: 'mp_002', name: '限量版社区徽章', image: 'https://picsum.photos/300/301', points: 800, stock: 50 },
+  { id: 'mp_003', name: '咖啡兑换券', image: 'https://picsum.photos/300/302', points: 3000, stock: 10 },
+  { id: 'mp_004', name: '社区会员月卡', image: 'https://picsum.photos/300/303', points: 5000, stock: 5 },
+]
+
+const mockExchangeRecords: ExchangeRecord[] = [
+  { id: 'ex_001', productName: '社区定制帆布袋', points: 1500, createdAt: '2026-08-20T15:00:00Z', status: 'done' },
+  { id: 'ex_002', productName: '限量版社区徽章', points: 800, createdAt: '2026-08-15T10:00:00Z', status: 'done' },
+]
+
+const mockBadges: Badge[] = [
+  { id: 'bd_001', name: '新手上路', icon: '🌱', desc: '完成注册', unlocked: true },
+  { id: 'bd_002', name: '社交达人', icon: '🤝', desc: '关注 10 位用户', unlocked: true },
+  { id: 'bd_003', name: '内容创作者', icon: '✍️', desc: '发布 5 条动态', unlocked: true },
+  { id: 'bd_004', name: '话题之王', icon: '👑', desc: '话题互动破百', unlocked: true },
+  { id: 'bd_005', name: '连续签到王', icon: '🔥', desc: '连续签到 7 天', unlocked: false },
+  { id: 'bd_006', name: '活动先锋', icon: '🎉', desc: '参加 3 场活动', unlocked: false },
+  { id: 'bd_007', name: '收藏家', icon: '💎', desc: '收藏 10 条动态', unlocked: false },
+  { id: 'bd_008', name: '社区之光', icon: '🌟', desc: '获得 1000 赞', unlocked: false },
+]
+
+const mockCheckin: CheckinInfo = {
+  streak: 5,
+  todayChecked: true,
+  totalDays: 28,
+  rewards: [
+    { day: 1, points: 10 }, { day: 2, points: 10 }, { day: 3, points: 15 },
+    { day: 4, points: 15 }, { day: 5, points: 20 }, { day: 6, points: 20 }, { day: 7, points: 50 },
+  ],
+}
+
+const mockLotteryPrizes: LotteryPrize[] = [
+  { id: 'lp_001', name: '1000 积分', icon: '💰', rate: 5 },
+  { id: 'lp_002', name: '500 积分', icon: '🎁', rate: 15 },
+  { id: 'lp_003', name: '100 积分', icon: '🎀', rate: 30 },
+  { id: 'lp_004', name: '谢谢参与', icon: '🍀', rate: 50 },
+]
+
+const mockDrafts: Draft[] = [
+  { id: 'dr_001', content: '今天要发一篇关于 Taro 跨端开发的文章...', images: ['https://picsum.photos/200/200'], updatedAt: '2026-08-21T22:00:00Z' },
+  { id: 'dr_002', content: '周末爬山的照片，晚点配文', images: ['https://picsum.photos/200/201'], updatedAt: '2026-08-20T18:30:00Z' },
+]
+
+const mockVisitors: Visitor[] = [
+  { id: 'vs_001', user: mkUser('user_002', '产品经理小王', 1), visitedAt: '2026-08-21T20:00:00Z' },
+  { id: 'vs_002', user: mkUser('user_006', '咖啡爱好者', 5), visitedAt: '2026-08-21T19:30:00Z' },
+  { id: 'vs_003', user: mkUser('user_007', '摄影达人', 6), visitedAt: '2026-08-20T22:00:00Z' },
+]
+
+const mockPrefs: NotificationPrefs = { like: true, comment: true, follow: true, system: true, chat: true }
+
+const mockSettings: UserSettings = {
+  fontSize: 'medium', saveDataMode: false, soundOn: true, vibrateOn: true, language: 'zh-CN', hideOnline: false,
+}
+
+const mockFAQs: FAQItem[] = [
+  { q: '如何修改头像和昵称？', a: '进入「我的」→「编辑个人资料」，即可修改头像、昵称、性别和简介。' },
+  { q: '积分如何获得？', a: '每日签到、发布优质内容、参与活动、获得点赞等都可以获得积分。' },
+  { q: '如何参加同城活动？', a: '进入「发现」→「同城活动」，选择感兴趣的活动点击报名即可。' },
+  { q: '私信功能如何使用？', a: '在他人主页点击「私信」按钮，或通过「消息」页的私信 Tab 进入聊天。' },
 ]
 
 // ============== Store ==============
@@ -82,9 +192,11 @@ interface AppState {
   feedTab: FeedTab
   hasMorePosts: boolean
   postsPage: number
+  searchType: SearchType
 
   bookmarks: Post[]
   likedPosts: string[]
+  myPosts: Post[]
 
   topics: Topic[]
   notifications: Notification[]
@@ -93,6 +205,28 @@ interface AppState {
 
   followingList: User[]
   followersList: User[]
+  visitors: Visitor[]
+
+  activities: Activity[]
+  rankings: RankingItem[]
+  rankingType: 'hot' | 'new' | 'vip'
+
+  walletBalance: number
+  walletTxs: WalletTx[]
+  coupons: Coupon[]
+  pointsBalance: number
+
+  mallProducts: MallProduct[]
+  exchangeRecords: ExchangeRecord[]
+
+  badges: Badge[]
+  checkin: CheckinInfo
+  lotteryPrizes: LotteryPrize[]
+  draftPosts: Draft[]
+
+  prefs: NotificationPrefs
+  settings: UserSettings
+  faqs: FAQItem[]
 
   isLoading: boolean
   isRefreshing: boolean
@@ -104,6 +238,7 @@ interface AppState {
   setTheme: (m: ThemeMode) => void
 
   setFeedTab: (t: FeedTab) => void
+  setSearchType: (t: SearchType) => void
   addPost: (p: Post) => void
   updatePost: (id: string, u: Partial<Post>) => void
   removePost: (id: string) => void
@@ -132,6 +267,24 @@ interface AppState {
   setFollowersList: (u: User[]) => void
   toggleFollowUser: (userId: string) => void
 
+  joinActivity: (id: string) => void
+  setRankingType: (t: 'hot' | 'new' | 'vip') => void
+
+  spendPoints: (n: number) => void
+  earnPoints: (n: number) => void
+  recharge: (amount: number) => void
+  withdraw: (amount: number) => void
+  exchangeProduct: (id: string) => void
+  checkinToday: () => void
+  drawLottery: () => number
+  useCoupon: (id: string) => void
+
+  addDraft: (d: Draft) => void
+  removeDraft: (id: string) => void
+
+  setPrefs: (p: Partial<NotificationPrefs>) => void
+  setSettings: (s: Partial<UserSettings>) => void
+
   setLoading: (b: boolean) => void
   setRefreshing: (b: boolean) => void
 }
@@ -147,17 +300,41 @@ export const useAppStore = create<AppState>((set, get) => ({
   feedTab: 'recommend',
   hasMorePosts: true,
   postsPage: 1,
+  searchType: 'all',
 
   bookmarks: [],
   likedPosts: [],
+  myPosts: [mockPosts[0]],
 
   topics: mockTopics,
   notifications: mockNotifications,
-  unreadCount: 3,
+  unreadCount: 4,
   conversations: mockConversations,
 
-  followingList: [mockCurrentUser, { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', following: 0, followers: 5200 }],
-  followersList: [{ id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203', following: 0, followers: 3200 }, { id: 'user_005', nickname: '技术大V', avatar: 'https://picsum.photos/204', following: 0, followers: 50000, isVip: true }],
+  followingList: [mockCurrentUser, mkUser('user_002', '产品经理小王', 1), mkUser('user_003', '设计师阿美', 2)],
+  followersList: [mkUser('user_004', '全栈工程师', 3), mkUser('user_005', '技术大V', 4, { isVip: true }), mkUser('user_007', '摄影达人', 6)],
+  visitors: mockVisitors,
+
+  activities: mockActivities,
+  rankings: mockRankings,
+  rankingType: 'hot',
+
+  walletBalance: 680,
+  walletTxs: mockWalletTxs,
+  coupons: mockCoupons,
+  pointsBalance: 3600,
+
+  mallProducts: mockMallProducts,
+  exchangeRecords: mockExchangeRecords,
+
+  badges: mockBadges,
+  checkin: mockCheckin,
+  lotteryPrizes: mockLotteryPrizes,
+  draftPosts: mockDrafts,
+
+  prefs: mockPrefs,
+  settings: mockSettings,
+  faqs: mockFAQs,
 
   isLoading: false,
   isRefreshing: false,
@@ -168,9 +345,10 @@ export const useAppStore = create<AppState>((set, get) => ({
   setTheme: (m) => set({ themeMode: m }),
 
   setFeedTab: (t) => set({ feedTab: t }),
-  addPost: (p) => set((s) => ({ posts: [p, ...s.posts] })),
+  setSearchType: (t) => set({ searchType: t }),
+  addPost: (p) => set((s) => ({ posts: [p, ...s.posts], myPosts: [p, ...s.myPosts] })),
   updatePost: (id, u) => set((s) => ({ posts: s.posts.map((p) => (p.id === id ? { ...p, ...u } : p)) })),
-  removePost: (id) => set((s) => ({ posts: s.posts.filter((p) => p.id !== id) })),
+  removePost: (id) => set((s) => ({ posts: s.posts.filter((p) => p.id !== id), myPosts: s.myPosts.filter((p) => p.id !== id) })),
   setPosts: (p) => set({ posts: p }),
   appendPosts: (p) => set((s) => ({ posts: [...s.posts, ...p] })),
   setHasMorePosts: (b) => set({ hasMorePosts: b }),
@@ -216,14 +394,60 @@ export const useAppStore = create<AppState>((set, get) => ({
   setFollowingList: (u) => set({ followingList: u }),
   setFollowersList: (u) => set({ followersList: u }),
   toggleFollowUser: (userId) => set((s) => {
-    const cu = s.currentUser
-    if (!cu) return {}
-    const isFollowing = cu.following > 0
-    // 切换设计：在 followingList 中增删
     const exists = s.followingList.find((u) => u.id === userId)
-    const followingList = exists ? s.followingList.filter((u) => u.id !== userId) : [...s.followingList, { id: userId, nickname: '用户' + userId.slice(-3), avatar: `https://picsum.photos/${200 + Math.floor(Math.random() * 50)}`, following: 0, followers: 100 }]
+    const followingList = exists
+      ? s.followingList.filter((u) => u.id !== userId)
+      : [...s.followingList, mkUser(userId, '用户' + userId.slice(-3), 50 + (userId.charCodeAt(userId.length - 1) % 40))]
     return { followingList }
   }),
+
+  joinActivity: (id) => set((s) => ({
+    activities: s.activities.map((a) => a.id === id
+      ? { ...a, joined: !a.joined, participants: a.participants + (a.joined ? -1 : 1) }
+      : a),
+  })),
+  setRankingType: (t) => set({ rankingType: t }),
+
+  spendPoints: (n) => set((s) => ({ pointsBalance: Math.max(0, s.pointsBalance - n) })),
+  earnPoints: (n) => set((s) => ({ pointsBalance: s.pointsBalance + n })),
+  exchangeProduct: (id) => set((s) => {
+    const product = s.mallProducts.find((p) => p.id === id)
+    if (!product || product.exchanged) return {}
+    return {
+      mallProducts: s.mallProducts.map((p) => (p.id === id ? { ...p, exchanged: true, stock: p.stock - 1 } : p)),
+      pointsBalance: Math.max(0, s.pointsBalance - product.points),
+      exchangeRecords: [{ id: `ex_${Date.now()}`, productName: product.name, points: product.points, createdAt: new Date().toISOString(), status: 'pending' as const }, ...s.exchangeRecords],
+    }
+  }),
+  checkinToday: () => set((s) => ({
+    checkin: { ...s.checkin, todayChecked: true, streak: s.checkin.streak + 1, totalDays: s.checkin.totalDays + 1 },
+    pointsBalance: s.pointsBalance + 10,
+  })),
+  drawLottery: () => {
+    const prizes = get().lotteryPrizes
+    let rand = Math.random() * 100
+    let acc = 0
+    let idx = prizes.length - 1
+    for (let i = 0; i < prizes.length; i++) {
+      acc += prizes[i].rate
+      if (rand < acc) { idx = i; break }
+    }
+    const prize = prizes[idx]
+    const points = prize.id === 'lp_001' ? 1000 : prize.id === 'lp_002' ? 500 : prize.id === 'lp_003' ? 100 : 0
+    if (points > 0) {
+      set((s) => ({ pointsBalance: s.pointsBalance + points, walletTxs: [{ id: `tx_${Date.now()}`, type: 'income', amount: points, title: `抽奖获得 ${prize.name}`, createdAt: new Date().toISOString() }, ...s.walletTxs] }))
+    }
+    return idx
+  },
+  useCoupon: (id) => set((s) => ({ coupons: s.coupons.map((c) => (c.id === id ? { ...c, used: true } : c)) })),
+  recharge: (amount) => set((s) => ({ walletBalance: s.walletBalance + amount, walletTxs: [{ id: `tx_${Date.now()}`, type: 'income', amount, title: '账户充值', createdAt: new Date().toISOString() }, ...s.walletTxs] })),
+  withdraw: (amount) => set((s) => ({ walletBalance: s.walletBalance - amount, walletTxs: [{ id: `tx_${Date.now()}`, type: 'expense', amount, title: '余额提现', createdAt: new Date().toISOString() }, ...s.walletTxs] })),
+
+  addDraft: (d) => set((s) => ({ draftPosts: [d, ...s.draftPosts] })),
+  removeDraft: (id) => set((s) => ({ draftPosts: s.draftPosts.filter((d) => d.id !== id) })),
+
+  setPrefs: (p) => set((s) => ({ prefs: { ...s.prefs, ...p } })),
+  setSettings: (s2) => set((s) => ({ settings: { ...s.settings, ...s2 } })),
 
   setLoading: (b) => set({ isLoading: b }),
   setRefreshing: (b) => set({ isRefreshing: b }),

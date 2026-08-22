@@ -1,0 +1,33 @@
+.nearby-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.nearby-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.nearby-page__banner {
+  background: var(--color-gradient);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-primary);
+}
+.nearby-page__banner-title {
+  color: #FFFFFF;
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  display: block;
+}
+.nearby-page__banner-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-xs);
+  display: block;
+  margin-top: 2px;
+}
+.nearby-page__item {
+  margin-bottom: var(--spacing-md);
+}

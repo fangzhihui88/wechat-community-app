@@ -1,0 +1,131 @@
+.withdraw-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.withdraw-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.withdraw-page__balance {
+  background: var(--color-gradient);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.withdraw-page__balance-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-xs);
+}
+.withdraw-page__balance-value {
+  color: #FFFFFF;
+  font-size: 72px;
+  font-weight: 800;
+  margin-top: var(--spacing-xs);
+}
+.withdraw-page__balance-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-xs);
+  margin-top: 4px;
+}
+.withdraw-page__card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+.withdraw-page__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  display: block;
+}
+.withdraw-page__input-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-xs);
+}
+.withdraw-page__prefix {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-right: 8px;
+}
+.withdraw-page__input {
+  flex: 1;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+.withdraw-page__all {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
+.withdraw-page__tips {
+  margin-top: var(--spacing-xs);
+}
+.withdraw-page__tip {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+.withdraw-page__way {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+.withdraw-page__way-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  display: block;
+  padding: var(--spacing-xs) 0;
+}
+.withdraw-page__way-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid var(--color-border-light);
+}
+.withdraw-page__way-icon {
+  font-size: 36px;
+  margin-right: var(--spacing-sm);
+}
+.withdraw-page__way-name {
+  flex: 1;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+.withdraw-page__way-check {
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+.withdraw-page__submit {
+  background: var(--color-gradient);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--shadow-primary);
+}
+.withdraw-page__submit-text {
+  color: #FFFFFF;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+.withdraw-page__hint {
+  margin-top: var(--spacing-md);
+  text-align: center;
+}
+.withdraw-page__hint-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}

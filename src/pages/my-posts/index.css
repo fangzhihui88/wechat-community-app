@@ -1,0 +1,30 @@
+.myposts-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.myposts-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.myposts-page__item {
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+.myposts-page__item-actions {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+}
+.myposts-page__item-btn {
+  background-color: var(--color-bg-mask);
+  border-radius: var(--radius-full);
+  padding: 4px 16px;
+}
+.myposts-page__item-btn-text {
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+}

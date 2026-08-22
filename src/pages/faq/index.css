@@ -1,0 +1,91 @@
+.faq-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.faq-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.faq-page__header {
+  background: var(--color-gradient);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-primary);
+  margin-bottom: var(--spacing-md);
+}
+.faq-page__header-icon {
+  font-size: 64px;
+}
+.faq-page__header-title {
+  color: #FFFFFF;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-top: var(--spacing-xs);
+}
+.faq-page__header-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-xs);
+  margin-top: 4px;
+}
+.faq-page__list {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+.faq-page__item {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.faq-page__item:last-child {
+  border-bottom: none;
+}
+.faq-page__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faq-page__q-text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  flex: 1;
+}
+.faq-page__arrow {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-md);
+  transition: transform 0.3s;
+}
+.faq-page__arrow--open {
+  transform: rotate(180deg);
+}
+.faq-page__answer {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  display: block;
+  margin-top: var(--spacing-xs);
+  background-color: var(--color-bg-hover);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+}
+.faq-page__contact {
+  margin-top: var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.faq-page__contact-text {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}

@@ -1,0 +1,29 @@
+.hotposts-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.hotposts-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.hotposts-page__item {
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+.hotposts-page__rank {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 10;
+  background: var(--color-gradient);
+  border-radius: var(--radius-full);
+  padding: 4px 16px;
+}
+.hotposts-page__rank-text {
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}

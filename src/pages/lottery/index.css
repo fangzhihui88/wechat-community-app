@@ -1,0 +1,144 @@
+.lottery-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.lottery-page__body {
+  flex: 1;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lottery-page__balance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+.lottery-page__balance-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.lottery-page__balance-num {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.lottery-page__wheel {
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: conic-gradient(#FF4757, #FF6B81, #7C4DFF, #FF4757);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+  box-shadow: var(--shadow-lg);
+}
+.lottery-page__wheel--spinning {
+  animation: lottery-spin 1.2s ease;
+}
+@keyframes lottery-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1080deg); }
+}
+.lottery-page__wheel-inner {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background-color: var(--color-bg-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.lottery-page__wheel-emoji {
+  font-size: 120px;
+}
+.lottery-page__wheel-text {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: var(--spacing-xs);
+}
+.lottery-page__prizes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+.lottery-page__prize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s;
+}
+.lottery-page__prize--hit {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-primary);
+}
+.lottery-page__prize-icon {
+  font-size: 48px;
+}
+.lottery-page__prize-name {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+.lottery-page__rules {
+  width: 100%;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+.lottery-page__rules-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+.lottery-page__rules-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  display: block;
+  line-height: 1.8;
+}
+.lottery-page__footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-bg-card);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-top: 1px solid var(--color-border-light);
+}
+.lottery-page__btn {
+  background: var(--color-gradient);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lottery-page__btn--disabled {
+  opacity: 0.6;
+}
+.lottery-page__btn-text {
+  color: #FFFFFF;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}

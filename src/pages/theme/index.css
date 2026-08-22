@@ -1,0 +1,93 @@
+.theme-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.theme-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.theme-page__preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+}
+.theme-page__preview-card {
+  width: 400px;
+  height: 300px;
+  border-radius: var(--radius-xl);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.theme-page__preview-card--dark {
+  background-color: #1C1C28;
+}
+.theme-page__preview-title {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  color: #1A1A2E;
+}
+.theme-page__preview-card--dark .theme-page__preview-title {
+  color: #ECECF5;
+}
+.theme-page__preview-text {
+  font-size: var(--font-size-sm);
+  color: #9A9AB0;
+  margin-top: 4px;
+}
+.theme-page__preview-btn {
+  width: 160px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-gradient);
+  margin-top: var(--spacing-md);
+}
+.theme-page__list {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+.theme-page__item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.theme-page__item:last-child {
+  border-bottom: none;
+}
+.theme-page__item--active {
+  background-color: var(--color-primary-bg);
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: var(--radius-md);
+  border-bottom: none;
+}
+.theme-page__item-icon {
+  font-size: 36px;
+  margin-right: var(--spacing-sm);
+}
+.theme-page__item-label {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  flex: 1;
+}
+.theme-page__item-check {
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+.theme-page__item-arrow {
+  font-size: 40px;
+  color: var(--color-border);
+}

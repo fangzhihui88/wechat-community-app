@@ -1,0 +1,14 @@
+.followfeed-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.followfeed-page__body {
+  flex: 1;
+  height: calc(100vh - 88px);
+  padding: var(--spacing-md);
+}
+.followfeed-page__item {
+  margin-bottom: var(--spacing-md);
+}

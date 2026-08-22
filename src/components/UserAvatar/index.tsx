@@ -32,7 +32,7 @@ const UserAvatar = memo<UserAvatarProps>(({
       onClick()
     } else {
       Taro.navigateTo({
-        url: `/pages/profile-detail/index?userId=${user.id}`,
+        url: `/pages/user-detail/index?userId=${user.id}`,
       })
     }
   }
