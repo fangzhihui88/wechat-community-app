@@ -90,7 +90,6 @@ export default defineAppConfig({
   'pages/create-code/index',
   'pages/friend-requests/index',
   'pages/friend-list/index',
-  'pages/add-friend/index',                // 功能中心（预览总览）
     // ===== 300 项功能扩展页面 =====
     'pages/health/index',              // 健康打卡
     'pages/study/index',               // 学习中心
