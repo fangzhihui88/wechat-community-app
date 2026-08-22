@@ -283,3 +283,110 @@ page {
   padding: var(--spacing-xl) var(--spacing-md);
   color: #FFFFFF;
 }
+
+/* ============================================================
+   Platform Standard Layer — 微信 / 支付宝 小程序设计规范
+   尺寸采用 750rpx 设计稿基准（px 在 weapp/alipay 构建自动转 rpx）
+   参考：微信小程序设计指南 / 支付宝小程序 Ant Design Mini
+   ============================================================ */
+:root {
+  /* 平台标准主色（可选主题，默认沿用品牌红） */
+  --color-wx: #07C160;          /* 微信绿 */
+  --color-wx-light: #10C65F;
+  --color-wx-bg: #E8F8EF;
+  --color-ali: #1677FF;         /* 支付宝蓝 */
+  --color-ali-light: #3C8BFF;
+  --color-ali-bg: #E8F1FF;
+
+  /* 平台标准尺寸 */
+  --nav-height: 88px;           /* 导航栏内容高 44pt */
+  --nav-total: calc(88px + env(safe-area-inset-top));
+  --tabbar-height: 100px;       /* 底部 tab 高 50pt */
+  --tabbar-total: calc(100px + env(safe-area-inset-bottom));
+  --cell-height: 104px;         /* 标准列表行高 52pt */
+  --radius-cell: 16px;
+
+  /* 标准文字层级（pt 制，rpx 基准） */
+  --font-caption: 22px;
+  --font-helper: 24px;
+  --font-body: 28px;
+  --font-title: 30px;
+  --font-subhead: 32px;
+  --font-headline: 34px;
+  --font-display: 40px;
+  --font-hero: 56px;
+
+  /* 标准间距阶梯（8pt 栅格） */
+  --gap-1: 8px;
+  --gap-2: 16px;
+  --gap-3: 24px;
+  --gap-4: 32px;
+  --gap-5: 40px;
+  --gap-6: 48px;
+
+  /* 标准阴影/分割 */
+  --hairline: 1px solid var(--color-border);
+  --hairline-light: 1px solid var(--color-border-light);
+  --elevate-1: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04);
+  --elevate-2: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ---- 平台标准列表（分组 cell） ---- */
+.mp-group { margin: var(--gap-2) var(--gap-3); background: var(--color-bg-card); border-radius: var(--radius-cell); overflow: hidden; box-shadow: var(--elevate-1); }
+.mp-group__title { padding: var(--gap-2) var(--gap-3) var(--gap-1); font-size: var(--font-helper); color: var(--color-text-tertiary); }
+.mp-cell { display: flex; align-items: center; min-height: var(--cell-height); padding: 0 var(--gap-3); position: relative; }
+.mp-cell:not(:last-child)::after { content: ''; position: absolute; left: var(--gap-3); right: 0; bottom: 0; border-bottom: var(--hairline-light); }
+.mp-cell__icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-right: var(--gap-2); background: var(--color-primary-bg); flex-shrink: 0; }
+.mp-cell__label { flex: 1; font-size: var(--font-body); color: var(--color-text-primary); }
+.mp-cell__value { font-size: var(--font-body); color: var(--color-text-tertiary); margin-right: var(--gap-1); }
+.mp-cell__arrow { width: 32px; height: 32px; display: flex; align-items: center; justify-content: flex-end; color: var(--color-text-tertiary); font-size: 32px; }
+.mp-cell__arrow::after { content: '›'; }
+
+/* ---- 平台标准开关 ---- */
+.mp-switch { width: 88px; height: 48px; border-radius: 9999px; background: #E5E5EA; position: relative; transition: background .2s; flex-shrink: 0; }
+.mp-switch--on { background: var(--color-primary); }
+.mp-switch__knob { position: absolute; top: 4px; left: 4px; width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); transition: left .2s; }
+.mp-switch--on .mp-switch__knob { left: 44px; }
+
+/* ---- 平台标准徽标 / 标签 ---- */
+.mp-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; padding: 0 10px; border-radius: 9999px; background: var(--color-primary); color: #fff; font-size: 20px; line-height: 1; }
+.mp-badge--dot { min-width: 16px; height: 16px; padding: 0; }
+.mp-tag { display: inline-flex; align-items: center; padding: 4px 16px; border-radius: 9999px; font-size: var(--font-helper); background: var(--color-primary-bg); color: var(--color-primary); }
+.mp-tag--wx { background: var(--color-wx-bg); color: var(--color-wx); }
+.mp-tag--ali { background: var(--color-ali-bg); color: var(--color-ali); }
+.mp-tag--outline { background: transparent; border: 1px solid var(--color-border); color: var(--color-text-secondary); }
+
+/* ---- 平台标准按钮 ---- */
+.mp-btn { height: 88px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: var(--font-subhead); font-weight: 600; border: none; }
+.mp-btn--primary { background: var(--color-primary); color: #fff; box-shadow: var(--shadow-primary); }
+.mp-btn--wx { background: var(--color-wx); color: #fff; }
+.mp-btn--ali { background: var(--color-ali); color: #fff; }
+.mp-btn--ghost { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); }
+.mp-btn--plain { background: var(--color-bg-card); color: var(--color-text-primary); border: var(--hairline); }
+.mp-btn--block { width: 100%; }
+.mp-btn--sm { height: 64px; font-size: var(--font-body); padding: 0 var(--gap-3); border-radius: 9999px; display: inline-flex; }
+
+/* ---- 平台标准区块标题 ---- */
+.mp-section { padding: var(--gap-3) var(--gap-3) var(--gap-1); display: flex; align-items: center; justify-content: space-between; }
+.mp-section__title { font-size: var(--font-subhead); font-weight: 700; color: var(--color-text-primary); }
+.mp-section__more { font-size: var(--font-helper); color: var(--color-primary); }
+
+/* ---- 平台标准九宫格 ---- */
+.mp-grid { display: flex; flex-wrap: wrap; background: var(--color-bg-card); border-radius: var(--radius-cell); margin: var(--gap-2) var(--gap-3); padding: var(--gap-2) 0; box-shadow: var(--elevate-1); }
+.mp-grid__item { width: 25%; display: flex; flex-direction: column; align-items: center; padding: var(--gap-2) 0; }
+.mp-grid__icon { width: 84px; height: 84px; border-radius: 22px; background: var(--color-primary-bg); display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: var(--gap-1); }
+.mp-grid__label { font-size: var(--font-helper); color: var(--color-text-secondary); }
+
+/* ---- 平台标准悬浮按钮 ---- */
+.mp-fab { position: fixed; right: var(--gap-4); bottom: calc(var(--tabbar-total) + var(--gap-4)); width: 104px; height: 104px; border-radius: 50%; background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 56px; box-shadow: var(--shadow-primary); z-index: 200; }
+
+/* ---- 平台标准空态（与 EmptyState 互补） ---- */
+.mp-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--gap-6) var(--gap-4); }
+.mp-empty__icon { font-size: 96px; margin-bottom: var(--gap-2); }
+.mp-empty__title { font-size: var(--font-body); color: var(--color-text-secondary); }
+.mp-empty__desc { font-size: var(--font-helper); color: var(--color-text-tertiary); margin-top: var(--gap-1); }
+
+/* ---- 平台标准页面壳（含导航占位） ---- */
+.mp-page { min-height: 100vh; background: var(--color-bg-page); padding-top: var(--nav-total); }
+.mp-page__body { padding-bottom: var(--tabbar-total); }
+.mp-scroll { height: calc(100vh - var(--nav-total)); }

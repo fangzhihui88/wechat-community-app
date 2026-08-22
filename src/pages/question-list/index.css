@@ -1,0 +1,15 @@
+/* question-list page */
+.question-title {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.meta-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-left: 4px;
+}

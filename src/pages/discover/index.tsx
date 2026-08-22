@@ -20,6 +20,7 @@ const featureEntries = [
   { icon: '📅', label: '签到', url: '/pages/checkin/index' },
   { icon: '🎡', label: '抽奖', url: '/pages/lottery/index' },
   { icon: '💳', label: '钱包', url: '/pages/wallet/index' },
+  { icon: '🚀', label: '全部', url: '/pages/hub/index' },
 ]
 
 const Discover = memo(() => {

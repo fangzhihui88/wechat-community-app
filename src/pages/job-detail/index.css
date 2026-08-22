@@ -1,0 +1,120 @@
+.jd-scroll {
+  height: calc(100vh - 88px - env(safe-area-inset-top) - 120px);
+}
+
+.jd-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: #fff;
+}
+
+.jd-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.jd-header__info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.jd-title {
+  display: block;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.jd-company {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.jd-salary {
+  display: block;
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.jd-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0 var(--spacing-md);
+}
+
+.jd-section {
+  padding: var(--spacing-md);
+  background: #fff;
+}
+
+.jd-section__title {
+  display: block;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.jd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jd-tag {
+  background: var(--color-primary-bg);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.jd-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.jd-list-dot {
+  color: var(--color-primary);
+  font-weight: bold;
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+
+.jd-list-text {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.jd-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-md);
+  padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+}
+
+.jd-apply-btn {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 14px 0;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}

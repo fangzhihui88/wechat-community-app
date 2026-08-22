@@ -1,0 +1,38 @@
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.collection-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.collection-card__cover {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+}
+
+.collection-card__info {
+  padding: var(--spacing-sm);
+}
+
+.collection-card__title {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collection-card__count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+  display: block;
+}

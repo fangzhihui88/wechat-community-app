@@ -1,0 +1,76 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__scroll {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+}
+
+.page__body {
+  padding: var(--spacing-md);
+}
+
+.create-input {
+  flex: 1;
+  text-align: right;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+
+.create-textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+  border-radius: var(--radius-md);
+  margin: 0 var(--gap-3) var(--gap-2);
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--gap-2) var(--gap-3);
+}
+
+.form-label__count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.form-hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  padding: 0 var(--gap-3) var(--gap-2);
+}
+
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 var(--gap-3) var(--gap-2);
+}
+
+.mp-tag {
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: var(--font-size-sm);
+  background: var(--color-bg-hover);
+  color: var(--color-text-secondary);
+  border: 1px solid transparent;
+}
+
+.mp-tag--active {
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.mp-tag__text {
+  font-size: var(--font-size-sm);
+}

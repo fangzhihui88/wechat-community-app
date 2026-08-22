@@ -1,0 +1,97 @@
+.industry-scroll {
+  width: 100%;
+}
+
+.industry-chips {
+  display: flex;
+  gap: 20px;
+  padding: var(--spacing-md) 0;
+  white-space: nowrap;
+}
+
+.chip {
+  display: inline-block;
+  padding: 6px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.chip--active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.job-list {
+  margin-top: var(--spacing-sm);
+}
+
+.job-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+}
+
+.job-card__logo {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.job-card__body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.job-card__title {
+  display: block;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.job-card__company {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.job-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.job-card__salary {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+}
+
+.job-card__info {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+  background: var(--color-primary-bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.job-card__arrow {
+  color: var(--color-text-tertiary);
+  font-size: 24px;
+  flex-shrink: 0;
+}

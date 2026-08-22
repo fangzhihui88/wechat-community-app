@@ -1,0 +1,93 @@
+/* task-center page */
+.reward-summary {
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-primary), #ff6b81);
+  border-radius: var(--radius-lg);
+}
+.reward-label {
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.8);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+.reward-value {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+.reward-row {
+  display: flex;
+  justify-content: center;
+}
+.reward-hint {
+  font-size: var(--font-size-xs);
+  color: rgba(255,255,255,0.7);
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+.task-icon {
+  font-size: 24px;
+  width: 40px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.task-info {
+  flex: 1;
+  margin-left: var(--spacing-sm);
+}
+.task-name {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+.task-progress {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+.task-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.task-reward {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.task-btn {
+  padding: 4px 12px;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-xs);
+}
+.task-btn--active {
+  background: var(--color-primary);
+  color: #fff;
+}
+.task-btn--done {
+  background: var(--color-bg-page);
+  color: var(--color-text-tertiary);
+}
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+  background: var(--color-bg-card);
+  border-top: 1px solid var(--color-border);
+}

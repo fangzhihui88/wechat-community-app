@@ -56,6 +56,33 @@ export default defineAppConfig({
     'pages/community-rules/index',   // 社区公约
     'pages/user-agreement/index',    // 用户协议
     'pages/privacy-policy/index',    // 隐私政策
+    // ===== 200 项功能扩展页面 =====
+    'pages/group-list/index',         // 群组广场
+    'pages/group-detail/index',       // 群资料
+    'pages/create-group/index',       // 创建群
+    'pages/nearby-people/index',      // 附近的人
+    'pages/city/index',               // 同城
+    'pages/short-video/index',        // 短视频
+    'pages/live-list/index',          // 直播列表
+    'pages/live-room/index',          // 直播间
+    'pages/news-list/index',          // 资讯列表
+    'pages/news-detail/index',        // 资讯详情
+    'pages/trade-list/index',         // 二手市场
+    'pages/trade-detail/index',       // 商品详情
+    'pages/jobs-list/index',          // 招聘列表
+    'pages/job-detail/index',         // 职位详情
+    'pages/tools-center/index',       // 工具箱
+    'pages/question-list/index',      // 问答列表
+    'pages/question-detail/index',    // 问答详情
+    'pages/game-center/index',        // 小游戏
+    'pages/game-detail/index',        // 游戏详情
+    'pages/task-center/index',        // 任务中心
+    'pages/level/index',              // 我的等级
+    'pages/data-report/index',        // 数据中心
+    'pages/course/index',             // 成长课堂
+    'pages/collection/index',         // 内容合集
+    'pages/feedback-list/index',      // 我的反馈
+    'pages/hub/index',                // 功能中心（预览总览）
   ],
   window: {
     backgroundTextStyle: 'light',

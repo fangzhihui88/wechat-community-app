@@ -1,0 +1,86 @@
+/* game-detail page */
+.game-info {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+.game-icon-large {
+  width: 80px;
+  height: 80px;
+  background: var(--color-bg-page);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  flex-shrink: 0;
+  margin-right: var(--spacing-md);
+}
+.game-info-text {
+  flex: 1;
+}
+.game-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+.game-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  display: block;
+}
+.screenshot-row {
+  display: flex;
+  gap: var(--spacing-md);
+}
+.screenshot-item {
+  flex: 1;
+}
+.screenshot-placeholder {
+  background: var(--color-bg-page);
+  border-radius: var(--radius-md);
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.rank-item:last-child {
+  border-bottom: none;
+}
+.rank-icon {
+  width: 36px;
+  font-size: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.rank-nickname {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  margin-left: var(--spacing-xs);
+}
+.rank-score {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+  background: var(--color-bg-card);
+  border-top: 1px solid var(--color-border);
+}

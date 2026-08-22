@@ -1,0 +1,118 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__scroll {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+}
+
+.page__body {
+  padding: var(--spacing-md);
+}
+
+.location-banner {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FF4757 0%, #FF6B81 100%);
+  margin: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  color: #fff;
+}
+
+.location-banner__icon {
+  font-size: 48px;
+  margin-right: var(--spacing-sm);
+}
+
+.location-banner__content {
+  flex: 1;
+}
+
+.location-banner__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  display: block;
+}
+
+.location-banner__desc {
+  font-size: var(--font-size-xs);
+  opacity: 0.9;
+  display: block;
+  margin-top: 4px;
+}
+
+.location-banner__btn-text {
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+}
+
+.nearby-list {
+  margin-top: var(--spacing-sm);
+}
+
+.nearby-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.nearby-card__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+
+.nearby-card__distance {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+  padding: 2px 10px;
+  border-radius: 9999px;
+}
+
+.nearby-card__content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs);
+}
+
+.nearby-card__avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--color-bg-hover);
+  flex-shrink: 0;
+}
+
+.nearby-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nearby-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.nearby-card__signature {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  display: block;
+}
+
+.nearby-card__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--spacing-xs);
+}

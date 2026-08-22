@@ -1,0 +1,73 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__body {
+  padding: var(--spacing-md);
+}
+
+.live-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.live-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.live-card__cover-wrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+}
+
+.live-card__cover {
+  width: 100%;
+  height: 100%;
+}
+
+.live-card__badge {
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 20px;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.live-card__info {
+  padding: var(--spacing-sm);
+}
+
+.live-card__title {
+  display: block;
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.live-card__streamer {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.live-card__viewers {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}

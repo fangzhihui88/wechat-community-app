@@ -1,0 +1,125 @@
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+
+.stat-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-card__value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.stat-card__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.stat-card__trend {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+
+.trend-chart {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.trend-chart__area {
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.trend-chart__fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, var(--color-primary-bg) 0%, transparent 100%);
+  opacity: 0.6;
+}
+
+.trend-chart__grid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.trend-chart__grid-line {
+  height: 1px;
+  background: var(--color-border);
+}
+
+.trend-chart__labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.data-list {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: var(--spacing-sm);
+}
+
+.data-row {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.data-row:last-child {
+  border-bottom: none;
+}
+
+.data-row__date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.data-row__values {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.data-row__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.data-row__num {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.data-row__key {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+}
