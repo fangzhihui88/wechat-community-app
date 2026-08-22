@@ -115,6 +115,12 @@ npm run preview:h5
 npm run gen:icons
 ```
 
+## 媒体资源
+
+- **图片**：全部使用 [Unsplash](https://images.unsplash.com/) 真实高清图片
+- **视频**：7 个短视频 / 直播示例视频（MP4 H.264），托管于 GitHub raw CDN，支持进度条拖动
+- **音频**：无外部依赖
+
 ## 预览方式
 
 ### 方式一：浏览器预览（H5）
