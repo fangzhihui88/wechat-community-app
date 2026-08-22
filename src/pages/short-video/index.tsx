@@ -20,7 +20,7 @@ const mockVideos: VideoItem[] = [
     author: '运营小王子',
     likes: 12453,
     cover: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&h=700&fit=crop&q=80',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    src: 'https://raw.githubusercontent.com/fangzhihui88/wechat-community-app/main/public/videos/ai-marketing.mp4',
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const mockVideos: VideoItem[] = [
     author: '户外探险家',
     likes: 8921,
     cover: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&h=700&fit=crop&q=80',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    src: 'https://raw.githubusercontent.com/fangzhihui88/wechat-community-app/main/public/videos/camping.mp4',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const mockVideos: VideoItem[] = [
     author: '咖啡师小李',
     likes: 6732,
     cover: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=700&fit=crop&q=80',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    src: 'https://raw.githubusercontent.com/fangzhihui88/wechat-community-app/main/public/videos/barista.mp4',
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const mockVideos: VideoItem[] = [
     author: '无人机玩家',
     likes: 15678,
     cover: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=700&fit=crop&q=80',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    src: 'https://raw.githubusercontent.com/fangzhihui88/wechat-community-app/main/public/videos/drone.mp4',
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const mockVideos: VideoItem[] = [
     author: '生活美学家',
     likes: 23456,
     cover: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=700&fit=crop&q=80',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    src: 'https://raw.githubusercontent.com/fangzhihui88/wechat-community-app/main/public/videos/life-hacks.mp4',
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const mockVideos: VideoItem[] = [
     author: '健身达人阿杰',
     likes: 9876,
     cover: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=700&fit=crop&q=80',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    src: 'https://raw.githubusercontent.com/fangzhihui88/wechat-community-app/main/public/videos/fitness.mp4',
   },
 ]
 
