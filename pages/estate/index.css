@@ -1,0 +1,151 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__content {
+  height: calc(100vh - 220px - env(safe-area-inset-top));
+}
+
+/* 筛选栏 */
+.filter-bar {
+  background: var(--color-bg-card, #fff);
+  border-bottom: 1px solid #F0F0F0;
+  padding: 8px 0;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 13px;
+  color: var(--color-text-secondary, #888);
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.filter-chips {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.filter-chip {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 14px;
+  background: #F5F5F5;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.filter-chip--active {
+  background: #FFF0F0;
+  border: 1px solid var(--color-primary, #FF4757);
+}
+
+.filter-chip__text {
+  font-size: 12px;
+  color: var(--color-text-secondary, #666);
+  white-space: nowrap;
+}
+
+.filter-chip--active .filter-chip__text {
+  color: var(--color-primary, #FF4757);
+  font-weight: 500;
+}
+
+/* 房源列表 */
+.listing-list {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.listing-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.listing-card__cover-wrap {
+  position: relative;
+}
+
+.listing-card__cover {
+  width: 100%;
+  height: 160px;
+}
+
+.listing-card__fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing-card__fav--active {
+  background: #FFF0F0;
+}
+
+.listing-card__fav-icon {
+  font-size: 16px;
+}
+
+.listing-card__info {
+  padding: 12px 14px;
+}
+
+.listing-card__community {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.listing-card__address {
+  font-size: 12px;
+  color: var(--color-text-secondary, #888);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.listing-card__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.listing-card__price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary, #FF4757);
+}
+
+.listing-card__price-unit {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.listing-card__unit-price {
+  font-size: 12px;
+  color: var(--color-text-secondary, #888);
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}

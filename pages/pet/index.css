@@ -1,0 +1,219 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__content {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+}
+
+.section {
+  padding: 16px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 宠物领养卡片 */
+.pet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pet-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.pet-card__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.pet-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+
+.pet-card__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pet-card__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.pet-card__status {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.pet-card__status--available {
+  background: #FFF0F0;
+  color: var(--color-primary, #FF4757);
+}
+
+.pet-card__status--adopted {
+  background: #F0FFF0;
+  color: #27AE60;
+}
+
+.pet-card__status-text {
+  font-size: 11px;
+}
+
+.pet-card__breed,
+.pet-card__age,
+.pet-card__owner {
+  font-size: 13px;
+  color: var(--color-text-secondary, #888);
+}
+
+/* 宠物日记入口 */
+.diary-banner {
+  background: linear-gradient(135deg, #FFF5F5, #FFF0F7);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #FFE8E8;
+}
+
+.diary-banner__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.diary-banner__icon {
+  font-size: 28px;
+}
+
+.diary-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.diary-banner__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.diary-banner__sub {
+  font-size: 12px;
+  color: var(--color-text-secondary, #999);
+}
+
+.diary-banner__arrow {
+  font-size: 20px;
+  color: #CCC;
+}
+
+/* 热门榜单 */
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rank-item {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.rank-item__medal {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rank-item__rank-text {
+  font-size: 18px;
+}
+
+.rank-item__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rank-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rank-item__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.rank-item__breed {
+  font-size: 12px;
+  color: var(--color-text-secondary, #888);
+}
+
+.rank-item__likes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rank-item__likes-icon {
+  font-size: 14px;
+}
+
+.rank-item__likes-count {
+  font-size: 13px;
+  color: var(--color-text-secondary, #888);
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}
