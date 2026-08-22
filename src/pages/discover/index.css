@@ -28,42 +28,64 @@
   height: calc(100vh - 88px - 80px);
 }
 
-/* Tab 切换 */
-.discover-tabs {
+/* 分类标签 */
+.discover-cats {
   display: flex;
-  position: relative;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--color-bg-card);
-  padding: 0 var(--spacing-md);
-  border-bottom: 1px solid #F0F0F0;
+}
+.discover-cat {
+  padding: 8px 24px;
+  background-color: #F0F0F0;
+  border-radius: var(--radius-full);
+}
+.discover-cat--active {
+  background-color: var(--color-primary-bg);
+}
+.discover-cat__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.discover-cat--active .discover-cat__text {
+  color: var(--color-primary);
+  font-weight: 500;
 }
 
-.discover-tabs__item {
-  flex: 1;
+/* 热门话题榜 */
+.hot-topic {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid #F7F7F7;
 }
-
-.discover-tabs__text {
-  font-size: var(--font-size-md);
-  color: var(--color-text-tertiary);
-  transition: all 0.3s ease;
+.hot-topic__rank {
+  width: 48px;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  text-align: center;
 }
-
-.discover-tabs__item--active .discover-tabs__text {
+.hot-topic__rank--top {
   color: var(--color-primary);
-  font-weight: 600;
 }
-
-.discover-tabs__indicator {
-  position: absolute;
-  bottom: 0;
-  width: 60px;
-  height: 4px;
-  background-color: var(--color-primary);
-  border-radius: 2px;
-  transition: left 0.3s ease;
+.hot-topic__rank--normal {
+  color: var(--color-text-tertiary);
+}
+.hot-topic__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.hot-topic__name {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+.hot-topic__count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 4px;
 }
 
 /* 内容区块 */
@@ -96,7 +118,8 @@
 /* 话题横向滚动 */
 .discover-topics {
   display: flex;
-  white-space: nowrap;
+  flex-wrap: wrap;
+  gap: 12px;
   padding-bottom: var(--spacing-sm);
 }
 
@@ -104,7 +127,6 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin-right: var(--spacing-sm);
   padding: var(--spacing-sm);
   background-color: var(--color-bg-card);
   border-radius: var(--radius-md);

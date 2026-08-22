@@ -1,0 +1,93 @@
+.comment-list {
+  padding: var(--spacing-sm) 0;
+}
+.comment-list__title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+.comment-list__scroll {
+  width: 100%;
+}
+.comment-item {
+  display: flex;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid #F7F7F7;
+}
+.comment-item__content {
+  flex: 1;
+  margin-left: var(--spacing-sm);
+}
+.comment-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment-item__username {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+.comment-item__time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+.comment-item__text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  margin-top: 4px;
+  display: block;
+}
+.comment-item__actions {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-xs);
+}
+.comment-item__like {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.comment-item__like-icon {
+  font-size: 24px;
+}
+.comment-item__like-icon--liked {
+  color: var(--color-primary);
+}
+.comment-item__like-count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+.comment-item__replies {
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-xs);
+  background-color: #F7F7F7;
+  border-radius: var(--radius-sm);
+}
+.comment-reply {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+.comment-reply__name {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+.comment-reply__to {
+  color: var(--color-text-tertiary);
+}
+.comment-reply__to-name {
+  color: var(--color-primary);
+}
+.comment-reply__text {
+  color: var(--color-text-primary);
+}
+.comment-item__more-replies {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  margin-top: 4px;
+  display: block;
+}

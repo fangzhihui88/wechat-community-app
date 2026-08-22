@@ -1,12 +1,16 @@
-import { View, Text, Textarea, Image } from '@tarojs/components'
+import { View, Text, Textarea, Image, Video } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { memo, useState, useCallback } from 'react'
 import { useAppStore } from '../../store/useAppStore'
 import TopicTag from '../../components/TopicTag'
-import type { Topic } from '../../types'
+import type { Topic, User } from '../../types'
 import './index.css'
 
-// 热门话题
+const mockMentionUsers: User[] = [
+  { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', following: 0, followers: 5200 },
+  { id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202', following: 0, followers: 8900 },
+  { id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203', following: 0, followers: 3200 },
+]
 const hotTopics: Topic[] = [
   { id: 'topic_001', name: '前端', posts: 10000 },
   { id: 'topic_002', name: 'React', posts: 8500 },
@@ -17,7 +21,10 @@ const hotTopics: Topic[] = [
 const Publish = memo(() => {
   const [content, setContent] = useState('')
   const [images, setImages] = useState<string[]>([])
+  const [videos, setVideos] = useState<string[]>([])
   const [selectedTopics, setSelectedTopics] = useState<Topic[]>([])
+  const [mentions, setMentions] = useState<User[]>([])
+  const [showMention, setShowMention] = useState(false)
   const [isPosting, setIsPosting] = useState(false)
   const { currentUser, addPost } = useAppStore()
 
@@ -56,7 +63,30 @@ const Publish = memo(() => {
     })
   }, [images])
 
-  // 选择话题
+  // 选择视频
+  const handleChooseVideo = useCallback(async () => {
+    if (videos.length >= 1) {
+      Taro.showToast({ title: '最多上传1个视频', icon: 'none' })
+      return
+    }
+    try {
+      const res = await Taro.chooseVideo({ sourceType: ['album', 'camera'], maxDuration: 60, compressed: true })
+      setVideos([res.tempFilePath])
+    } catch (error) {
+      console.error('选择视频失败:', error)
+    }
+  }, [videos])
+
+  // 选择 @ 用户
+  const handleSelectMention = useCallback((user: User) => {
+    if (mentions.find((m) => m.id === user.id)) {
+      Taro.showToast({ title: '已添加该用户', icon: 'none' })
+    } else {
+      setMentions([...mentions, user])
+      setContent((c) => c + ` @${user.nickname}`)
+    }
+    setShowMention(false)
+  }, [mentions])
   const handleSelectTopic = useCallback((topic: Topic) => {
     if (selectedTopics.find(t => t.id === topic.id)) {
       setSelectedTopics(selectedTopics.filter(t => t.id !== topic.id))
@@ -69,8 +99,8 @@ const Publish = memo(() => {
 
   // 发布动态
   const handlePublish = useCallback(async () => {
-    if (!content.trim()) {
-      Taro.showToast({ title: '请输入内容', icon: 'none' })
+    if (!content.trim() && images.length === 0 && videos.length === 0) {
+      Taro.showToast({ title: '请输入内容或添加媒体', icon: 'none' })
       return
     }
 
@@ -85,8 +115,11 @@ const Publish = memo(() => {
         id: `post_${Date.now()}`,
         user: currentUser!,
         content: content.trim(),
+        type: videos.length > 0 ? 'video' : images.length > 0 ? 'image' : 'text',
         images: images.length > 0 ? images : undefined,
+        videos: videos.length > 0 ? videos : undefined,
         topics: selectedTopics.length > 0 ? selectedTopics : undefined,
+        mentions: mentions.length > 0 ? mentions : undefined,
         likes: 0,
         comments: 0,
         shares: 0,
@@ -101,7 +134,9 @@ const Publish = memo(() => {
       // 清空表单
       setContent('')
       setImages([])
+      setVideos([])
       setSelectedTopics([])
+      setMentions([])
       
       // 跳转到首页
       setTimeout(() => {
@@ -191,21 +226,47 @@ const Publish = memo(() => {
           </View>
         )}
 
+        {/* 视频预览 */}
+        {videos.length > 0 && (
+          <View className="publish-page__video">
+            <Video className="publish-page__video-player" src={videos[0]} />
+            <View className="publish-page__image-remove" onClick={() => setVideos([])}>
+              <Text className="publish-page__image-remove-icon">✕</Text>
+            </View>
+          </View>
+        )}
+
         {/* 功能栏 */}
         <View className="publish-page__toolbar">
           <View className="publish-page__tool" onClick={handleChooseImage}>
             <Text className="publish-page__tool-icon">📷</Text>
             <Text className="publish-page__tool-text">图片</Text>
           </View>
+          <View className="publish-page__tool" onClick={handleChooseVideo}>
+            <Text className="publish-page__tool-icon">🎬</Text>
+            <Text className="publish-page__tool-text">视频</Text>
+          </View>
           <View className="publish-page__tool" onClick={handleGetLocation}>
             <Text className="publish-page__tool-icon">📍</Text>
             <Text className="publish-page__tool-text">位置</Text>
           </View>
-          <View className="publish-page__tool">
+          <View className="publish-page__tool" onClick={() => setShowMention(true)}>
             <Text className="publish-page__tool-icon">@</Text>
             <Text className="publish-page__tool-text">提醒</Text>
           </View>
         </View>
+
+        {/* @用户选择面板 */}
+        {showMention && (
+          <View className="publish-page__mention-panel">
+            <Text className="publish-page__mention-title">选择要提醒的人</Text>
+            {mockMentionUsers.map((u) => (
+              <View key={u.id} className="publish-page__mention-item" onClick={() => handleSelectMention(u)}>
+                <Text className="publish-page__mention-name">@{u.nickname}</Text>
+              </View>
+            ))}
+          </View>
+        )}
 
         {/* 话题选择 */}
         <View className="publish-page__topics">
@@ -234,6 +295,15 @@ const Publish = memo(() => {
             ))}
           </View>
         </View>
+
+        {/* 已选 @ 用户 */}
+        {mentions.length > 0 && (
+          <View className="publish-page__mentions">
+            {mentions.map((m) => (
+              <Text key={m.id} className="publish-page__mention-chip">@{m.nickname}</Text>
+            ))}
+          </View>
+        )}
       </View>
     </View>
   )

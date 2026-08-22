@@ -1,0 +1,85 @@
+.edit-page {
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+.edit-page__body {
+  padding: var(--spacing-md);
+}
+.edit-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  padding: 0 var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+.edit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 96px;
+  padding: var(--spacing-sm) 0;
+}
+.edit-row--border {
+  border-bottom: 1px solid #F0F0F0;
+}
+.edit-row__label {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+.edit-row__input {
+  flex: 1;
+  text-align: right;
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-left: var(--spacing-md);
+}
+.edit-row__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  background-color: #F0F0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-row__avatar-text {
+  font-size: 40px;
+}
+.edit-genders {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+.edit-gender {
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  background-color: #F0F0F0;
+}
+.edit-gender--active {
+  background-color: var(--color-primary-bg);
+}
+.edit-gender__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.edit-gender--active .edit-gender__text {
+  color: var(--color-primary);
+}
+.edit-bio-label {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  display: block;
+  padding: var(--spacing-sm) 0 var(--spacing-xs);
+}
+.edit-bio {
+  width: 100%;
+  min-height: 160px;
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+.edit-bio-count {
+  display: block;
+  text-align: right;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  padding: var(--spacing-xs) 0;
+}

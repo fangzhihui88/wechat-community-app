@@ -5,162 +5,117 @@ import { useAppStore } from '../../store/useAppStore'
 import FeedCard from '../../components/FeedCard'
 import SearchBar from '../../components/SearchBar'
 import EmptyState from '../../components/EmptyState'
-import type { Post } from '../../types'
+import type { Post, FeedTab } from '../../types'
 import './index.css'
 
-// 模拟获取更多动态
 const fetchMorePosts = async (page: number): Promise<Post[]> => {
-  // 实际项目中替换为 API 调用
   return new Promise((resolve) => {
     setTimeout(() => {
-      const newPosts: Post[] = [
-        {
-          id: `post_new_${page}_1`,
-          user: {
-            id: 'user_new_1',
-            nickname: '新用户',
-            avatar: 'https://picsum.photos/210',
-            followers: 100,
-          },
-          content: `这是第 ${page} 页的新动态内容，欢迎大家来互动交流！${page > 1 ? '🎉' : '👋'}`,
-          images: page % 2 === 0 ? ['https://picsum.photos/410/300'] : undefined,
-          likes: Math.floor(Math.random() * 1000),
-          comments: Math.floor(Math.random() * 100),
-          shares: Math.floor(Math.random() * 50),
-          createdAt: new Date().toISOString(),
-        },
+      const pool = [
+        '今天天气真好，分享一张随手拍 📸 #生活',
+        '刚学完 React 18 新特性，并发渲染真香！#React #前端',
+        '周末去爬山，山顶风景绝美 ⛰️ #旅行',
+        '推荐一本好书《代码整洁之道》#读书',
+        '做了份番茄炒蛋，第一次下厨成功 🍳 #美食',
       ]
+      const newPosts: Post[] = [{
+        id: `post_new_${page}_${Date.now()}`,
+        user: { id: `u_${page}`, nickname: `用户${page}`, avatar: `https://picsum.photos/${210 + page}`, following: 0, followers: Math.floor(Math.random() * 1000) },
+        content: pool[page % pool.length],
+        type: 'text',
+        images: page % 2 === 0 ? [`https://picsum.photos/400/30${page % 10}`] : undefined,
+        likes: Math.floor(Math.random() * 500),
+        comments: Math.floor(Math.random() * 50),
+        shares: Math.floor(Math.random() * 20),
+        createdAt: new Date().toISOString(),
+      }]
       resolve(newPosts)
-    }, 1000)
+    }, 800)
   })
 }
 
+const tabs: { key: FeedTab; label: string }[] = [
+  { key: 'recommend', label: '推荐' },
+  { key: 'follow', label: '关注' },
+  { key: 'nearby', label: '附近' },
+]
+
 const Index = memo(() => {
-  const { 
-    posts, 
-    setPosts, 
-    appendPosts, 
-    hasMorePosts, 
-    setHasMorePosts, 
-    postsPage, 
-    setPostsPage,
-    isRefreshing,
-    setRefreshing,
+  const {
+    posts, appendPosts, hasMorePosts, setHasMorePosts, postsPage, setPostsPage,
+    feedTab, setFeedTab, toggleLike, toggleBookmark, isRefreshing, setRefreshing,
   } = useAppStore()
-  
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 
-  // 页面加载时获取数据
-  useDidShow(() => {
-    // 可以在这里初始化数据
-  })
+  useDidShow(() => {})
 
-  // 下拉刷新
   const handlePullDownRefresh = useCallback(async () => {
     setRefreshing(true)
-    try {
-      // 实际项目中替换为 API 调用
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      setPostsPage(1)
-      setHasMorePosts(true)
-      // 重新加载第一页数据
-      Taro.showToast({ title: '刷新成功', icon: 'success' })
-    } finally {
-      setRefreshing(false)
-      Taro.stopPullDownRefresh()
-    }
-  }, [setPosts, setPostsPage, setHasMorePosts, setRefreshing])
+    await new Promise((r) => setTimeout(r, 800))
+    setPostsPage(1)
+    setHasMorePosts(true)
+    setRefreshing(false)
+    Taro.stopPullDownRefresh()
+    Taro.showToast({ title: ' refreshed', icon: 'success' })
+  }, [])
 
-  // 上拉加载更多
   const handleScrollToLower = useCallback(async () => {
     if (isLoadingMore || !hasMorePosts) return
-    
     setIsLoadingMore(true)
-    try {
-      const nextPage = postsPage + 1
-      const newPosts = await fetchMorePosts(nextPage)
-      
-      if (newPosts.length === 0) {
-        setHasMorePosts(false)
-      } else {
-        appendPosts(newPosts)
-        setPostsPage(nextPage)
-      }
-    } finally {
-      setIsLoadingMore(false)
-    }
-  }, [isLoadingMore, hasMorePosts, postsPage, appendPosts, setPostsPage, setHasMorePosts])
+    const nextPage = postsPage + 1
+    const newPosts = await fetchMorePosts(nextPage)
+    if (newPosts.length === 0) setHasMorePosts(false)
+    else { appendPosts(newPosts); setPostsPage(nextPage) }
+    setIsLoadingMore(false)
+  }, [isLoadingMore, hasMorePosts, postsPage])
 
-  // 处理点赞
-  const handleLike = useCallback((postId: string) => {
-    // 实际项目中调用 API
-    console.log('点赞:', postId)
-  }, [])
+  const handleLike = useCallback((postId: string) => toggleLike(postId), [toggleLike])
+  const handleComment = useCallback((postId: string) => Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` }), [])
+  const handleShare = useCallback(() => Taro.showShareMenu({ withShareTicket: true }), [])
+  const handleUserClick = useCallback((userId: string) => Taro.navigateTo({ url: `/pages/user-detail/index?userId=${userId}` }), [])
+  const handleTopicClick = useCallback((topicId: string) => Taro.navigateTo({ url: `/pages/topic/index?topicId=${topicId}` }), [])
+  const handleSearch = useCallback((v: string) => { if (v.trim()) Taro.navigateTo({ url: `/pages/search/index?keyword=${encodeURIComponent(v)}` }) }, [])
+  const handleBookmark = useCallback((postId: string) => { toggleBookmark(postId); Taro.showToast({ title: '已收藏', icon: 'none' }) }, [toggleBookmark])
 
-  // 处理评论
-  const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({
-      url: `/pages/comment/index?postId=${postId}`,
-    })
-  }, [])
-
-  // 处理分享
-  const handleShare = useCallback((postId: string) => {
-    Taro.showShareMenu({
-      withShareTicket: true,
-    })
-  }, [])
-
-  // 处理用户点击
-  const handleUserClick = useCallback((userId: string) => {
-    Taro.navigateTo({
-      url: `/pages/profile-detail/index?userId=${userId}`,
-    })
-  }, [])
-
-  // 处理话题点击
-  const handleTopicClick = useCallback((topicId: string) => {
-    Taro.navigateTo({
-      url: `/pages/topic/index?topicId=${topicId}`,
-    })
-  }, [])
-
-  // 处理搜索
-  const handleSearch = useCallback((value: string) => {
-    if (value.trim()) {
-      Taro.navigateTo({
-        url: `/pages/search/index?keyword=${encodeURIComponent(value)}`,
-      })
-    }
-  }, [])
+  // 根据 feedTab 过滤
+  const visiblePosts = feedTab === 'follow'
+    ? posts.filter((p) => p.user.isVip)
+    : feedTab === 'nearby'
+      ? posts.filter((p) => p.location)
+      : posts
 
   return (
     <View className="index-page">
-      {/* 自定义导航栏 */}
       <View className="index-page__nav safe-area-top">
         <View className="index-page__nav-content">
           <Text className="index-page__title">社区</Text>
         </View>
       </View>
 
-      {/* 搜索栏 */}
-      <SearchBar 
-        placeholder="搜索动态、用户、话题..."
-        onSearch={handleSearch}
-      />
+      <SearchBar placeholder="搜索动态、用户、话题..." onSearch={handleSearch} />
 
-      {/* 动态列表 */}
+      <View className="index-tabs">
+        {tabs.map((t) => (
+          <View
+            key={t.key}
+            className={`index-tabs__item ${feedTab === t.key ? 'index-tabs__item--active' : ''}`}
+            onClick={() => setFeedTab(t.key)}
+          >
+            <Text className="index-tabs__text">{t.label}</Text>
+          </View>
+        ))}
+      </View>
+
       <ScrollView
         scrollY
         className="index-page__list"
         lowerThreshold={100}
-        upperThreshold={100}
         onScrollToLower={handleScrollToLower}
         enableBackToTop
       >
-        {posts.length > 0 ? (
+        {visiblePosts.length > 0 ? (
           <>
-            {posts.map((post) => (
+            {visiblePosts.map((post) => (
               <FeedCard
                 key={post.id}
                 post={post}
@@ -171,40 +126,18 @@ const Index = memo(() => {
                 onTopicClick={handleTopicClick}
               />
             ))}
-            
-            {/* 加载状态 */}
-            {isLoadingMore && (
-              <View className="index-page__loading">
-                <Text className="index-page__loading-text">加载中...</Text>
-              </View>
-            )}
-            
-            {!hasMorePosts && (
-              <View className="index-page__no-more">
-                <Text className="index-page__no-more-text">没有更多了</Text>
-              </View>
-            )}
+            {isLoadingMore && <View className="index-page__loading"><Text>加载中...</Text></View>}
+            {!hasMorePosts && <View className="index-page__no-more"><Text>没有更多了</Text></View>}
           </>
         ) : (
-          <EmptyState
-            icon="📝"
-            title="暂无动态"
-            description="快去发布第一条动态吧！"
-            actionText="发布动态"
-            onAction={() => Taro.switchTab({ url: '/pages/publish/index' })}
-          />
+          <EmptyState icon="📝" title="暂无动态" description="快去发布第一条动态吧！" actionText="发布动态" onAction={() => Taro.switchTab({ url: '/pages/publish/index' })} />
         )}
+        <View className="safe-area-bottom" />
       </ScrollView>
     </View>
   )
 })
 
-Index.config = {
-  navigationStyle: 'custom',
-  enablePullDownRefresh: true,
-  backgroundColor: '#F7F7F7',
-} as any
-
+Index.config = { navigationStyle: 'custom', enablePullDownRefresh: true, backgroundColor: '#F7F7F7' } as any
 Index.displayName = 'Index'
-
 export default Index

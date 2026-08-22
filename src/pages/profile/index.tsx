@@ -1,191 +1,100 @@
-import { View, Text, Image, ScrollView } from '@tarojs/components'
+import { View, Text, ScrollView } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { memo, useCallback, useState } from 'react'
+import { memo, useCallback } from 'react'
 import { useAppStore } from '../../store/useAppStore'
-import FeedCard from '../../components/FeedCard'
-import EmptyState from '../../components/EmptyState'
-import type { Post } from '../../types'
-import { formatNumber } from '../../utils/formatTime'
 import './index.css'
 
-// 用户发布的动态
-const mockUserPosts: Post[] = []
-
 const Profile = memo(() => {
-  const [activeTab, setActiveTab] = useState<'posts' | 'media' | 'likes'>('posts')
-  const [isEditing, setIsEditing] = useState(false)
-  const { currentUser, posts } = useAppStore()
+  const { currentUser, themeMode, toggleTheme, likedPosts } = useAppStore()
 
-  // 当前用户的动态（实际从 API 获取）
-  const userPosts = posts.filter(p => p.user.id === currentUser?.id)
+  const stats = [
+    { label: '动态', value: currentUser?.posts ?? 0 },
+    { label: '关注', value: currentUser?.following ?? 0, url: '/pages/following/index' },
+    { label: '粉丝', value: currentUser?.followers ?? 0, url: '/pages/followers/index' },
+  ]
 
-  const handleEditProfile = useCallback(() => {
-    Taro.navigateTo({
-      url: '/pages/edit-profile/index',
-    })
+  const entries = [
+    { icon: '🖼', label: '我的相册', url: '/pages/gallery/index' },
+    { icon: '❤️', label: '我赞过的', count: likedPosts.length, url: '/pages/profile/index' },
+    { icon: '💬', label: '我的私信', url: '/pages/chat/index' },
+    { icon: '⭐️', label: '我的收藏', url: '/pages/profile/index' },
+    { icon: '🌙', label: '黑夜模式', isSwitch: true },
+    { icon: '⚙️', label: '设置', url: '/pages/settings/index' },
+  ]
+
+  const handleNav = useCallback((url?: string) => {
+    if (url) Taro.navigateTo({ url })
   }, [])
-
-  const handleFollow = useCallback(() => {
-    Taro.showToast({ title: currentUser?.isFollowing ? '已取消关注' : '关注成功', icon: 'success' })
-  }, [currentUser])
-
-  const handleSettings = useCallback(() => {
-    Taro.navigateTo({
-      url: '/pages/settings/index',
-    })
-  }, [])
-
-  if (!currentUser) {
-    return (
-      <View className="profile-page">
-        <EmptyState
-          icon="👤"
-          title="未登录"
-          description="请先登录"
-          actionText="登录"
-          onAction={() => Taro.navigateTo({ url: '/pages/login/index' })}
-        />
-      </View>
-    )
-  }
 
   return (
     <View className="profile-page">
-      {/* 导航栏 */}
       <View className="profile-page__nav safe-area-top">
         <View className="profile-page__nav-content">
-          <View className="profile-page__settings" onClick={handleSettings}>
+          <Text className="profile-page__title">我的</Text>
+          <View className="profile-page__settings" onClick={() => Taro.navigateTo({ url: '/pages/settings/index' })}>
             <Text className="profile-page__settings-icon">⚙️</Text>
-          </View>
-          <Text className="profile-page__nav-title">个人主页</Text>
-          <View className="profile-page__share">
-            <Text className="profile-page__share-icon">📤</Text>
           </View>
         </View>
       </View>
 
-      <ScrollView scrollY className="profile-page__content">
-        {/* 用户信息卡片 */}
-        <View className="profile-card">
-          <View className="profile-card__bg" />
-          <View className="profile-card__avatar-section">
-            <View className="profile-card__avatar-wrapper">
-              <Image
-                className={`profile-card__avatar ${currentUser.isVip ? 'profile-card__avatar--vip' : ''}`}
-                src={currentUser.avatar}
-                mode="aspectFill"
-              />
-              {currentUser.isVip && (
-                <View className="profile-card__vip-badge">V</View>
-              )}
+      <ScrollView scrollY className="profile-page__body">
+        {/* 用户信息 */}
+        <View className="profile-header">
+          <View className="profile-header__avatar">
+            <Text className="profile-header__avatar-text">🙂</Text>
+            {currentUser?.isVip && <View className="profile-header__vip"><Text className="profile-header__vip-text">VIP</Text></View>}
+          </View>
+          <View className="profile-header__info">
+            <View className="profile-header__name-row">
+              <Text className="profile-header__name">{currentUser?.nickname}</Text>
             </View>
-            <View className="profile-card__actions">
-              {isEditing ? (
-                <>
-                  <View className="profile-card__btn profile-card__btn--primary" onClick={() => setIsEditing(false)}>
-                    <Text className="profile-card__btn-text">保存</Text>
-                  </View>
-                </>
+            <Text className="profile-header__bio">{currentUser?.bio}</Text>
+            <Text className="profile-header__location">📍 {currentUser?.location}</Text>
+          </View>
+        </View>
+
+        {/* 统计 */}
+        <View className="profile-stats">
+          {stats.map((s) => (
+            <View
+              key={s.label}
+              className="profile-stat"
+              onClick={() => s.url && Taro.navigateTo({ url: s.url })}
+            >
+              <Text className="profile-stat__value">{s.value}</Text>
+              <Text className="profile-stat__label">{s.label}</Text>
+            </View>
+          ))}
+        </View>
+
+        {/* 快捷入口 */}
+        <View className="profile-entries">
+          {entries.map((e) => (
+            <View
+              key={e.label}
+              className="profile-entry"
+              onClick={() => {
+                if (e.isSwitch) toggleTheme()
+                else handleNav(e.url)
+              }}
+            >
+              <Text className="profile-entry__icon">{e.icon}</Text>
+              <Text className="profile-entry__label">{e.label}</Text>
+              {e.isSwitch ? (
+                <Text className={`profile-entry__value ${themeMode === 'dark' ? 'profile-entry__value--on' : ''}`}>
+                  {themeMode === 'dark' ? '已开' : '关'}
+                </Text>
+              ) : e.count !== undefined ? (
+                <Text className="profile-entry__value">{e.count}</Text>
               ) : (
-                <>
-                  <View className="profile-card__btn" onClick={() => setIsEditing(true)}>
-                    <Text className="profile-card__btn-text">编辑资料</Text>
-                  </View>
-                  <View className="profile-card__btn" onClick={handleFollow}>
-                    <Text className="profile-card__btn-text">关注</Text>
-                  </View>
-                </>
+                <Text className="profile-entry__arrow">›</Text>
               )}
             </View>
-          </View>
-
-          <View className="profile-card__info">
-            <View className="profile-card__name-row">
-              <Text className="profile-card__name">{currentUser.nickname}</Text>
-              {currentUser.isVip && <Text className="profile-card__vip-tag">VIP</Text>}
-            </View>
-            {currentUser.bio && (
-              <Text className="profile-card__bio">{currentUser.bio}</Text>
-            )}
-            
-            {/* 数据统计 */}
-            <View className="profile-card__stats">
-              <View className="profile-card__stat">
-                <Text className="profile-card__stat-value">{formatNumber(currentUser.following)}</Text>
-                <Text className="profile-card__stat-label">关注</Text>
-              </View>
-              <View className="profile-card__stat">
-                <Text className="profile-card__stat-value">{formatNumber(currentUser.followers)}</Text>
-                <Text className="profile-card__stat-label">粉丝</Text>
-              </View>
-              <View className="profile-card__stat">
-                <Text className="profile-card__stat-value">{formatNumber(currentUser.posts)}</Text>
-                <Text className="profile-card__stat-label">动态</Text>
-              </View>
-            </View>
-          </View>
+          ))}
         </View>
 
-        {/* 内容 Tab */}
-        <View className="profile-tabs">
-          <View 
-            className={`profile-tabs__item ${activeTab === 'posts' ? 'profile-tabs__item--active' : ''}`}
-            onClick={() => setActiveTab('posts')}
-          >
-            <Text className="profile-tabs__text">动态</Text>
-          </View>
-          <View 
-            className={`profile-tabs__item ${activeTab === 'media' ? 'profile-tabs__item--active' : ''}`}
-            onClick={() => setActiveTab('media')}
-          >
-            <Text className="profile-tabs__text">相册</Text>
-          </View>
-          <View 
-            className={`profile-tabs__item ${activeTab === 'likes' ? 'profile-tabs__item--active' : ''}`}
-            onClick={() => setActiveTab('likes')}
-          >
-            <Text className="profile-tabs__text">赞过</Text>
-          </View>
-        </View>
-
-        {/* 内容列表 */}
-        <View className="profile-content">
-          {activeTab === 'posts' && (
-            userPosts.length > 0 ? (
-              userPosts.map((post) => (
-                <FeedCard
-                  key={post.id}
-                  post={post}
-                  onComment={() => Taro.navigateTo({ url: `/pages/post-detail/index?postId=${post.id}` })}
-                  onUserClick={() => {}}
-                />
-              ))
-            ) : (
-              <EmptyState
-                icon="📝"
-                title="暂无动态"
-                description="发布你的第一条动态吧"
-                actionText="去发布"
-                onAction={() => Taro.switchTab({ url: '/pages/publish/index' })}
-              />
-            )
-          )}
-
-          {activeTab === 'media' && (
-            <EmptyState
-              icon="📷"
-              title="暂无相册"
-              description="发布的图片会展示在这里"
-            />
-          )}
-
-          {activeTab === 'likes' && (
-            <EmptyState
-              icon="❤️"
-              title="暂无点赞"
-              description="点赞的内容会展示在这里"
-            />
-          )}
+        <View className="profile-page__edit" onClick={() => Taro.navigateTo({ url: '/pages/edit-profile/index' })}>
+          <Text className="profile-page__edit-text">编辑个人资料</Text>
         </View>
 
         <View className="safe-area-bottom" />
@@ -194,10 +103,6 @@ const Profile = memo(() => {
   )
 })
 
-Profile.config = {
-  navigationStyle: 'custom',
-} as any
-
+Profile.config = { navigationStyle: 'custom' } as any
 Profile.displayName = 'Profile'
-
 export default Profile

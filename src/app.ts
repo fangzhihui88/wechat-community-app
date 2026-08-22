@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { useAppStore } from './store/useAppStore'
 import './app.css'
 import 'taro-ui/dist/style/index.scss'
 
@@ -7,6 +8,15 @@ class App extends Component {
   componentDidMount() {
     // 初始化应用
     console.log('微信社区小程序启动')
+    this.applyTheme(useAppStore.getState().themeMode)
+    useAppStore.subscribe((state) => this.applyTheme(state.themeMode))
+  }
+
+  applyTheme(mode: string) {
+    if (typeof document !== 'undefined' && document.documentElement) {
+      document.documentElement.classList.toggle('dark', mode === 'dark')
+      document.body?.classList.toggle('dark', mode === 'dark')
+    }
   }
 
   componentDidShow() {

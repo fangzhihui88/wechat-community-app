@@ -1,24 +1,32 @@
-// 用户类型
+// ============== 用户 ==============
 export interface User {
   id: string
   nickname: string
   avatar: string
   bio?: string
+  gender?: 'male' | 'female' | 'unknown'
+  location?: string
   following: number
   followers: number
   posts: number
   isFollowing?: boolean
+  isFollowed?: boolean
   isVip?: boolean
+  isBlocked?: boolean
 }
 
-// 动态类型
+// ============== 动态 ==============
+export type PostType = 'text' | 'image' | 'video'
+
 export interface Post {
   id: string
   user: User
   content: string
+  type: PostType
   images?: string[]
   videos?: string[]
   topics?: Topic[]
+  mentions?: User[]
   likes: number
   comments: number
   shares: number
@@ -28,7 +36,7 @@ export interface Post {
   location?: string
 }
 
-// 评论类型
+// ============== 评论 ==============
 export interface Comment {
   id: string
   user: User
@@ -40,20 +48,23 @@ export interface Comment {
   createdAt: string
 }
 
-// 话题类型
+// ============== 话题 ==============
 export interface Topic {
   id: string
   name: string
   icon?: string
+  cover?: string
   posts: number
   description?: string
   isFollowed?: boolean
 }
 
-// 消息类型
+// ============== 消息通知 ==============
+export type NotificationType = 'like' | 'comment' | 'follow' | 'system' | 'mention'
+
 export interface Notification {
   id: string
-  type: 'like' | 'comment' | 'follow' | 'system' | 'mention'
+  type: NotificationType
   user?: User
   content: string
   post?: Post
@@ -61,20 +72,38 @@ export interface Notification {
   createdAt: string
 }
 
-// API 响应类型
+// ============== 私信 ==============
+export interface ChatMessage {
+  id: string
+  conversationId: string
+  senderId: string
+  content: string
+  type: 'text' | 'image'
+  createdAt: string
+  isRead?: boolean
+}
+
+export interface Conversation {
+  id: string
+  user: User
+  lastMessage: string
+  lastTime: string
+  unread: number
+  messages: ChatMessage[]
+}
+
+// ============== 通用 ==============
 export interface ApiResponse<T> {
   code: number
   message: string
   data: T
 }
 
-// 分页参数
 export interface PaginationParams {
   page: number
   pageSize: number
 }
 
-// 分页响应
 export interface PaginatedResponse<T> {
   list: T[]
   total: number
@@ -83,10 +112,18 @@ export interface PaginatedResponse<T> {
   hasMore: boolean
 }
 
-// TabBar 配置
 export interface TabBarItem {
   pagePath: string
   text: string
   iconPath: string
   selectedIconPath: string
 }
+
+// 首页 Tab 类型
+export type FeedTab = 'recommend' | 'follow' | 'nearby'
+
+// 主题模式
+export type ThemeMode = 'light' | 'dark'
+
+// 搜索类型
+export type SearchType = 'all' | 'post' | 'user' | 'topic'

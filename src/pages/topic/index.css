@@ -1,0 +1,91 @@
+.topic-page {
+  min-height: 100vh;
+  background: var(--color-bg, #f5f5f5);
+}
+
+.topic-scroll {
+  height: calc(100vh - var(--status-bar-height, 44px) - 44px);
+  padding-bottom: 40px;
+}
+
+/* ── topic header ────────────────────────────────────────────── */
+.topic-header {
+  margin: 12px 16px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.topic-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.topic-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary, #ff4757);
+}
+
+.topic-follow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  background: var(--color-primary, #ff4757);
+  border-radius: 16px;
+  transition: background 0.2s;
+}
+
+.topic-follow-btn.followed {
+  background: #f0f0f0;
+  border: 1px solid #dcdcdc;
+}
+
+.topic-follow-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.topic-follow-btn.followed .topic-follow-text {
+  color: #666;
+}
+
+.topic-desc {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.topic-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.topic-stat {
+  font-size: 13px;
+  color: #999;
+}
+
+.stat-num {
+  font-weight: 600;
+  color: #333;
+}
+
+.stat-label {
+  font-weight: 400;
+}
+
+/* ── feed section ────────────────────────────────────────────── */
+.feed-section {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

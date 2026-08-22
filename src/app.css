@@ -152,10 +152,18 @@ page {
   flex-direction: column;
 }
 
-/* 安全区域适配 */
-.safe-area-bottom {
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
+/* 黑暗模式 */
+html.dark,
+body.dark,
+.dark,
+page.dark {
+  --color-text-primary: #EAEAEA;
+  --color-text-secondary: #B0B0B0;
+  --color-text-tertiary: #777777;
+  --color-bg-page: #121212;
+  --color-bg-card: #1E1E1E;
+  --color-bg-mask: rgba(0, 0, 0, 0.7);
+  --color-primary-bg: #3A2024;
 }
 
 .safe-area-top {
