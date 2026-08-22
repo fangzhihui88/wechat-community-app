@@ -251,6 +251,7 @@ interface AppState {
   // actions
   setCurrentUser: (u: User | null) => void
   setLoginStatus: (s: boolean) => void
+  logout: () => void
   toggleTheme: () => void
   setTheme: (m: ThemeMode) => void
 
@@ -329,8 +330,14 @@ interface AppState {
 const findPost = (posts: Post[], id: string) => posts.find((p) => p.id === id)
 
 export const useAppStore = create<AppState>((set, get) => ({
-  currentUser: mockCurrentUser,
-  isLoggedIn: true,
+  // 启动时从 Storage 恢复登录态（由登录页写入）
+  currentUser: (() => {
+    try {
+      const saved = Taro.getStorageSync('currentUser')
+      return saved || null
+    } catch { return null }
+  })(),
+  isLoggedIn: !!(() => { try { return !!Taro.getStorageSync('token') } catch { return false } })(),
   themeMode: 'light',
 
   posts: mockPosts,
@@ -401,8 +408,13 @@ export const useAppStore = create<AppState>((set, get) => ({
   ],
   unreadFriendReqCount: 2,
 
-  setCurrentUser: (u) => set({ currentUser: u }),
+  setCurrentUser: (u) => set({ currentUser: u, isLoggedIn: !!u }),
   setLoginStatus: (s) => set({ isLoggedIn: s }),
+  logout: () => {
+    Taro.removeStorageSync('token')
+    Taro.removeStorageSync('currentUser')
+    set({ currentUser: null, isLoggedIn: false })
+  },
   toggleTheme: () => set((s) => ({ themeMode: s.themeMode === 'light' ? 'dark' : 'light' })),
   setTheme: (m) => set({ themeMode: m }),
 
