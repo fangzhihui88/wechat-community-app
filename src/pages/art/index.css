@@ -1,0 +1,249 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.art-body {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+  padding: 0 16px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-top: 16px;
+}
+
+.section__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 拍卖横幅 */
+.auction-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.auction-banner__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.auction-banner__icon {
+  font-size: 32px;
+}
+
+.auction-banner__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.auction-banner__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.auction-banner__sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+
+.auction-banner__badge {
+  background: linear-gradient(135deg, #FF4757, #ff6b81);
+  border-radius: 20px;
+  padding: 6px 14px;
+}
+
+.auction-banner__badge-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* 艺术家卡片 */
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.artist-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.artist-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.artist-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.artist-card__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary, #333);
+}
+
+.artist-card__style {
+  font-size: 12px;
+  color: var(--color-primary, #FF4757);
+  margin-bottom: 4px;
+}
+
+.artist-card__bio {
+  font-size: 12px;
+  color: var(--color-text-secondary, #999);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.artist-card__count {
+  font-size: 11px;
+  color: var(--color-text-secondary, #999);
+  margin-top: 4px;
+}
+
+/* 分类胶囊 */
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-chip {
+  background: var(--color-bg-card, #fff);
+  border-radius: 20px;
+  padding: 7px 16px;
+  border: 1px solid #eee;
+}
+
+.category-chip--active {
+  background: var(--color-primary, #FF4757);
+  border-color: var(--color-primary, #FF4757);
+}
+
+.category-chip__text {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+.category-chip__text--active {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 艺术作品卡片 */
+.artwork-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s;
+}
+
+.artwork-card__cover-wrap {
+  width: 100%;
+  position: relative;
+}
+
+.artwork-card__cover {
+  width: 100%;
+  height: 220px;
+  display: block;
+  transition: height 0.3s;
+}
+
+.artwork-card__cover--expanded {
+  height: 320px;
+}
+
+.artwork-card__info {
+  padding: 14px 16px;
+}
+
+.artwork-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.artwork-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary, #333);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.artwork-card__meta {
+  font-size: 12px;
+  color: var(--color-text-secondary, #999);
+  display: block;
+}
+
+.artwork-card__auction-btn {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #FF4757, #ff6b81);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.artwork-card__auction-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.artwork-card__desc-wrap {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.artwork-card__desc {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+  line-height: 1.6;
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}
