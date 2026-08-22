@@ -52,7 +52,7 @@ const mockPosts: Post[] = [
   mkPost('post_004',
     { id: 'user_005', nickname: '技术大V', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80', followers: 50000, isVip: true },
     '一分钟看懂前端工程化演进 🚀',
-    { videos: ['https://fangzhihui88.github.io/wechat-community-app/videos/barista.mp4'], type: 'video', topics: [{ id: 'topic_004', name: '工程化', posts: 3100 }], likes: 1203, comments: 156, shares: 89, isHot: true }),
+    { videos: ['https://fangzhihui88.github.io/yuantou-community/videos/barista.mp4'], type: 'video', topics: [{ id: 'topic_004', name: '工程化', posts: 3100 }], likes: 1203, comments: 156, shares: 89, isHot: true }),
   mkPost('post_005',
     { id: 'user_006', nickname: '咖啡爱好者', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80', followers: 860 },
     '周末手冲咖啡日记 ☕ 今天的豆子是埃塞俄比亚耶加雪菲，花果香很足！',
