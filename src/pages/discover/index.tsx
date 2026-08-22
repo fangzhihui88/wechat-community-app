@@ -65,6 +65,19 @@ const Discover = memo(() => {
           </View>
         </View>
 
+        {/* 短视频大入口 */}
+        <View className="discover-video-banner" onClick={() => Taro.navigateTo({ url: '/pages/short-video/index' })}>
+          <View className="discover-video-banner__bg" />
+          <Text className="discover-video-banner__icon">🎬</Text>
+          <View className="discover-video-banner__text">
+            <Text className="discover-video-banner__title">短视频</Text>
+            <Text className="discover-video-banner__sub">刷不停，好看到停不下来</Text>
+          </View>
+          <View className="discover-video-banner__btn">
+            <Text className="discover-video-banner__btn-text">进入观看</Text>
+          </View>
+        </View>
+
         {/* 分类 */}
         <View className="discover-cats">
           {categories.map((c) => (
