@@ -1,0 +1,271 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.music-body {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+  padding: 0 16px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-top: 16px;
+}
+
+.section__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 入口卡片行 */
+.entry-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.entry-card {
+  flex: 1;
+  background: var(--color-bg-card, #fff);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.entry-card__icon {
+  font-size: 32px;
+}
+
+.entry-card__label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.entry-card__sub {
+  font-size: 12px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 播放器卡片 */
+.player-card {
+  background: linear-gradient(160deg, #1e1e2e 0%, #2d2d4a 100%);
+  border-radius: 20px;
+  padding: 24px 20px 20px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 旋转碟片 */
+.player-disc-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.player-disc {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #3a3a5c, #1e1e2e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.player-disc--spinning {
+  animation: disc-spin 20s linear infinite;
+}
+
+.player-disc__inner {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.15);
+}
+
+.player-disc__cover {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes disc-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 碟片中心圆点 */
+.player-disc::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1e1e2e;
+  border: 3px solid rgba(255,255,255,0.2);
+}
+
+.player-info {
+  text-align: center;
+}
+
+.player-info__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.player-info__artist {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  display: block;
+}
+
+/* 进度条 */
+.player-progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-progress__time {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  min-width: 32px;
+  text-align: center;
+}
+
+.player-progress__bar {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  position: relative;
+}
+
+.player-progress__fill {
+  height: 100%;
+  background: #FF4757;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.player-progress__thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FF4757;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 控制按钮 */
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.player-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.player-btn__icon {
+  font-size: 24px;
+  color: rgba(255,255,255,0.8);
+}
+
+.player-btn__icon--lg {
+  font-size: 36px;
+  color: #fff;
+}
+
+.player-btn--play {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #FF4757;
+  box-shadow: 0 4px 16px rgba(255, 71, 87, 0.4);
+}
+
+/* 歌单卡片 */
+.playlist-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-bg-card, #fff);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.playlist-card__cover {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.playlist-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.playlist-card__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+}
+
+.playlist-card__meta {
+  font-size: 12px;
+  color: var(--color-text-secondary, #999);
+  display: block;
+}
+
+.playlist-card__arrow {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}
