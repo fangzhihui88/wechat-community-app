@@ -1,187 +1,177 @@
+/* ===== 短视频页 ===== */
 .page {
   min-height: 100vh;
-  background: var(--color-bg-page);
-  padding-top: calc(88px + env(safe-area-inset-top));
-  box-sizing: border-box;
+  background: var(--color-bg-page, #F6F7FB);
 }
 
-.page__body {
-  padding: var(--spacing-md);
-}
-
-.video-scroll {
-  height: calc(100vh - 88px - env(safe-area-inset-top));
-}
-
-.video-card {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-bottom: var(--spacing-md);
-  background: var(--color-bg-card);
-}
-
-.video-card__cover {
-  width: 100%;
-  height: 100%;
-}
-
-.video-card__content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--spacing-md);
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-}
-
-.video-card__title {
-  display: block;
-  color: #fff;
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-  line-height: 1.4;
-}
-
-.video-card__meta {
+.short-video-page {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-}
-
-.video-card__author {
-  color: rgba(255,255,255,0.8);
-  font-size: var(--font-size-sm);
-}
-
-.video-card__likes {
-  color: rgba(255,255,255,0.8);
-  font-size: var(--font-size-sm);
-}
-
-.video-card__progress {
-  position: absolute;
-  right: var(--spacing-md);
-  bottom: var(--spacing-md);
-  width: 4px;
-  height: 60px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 2px;
-}
-
-.video-card__progress-bar {
-  width: 100%;
-  height: 30%;
-  background: var(--color-primary);
-  border-radius: 2px;
-}
-
-/* ===== 可播放视频样式 ===== */
-.video-card__player {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  position: relative;
+  flex-direction: column;
   background: #000;
 }
 
-.video-card__video {
+/* 主播放器区域 */
+.short-video__player-wrap {
+  position: relative;
   width: 100%;
-  height: 100%;
+  background: #000;
 }
 
-.video-card__cover {
+.short-video__player {
   width: 100%;
-  height: 100%;
+  /* 16:9 固定比例 */
+  aspect-ratio: 16 / 9;
+  display: block;
 }
 
-.video-card__play-btn {
+/* 右侧操作栏（叠在视频上） */
+.short-video__actions {
+  position: absolute;
+  right: 16px;
+  bottom: 100px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.short-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.short-action__icon {
+  font-size: 48px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.short-action__text {
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* 底部信息栏 */
+.short-video__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 80px;
+  padding: 20px 24px calc(20px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  z-index: 10;
+}
+
+.short-video__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.short-video__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.6);
+  flex-shrink: 0;
+}
+
+.short-video__author-name {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.short-video__desc {
+  font-size: 26px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* 视频列表 */
+.short-video__list {
+  flex: 1;
+  background: var(--color-bg-page, #F6F7FB);
+  padding: 16px;
+}
+
+.short-video__list-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1A1A2E);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.short-video__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--color-bg-card, #fff);
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.short-video__item--active {
+  border-color: var(--color-primary, #FF4757);
+  background: rgba(255,71,87,0.06);
+}
+
+.short-video__item-cover {
+  width: 100px;
+  height: 64px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.short-video__item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.short-video__item-title {
+  display: block;
+  font-size: 26px;
+  color: var(--color-text-primary, #1A1A2E);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.short-video__item-author {
+  display: block;
+  font-size: 22px;
+  color: var(--color-text-tertiary, #9A9AB0);
+}
+
+.short-video__item-playing {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(4px);
+  background: var(--color-primary, #FF4757);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.video-card__play-icon {
-  font-size: 48px;
+.short-video__item-playing text {
+  font-size: 20px;
   color: #fff;
-  margin-left: 8px;
-}
-
-.video-card__duration {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 4px;
-  padding: 4px 10px;
-}
-
-.video-card__duration-text {
-  font-size: 22px;
-  color: #fff;
-}
-
-.video-card__info {
-  padding: 24px;
-  background: var(--color-bg-card, #fff);
-}
-
-.video-card__user {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.video-card__avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  margin-right: 16px;
-  flex-shrink: 0;
-}
-
-.video-card__title {
-  font-size: 30px;
-  font-weight: 600;
-  color: var(--color-text-primary, #1A1A2E);
-  margin-bottom: 20px;
-  display: block;
-}
-
-.video-card__actions {
-  display: flex;
-  gap: 48px;
-  padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
-}
-
-.video-card__action {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.video-card__action-icon {
-  font-size: 36px;
-}
-
-.video-card__action-icon--liked {
-  animation: heartBeat .3s ease;
-}
-
-.video-card__action-text {
-  font-size: 24px;
-  color: var(--color-text-secondary, #55556B);
+  margin-left: 3px;
 }
