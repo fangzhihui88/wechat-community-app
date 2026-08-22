@@ -12,8 +12,14 @@ const Wallet = memo(() => {
   const entries = [
     { icon: '📊', label: '账单明细', desc: '收支记录', url: '/pages/wallet-tx/index' },
     { icon: '🎫', label: '优惠券', desc: `${usableCoupons} 张可用`, url: '/pages/coupons/index' },
-    { icon: '⬆️', label: '充值中心', desc: '余额充值', url: '/pages/recharge/index' },
+    { icon: '📷', label: '扫码支付', desc: '扫一扫付钱', url: '/pages/scan-pay/index' },
+    { icon: '💳', label: '付款码', desc: '出示付款码', url: '/pages/payment-code/index' },
+    { icon: '🧩', label: '支付记录', desc: '查看所有支付', url: '/pages/pay-history/index' },
+    { icon: '🎨', label: '生成收款码', desc: '创建收款码', url: '/pages/create-code/index' },
+    { icon: '🏧', label: '充值中心', desc: '余额充值', url: '/pages/recharge/index' },
     { icon: '💸', label: '提现', desc: '余额提现', url: '/pages/withdraw/index' },
+    { icon: '💎', label: '积分商城', desc: '积分兑换好物', url: '/pages/mall/index' },
+    { icon: '🧾', label: '兑换记录', desc: '积分兑换记录', url: '/pages/exchange-records/index' },
   ]
 
   const handleNav = useCallback((url: string) => {
