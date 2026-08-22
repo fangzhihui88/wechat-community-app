@@ -19,7 +19,7 @@ const Notifications = memo(() => {
   const handleItem = useCallback((n: any) => {
     if (!n.isRead) markAsRead(n.id)
     if (n.post) {
-      Taro.navigateTo({ url: `/pages/post-detail/index?id=${n.post.id}` })
+      Taro.navigateTo({ url: `/pages/post-detail/index?postId=${n.post.id}` })
     }
   }, [markAsRead])
 

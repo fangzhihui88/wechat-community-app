@@ -12,7 +12,7 @@ const Visitors = memo(() => {
   const { visitors } = useAppStore()
 
   const handleUser = useCallback((userId: string) => {
-    Taro.navigateTo({ url: `/pages/user-detail/index?id=${userId}` })
+    Taro.navigateTo({ url: `/pages/user-detail/index?userId=${userId}` })
   }, [])
 
   return (

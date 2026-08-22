@@ -12,7 +12,7 @@ const MyLikes = memo(() => {
   const liked = posts.filter((p) => likedPosts.includes(p.id))
 
   const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({ url: `/pages/post-detail/index?id=${postId}` })
+    Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` })
   }, [])
 
   return (

@@ -15,9 +15,9 @@ const Profile = memo(() => {
 
   const entries = [
     { icon: '🖼', label: '我的相册', url: '/pages/gallery/index' },
-    { icon: '❤️', label: '我赞过的', count: likedPosts.length, url: '/pages/profile/index' },
+    { icon: '❤️', label: '我赞过的', count: likedPosts.length, url: '/pages/my-likes/index' },
     { icon: '💬', label: '我的私信', url: '/pages/chat/index' },
-    { icon: '⭐️', label: '我的收藏', url: '/pages/profile/index' },
+    { icon: '⭐️', label: '我的收藏', url: '/pages/my-bookmarks/index' },
     { icon: '🌙', label: '黑夜模式', isSwitch: true },
     { icon: '⚙️', label: '设置', url: '/pages/settings/index' },
   ]

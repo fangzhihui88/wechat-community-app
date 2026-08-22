@@ -216,7 +216,7 @@ const UserDetail = memo(() => {
   }, [])
 
   const handleTopicClick = useCallback((topic: string) => {
-    Taro.navigateTo({ url: `/pages/topic/index?topic=${encodeURIComponent(topic)}` })
+    Taro.navigateTo({ url: `/pages/topic/index?topicId=${encodeURIComponent(topic)}` })
   }, [])
 
   return (
@@ -289,9 +289,9 @@ const UserDetail = memo(() => {
               />
             ))
           ) : (
-            !isSelf && <EmptyState message="暂无动态" />
+            !isSelf && <EmptyState icon="📭" title="暂无动态" />
           )}
-          {isSelf && <EmptyState message="还没有发布过动态，快去发布第一条吧！" />}
+          {isSelf && <EmptyState icon="📝" title="还没有发布过动态" description="快去发布第一条吧！" />}
         </View>
       </ScrollView>
     </View>

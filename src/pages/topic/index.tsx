@@ -116,7 +116,7 @@ const TopicPage = memo(function TopicPage() {
   )
 
   const handleUserClick = useCallback((userId: string) => {
-    Taro.navigateTo({ url: `/pages/user-profile/index?userId=${userId}` })
+    Taro.navigateTo({ url: `/pages/user-detail/index?userId=${userId}` })
   }, [])
 
   const handleTopicClick = useCallback((tid: string) => {

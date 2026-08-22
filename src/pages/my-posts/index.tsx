@@ -11,7 +11,7 @@ const MyPosts = memo(() => {
   const { myPosts, toggleLike, toggleBookmark, removePost } = useAppStore()
 
   const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({ url: `/pages/post-detail/index?id=${postId}` })
+    Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` })
   }, [])
 
   const handleDelete = useCallback((postId: string) => {

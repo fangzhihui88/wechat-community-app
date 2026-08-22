@@ -150,9 +150,8 @@ const ChatWindow = memo(function ChatWindow({ convId }: { convId: string }) {
     }, 100)
   }, [inputText, convId, sendMessage])
 
-  if (!conv) return null
-
-  const messages = conv.messages
+  // 会话不存在时（从用户主页发起的全新私信），仍渲染空聊天窗，发消息时自动创建
+  const messages = conv?.messages ?? []
 
   return (
     <View className="chat-window">

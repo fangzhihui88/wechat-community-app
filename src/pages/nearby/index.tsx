@@ -17,7 +17,7 @@ const Nearby = memo(() => {
   })
 
   const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({ url: `/pages/post-detail/index?id=${postId}` })
+    Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` })
   }, [])
 
   const handleLocate = useCallback(() => {

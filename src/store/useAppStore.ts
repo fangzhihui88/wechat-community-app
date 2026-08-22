@@ -382,11 +382,31 @@ export const useAppStore = create<AppState>((set, get) => ({
   setUnreadCount: (n) => set({ unreadCount: n }),
 
   addConversation: (c) => set((s) => ({ conversations: [c, ...s.conversations] })),
-  sendMessage: (convId, content) => set((s) => ({
-    conversations: s.conversations.map((c) => c.id === convId
-      ? { ...c, lastMessage: content, lastTime: new Date().toISOString(), messages: [...c.messages, { id: `m_${Date.now()}`, conversationId: convId, senderId: s.currentUser!.id, content, type: 'text', createdAt: new Date().toISOString() }] }
-      : c),
-  })),
+  sendMessage: (convId, content) => set((s) => {
+    const newMsg = { id: `m_${Date.now()}`, conversationId: convId, senderId: s.currentUser!.id, content, type: 'text' as const, createdAt: new Date().toISOString() }
+    const exists = s.conversations.some((c) => c.id === convId)
+    if (exists) {
+      return {
+        conversations: s.conversations.map((c) => c.id === convId
+          ? { ...c, lastMessage: content, lastTime: new Date().toISOString(), messages: [...c.messages, newMsg] }
+          : c),
+      }
+    }
+    // 会话不存在时自动创建（从 user-detail 等页面发起私信）
+    const userId = convId.startsWith('conv_')
+      ? convId.slice(5)
+      : convId
+    const knownUser = s.followingList.find((u) => u.id === userId)
+    const newConv: Conversation = {
+      id: convId,
+      user: knownUser ?? { id: userId, nickname: '用户' + userId.slice(-3), avatar: `https://picsum.photos/${200 + (userId.charCodeAt(userId.length - 1) % 40)}`, following: 0, followers: 0, posts: 0 },
+      lastMessage: content,
+      lastTime: new Date().toISOString(),
+      unread: 0,
+      messages: [newMsg],
+    }
+    return { conversations: [newConv, ...s.conversations] }
+  }),
   markConversationRead: (convId) => set((s) => ({
     conversations: s.conversations.map((c) => (c.id === convId ? { ...c, unread: 0 } : c)),
   })),

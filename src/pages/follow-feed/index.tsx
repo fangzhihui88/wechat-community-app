@@ -13,7 +13,7 @@ const FollowFeed = memo(() => {
   const followPosts = posts.filter((p) => followingIds.includes(p.user.id))
 
   const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({ url: `/pages/post-detail/index?id=${postId}` })
+    Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` })
   }, [])
 
   return (

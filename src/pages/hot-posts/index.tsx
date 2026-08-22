@@ -12,7 +12,7 @@ const HotPosts = memo(() => {
   const hot = posts.filter((p) => p.isHot).length > 0 ? posts.filter((p) => p.isHot) : posts.slice(0, 3)
 
   const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({ url: `/pages/post-detail/index?id=${postId}` })
+    Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` })
   }, [])
 
   return (

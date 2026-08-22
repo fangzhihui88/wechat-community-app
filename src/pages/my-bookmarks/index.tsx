@@ -8,10 +8,10 @@ import EmptyState from '../../components/EmptyState'
 import './index.css'
 
 const MyBookmarks = memo(() => {
-  const { bookmarks, toggleBookmark } = useAppStore()
+  const { bookmarks, toggleLike } = useAppStore()
 
   const handleComment = useCallback((postId: string) => {
-    Taro.navigateTo({ url: `/pages/post-detail/index?id=${postId}` })
+    Taro.navigateTo({ url: `/pages/post-detail/index?postId=${postId}` })
   }, [])
 
   return (
@@ -23,7 +23,7 @@ const MyBookmarks = memo(() => {
         ) : (
           bookmarks.map((p) => (
             <View key={p.id} className="mybookmarks-page__item">
-              <FeedCard post={p} onLike={toggleBookmark} onComment={handleComment} onShare={() => Taro.showToast({ title: '已分享', icon: 'success' })} />
+              <FeedCard post={p} onLike={toggleLike} onComment={handleComment} onShare={() => Taro.showToast({ title: '已分享', icon: 'success' })} />
             </View>
           ))
         )}
