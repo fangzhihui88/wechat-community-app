@@ -5,7 +5,7 @@ import prodConfig from './prod'
 // https://taro-docs.jd.com/docs/next/config
 export default defineConfig(async (merge) => {
   const baseConfig = {
-    projectName: 'wechat-community-app',
+    projectName: 'yuantou-community',
     date: '2026-08-14',
     designWidth: 750,
     deviceRatio: {
@@ -48,7 +48,7 @@ export default defineConfig(async (merge) => {
       },
     },
     h5: {
-      publicPath: '/wechat-community-app/',
+      publicPath: './',
       staticDirectory: 'static',
       postcss: {
         autoprefixer: {
