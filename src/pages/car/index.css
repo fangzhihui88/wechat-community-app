@@ -1,0 +1,211 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.page__content {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+}
+
+/* 车型 Tabs */
+.type-tabs {
+  padding: 12px 0 4px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.type-tabs__scroll {
+  padding: 0 12px;
+}
+
+.type-tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-right: 8px;
+  background: #F0F0F0;
+  flex-shrink: 0;
+}
+
+.type-tab--active {
+  background: var(--color-primary, #FF4757);
+}
+
+.type-tab__text {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666);
+  white-space: nowrap;
+}
+
+.type-tab--active .type-tab__text {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Section */
+.section {
+  padding: 16px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 车辆卡片网格 */
+.car-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.car-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.car-card__cover {
+  width: 100%;
+  height: 110px;
+}
+
+.car-card__body {
+  padding: 10px;
+}
+
+.car-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.car-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.car-card__owner-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.car-card__location {
+  font-size: 11px;
+  color: var(--color-text-secondary, #888);
+}
+
+/* 改装案例横向滚动 */
+.case-scroll {
+  white-space: nowrap;
+}
+
+.case-card {
+  display: inline-flex;
+  flex-direction: column;
+  width: 180px;
+  margin-right: 10px;
+  background: var(--color-bg-card, #fff);
+  border-radius: 10px;
+  overflow: hidden;
+  vertical-align: top;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.case-card__cover {
+  width: 100%;
+  height: 100px;
+}
+
+.case-card__info {
+  padding: 8px 10px;
+}
+
+.case-card__title {
+  font-size: 13px;
+  color: var(--color-text-primary, #333);
+  display: block;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.case-card__author {
+  font-size: 11px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 估值工具入口 */
+.eval-banner {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eval-banner__icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.eval-banner__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eval-banner__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.eval-banner__sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.eval-banner__btn {
+  background: var(--color-primary, #FF4757);
+  border-radius: 20px;
+  padding: 6px 16px;
+  flex-shrink: 0;
+}
+
+.eval-banner__btn-text {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}
