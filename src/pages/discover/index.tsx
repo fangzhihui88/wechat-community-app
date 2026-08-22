@@ -11,6 +11,17 @@ import './index.css'
 
 const categories = ['推荐', '前端', '设计', '科技', '生活', '美食', '旅行', '读书']
 
+const featureEntries = [
+  { icon: '🎪', label: '活动', url: '/pages/activities/index' },
+  { icon: '🏆', label: '排行', url: '/pages/rankings/index' },
+  { icon: '💰', label: '积分', url: '/pages/points/index' },
+  { icon: '🛍', label: '商城', url: '/pages/mall/index' },
+  { icon: '👑', label: '会员', url: '/pages/vip/index' },
+  { icon: '📅', label: '签到', url: '/pages/checkin/index' },
+  { icon: '🎡', label: '抽奖', url: '/pages/lottery/index' },
+  { icon: '💳', label: '钱包', url: '/pages/wallet/index' },
+]
+
 const Discover = memo(() => {
   const [activeCat, setActiveCat] = useState('推荐')
   const { topics, posts } = useAppStore()
@@ -34,6 +45,25 @@ const Discover = memo(() => {
       <SearchBar placeholder="搜索话题、内容..." onSearch={handleSearch} />
 
       <ScrollView scrollY className="discover-page__content">
+        {/* 功能入口 */}
+        <View className="discover-section">
+          <View className="discover-section__header">
+            <Text className="discover-section__title">🧩 功能中心</Text>
+          </View>
+          <View className="discover-grid">
+            {featureEntries.map((f) => (
+              <View
+                key={f.label}
+                className="discover-grid__item"
+                onClick={() => Taro.navigateTo({ url: f.url })}
+              >
+                <View className="discover-grid__icon"><Text>{f.icon}</Text></View>
+                <Text className="discover-grid__label">{f.label}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
         {/* 分类 */}
         <View className="discover-cats">
           {categories.map((c) => (
