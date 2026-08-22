@@ -1,0 +1,259 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.reading-body {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+  padding: 0 16px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-top: 16px;
+}
+
+.section__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.section__more {
+  font-size: 13px;
+  color: var(--color-text-secondary, #999);
+}
+
+/* 读书笔记入口 */
+.reading-notes-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #FF4757 0%, #ff6b81 100%);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.reading-notes-entry__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reading-notes-entry__icon {
+  font-size: 32px;
+}
+
+.reading-notes-entry__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reading-notes-entry__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.reading-notes-entry__sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+}
+
+.reading-notes-entry__arrow {
+  font-size: 22px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* 书架网格 */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.book-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.book-card__cover {
+  width: 100%;
+  height: 130px;
+  display: block;
+}
+
+.book-card__info {
+  padding: 8px;
+}
+
+.book-card__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.book-card__author {
+  font-size: 11px;
+  color: var(--color-text-secondary, #999);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.book-card__progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.book-card__progress-bar {
+  flex: 1;
+  height: 3px;
+  background: #eee;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.book-card__progress-fill {
+  height: 100%;
+  background: var(--color-primary, #FF4757);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.book-card__progress-text {
+  font-size: 10px;
+  color: var(--color-primary, #FF4757);
+  font-weight: 600;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* 推荐书单横向滚动 */
+.recommend-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.recommend-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.recommend-list {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 4px;
+}
+
+.recommend-card {
+  flex-shrink: 0;
+  width: 130px;
+  background: var(--color-bg-card, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.recommend-card__cover {
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
+.recommend-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+  padding: 8px 8px 2px;
+  line-height: 1.3;
+}
+
+.recommend-card__count {
+  font-size: 11px;
+  color: var(--color-text-secondary, #999);
+  display: block;
+  padding: 0 8px 8px;
+}
+
+/* 书评卡片 */
+.review-card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.review-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.review-card__meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-card__username {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+}
+
+.review-card__book {
+  font-size: 12px;
+  color: var(--color-text-secondary, #999);
+}
+
+.review-card__stars {
+  display: flex;
+  gap: 1px;
+}
+
+.review-card__star {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.review-card__star--active {
+  color: #FFB800;
+}
+
+.review-card__comment {
+  font-size: 14px;
+  color: var(--color-text-primary, #333);
+  line-height: 1.6;
+  padding-left: 50px;
+}
+
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}
