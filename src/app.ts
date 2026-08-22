@@ -7,7 +7,7 @@ class App extends Component {
 
   componentDidMount() {
     // 初始化应用
-    console.log('微信社区小程序启动')
+    console.log('源头社区启动')
     this.applyTheme(useAppStore.getState().themeMode)
     useAppStore.subscribe((state) => this.applyTheme(state.themeMode))
   }
