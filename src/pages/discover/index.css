@@ -240,3 +240,57 @@
 .discover-video-banner:active {
   opacity: 0.85;
 }
+
+/* ===== 功能分组卡片 ===== */
+.discover-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px 24px;
+}
+
+.discover-group-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  border-left: 6px solid;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.discover-group-card__icon {
+  font-size: 48px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.discover-group-card__body {
+  flex: 1;
+}
+
+.discover-group-card__label {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1A1A2E;
+  margin-bottom: 4px;
+}
+
+.discover-group-card__sub {
+  display: block;
+  font-size: 24px;
+  color: #9A9AB0;
+}
+
+.discover-group-card__arrow {
+  font-size: 40px;
+  color: #9A9AB0;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.discover-group-card:active {
+  background: #f8f8ff;
+}

@@ -1,0 +1,315 @@
+.add-friend-page {
+  min-height: 100vh;
+  background: var(--color-bg-page, #F6F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.add-friend-scroll {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+}
+
+/* ---- 通用 section ---- */
+.section {
+  margin: var(--spacing-md, 16px) var(--spacing-md, 16px);
+  background: var(--color-bg-card, #fff);
+  border-radius: var(--radius-lg, 16px);
+  padding: var(--spacing-md, 16px);
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(26, 26, 46, 0.06));
+}
+
+/* ---- 搜索区 ---- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-page, #F6F7FB);
+  border-radius: var(--radius-full, 9999px);
+  padding: 0 var(--spacing-sm, 12px) 0 var(--spacing-md, 16px);
+  height: 80px;
+}
+
+.search-bar__icon {
+  font-size: 30px;
+  line-height: 1;
+  margin-right: var(--spacing-xs, 8px);
+  opacity: 0.55;
+}
+
+.search-bar__input {
+  flex: 1;
+  height: 80px;
+  font-size: 28px;
+  color: var(--color-text-primary, #1A1A2E);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-bar__input::placeholder {
+  color: var(--color-text-tertiary, #9A9AB0);
+}
+
+.search-bar__btn {
+  height: 56px;
+  padding: 0 var(--spacing-md, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary, #FF4757);
+  border-radius: var(--radius-full, 9999px);
+}
+
+.search-bar__btn-text {
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.search-result {
+  margin-top: var(--spacing-md, 16px);
+  padding-top: var(--spacing-md, 16px);
+  border-top: 1px solid var(--color-border-light, #F3F4F9);
+}
+
+/* ---- 扫码区 ---- */
+.scan-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg, 24px) var(--spacing-md, 16px);
+}
+
+.scan-btn {
+  width: 100%;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm, 12px);
+  background: var(--color-gradient, linear-gradient(135deg, #FF4757 0%, #FF6B81 50%, #7C4DFF 100%));
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: var(--shadow-primary, 0 6px 20px rgba(255, 71, 87, 0.25));
+}
+
+.scan-btn__icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.scan-btn__text {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.scan-tip {
+  margin-top: var(--spacing-sm, 12px);
+  font-size: 24px;
+  color: var(--color-text-tertiary, #9A9AB0);
+}
+
+/* ---- section 头部 ---- */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm, 12px);
+}
+
+.section-header__title {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1A1A2E);
+}
+
+.section-header__more {
+  font-size: 24px;
+  color: var(--color-text-tertiary, #9A9AB0);
+}
+
+/* ---- 用户卡片列表 ---- */
+.user-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm, 12px) 0;
+  border-bottom: 1px solid var(--color-border-light, #F3F4F9);
+}
+
+.user-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.user-card__avatar {
+  flex-shrink: 0;
+  margin-right: var(--spacing-sm, 12px);
+}
+
+.user-card__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-card__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 8px);
+}
+
+.user-card__name {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1A1A2E);
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-card__group {
+  font-size: 22px;
+  color: var(--color-accent, #7C4DFF);
+}
+
+.user-card__bio {
+  font-size: 24px;
+  color: var(--color-text-secondary, #55556B);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- 来源标签 ---- */
+.src-tag {
+  flex-shrink: 0;
+  height: 36px;
+  padding: 0 var(--spacing-xs, 8px);
+  border-radius: var(--radius-full, 9999px);
+  display: flex;
+  align-items: center;
+}
+
+.src-tag__text {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.src--search {
+  background: rgba(64, 158, 255, 0.12);
+  color: #409eff;
+}
+.src--qr {
+  background: rgba(45, 201, 137, 0.12);
+  color: #2dc989;
+}
+.src--nearby {
+  background: rgba(255, 153, 0, 0.12);
+  color: #ff9900;
+}
+.src--group {
+  background: rgba(124, 77, 255, 0.12);
+  color: #7c4dff;
+}
+.src--recommend {
+  background: rgba(255, 71, 87, 0.12);
+  color: var(--color-primary, #FF4757);
+}
+
+/* ---- 添加按钮 ---- */
+.add-btn {
+  flex-shrink: 0;
+  height: 56px;
+  padding: 0 var(--spacing-md, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary, #FF4757);
+  border-radius: var(--radius-full, 9999px);
+  transition: opacity 0.2s;
+}
+
+.add-btn__text {
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.add-btn--requested {
+  background: var(--color-primary-bg, #FFE4E1);
+  color: var(--color-primary, #FF4757);
+}
+
+.add-btn--requested .add-btn__text {
+  color: var(--color-primary, #FF4757);
+}
+
+.add-btn--done {
+  background: var(--color-bg-page, #F6F7FB);
+  border: 1px solid var(--color-border, #EBECF2);
+}
+
+.add-btn--done .add-btn__text {
+  color: var(--color-text-tertiary, #9A9AB0);
+}
+
+/* ---- 我的二维码区 ---- */
+.my-qr-section {
+  padding: var(--spacing-md, 16px);
+}
+
+.my-qr-card {
+  background: var(--color-gradient, linear-gradient(135deg, #FF4757 0%, #7C4DFF 100%));
+  border-radius: var(--radius-lg, 16px);
+  padding: var(--spacing-lg, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs, 8px);
+  box-shadow: var(--shadow-primary, 0 6px 20px rgba(255, 71, 87, 0.25));
+}
+
+.my-qr-card__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.my-qr-card__sub {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.my-qr-card__btn {
+  margin-top: var(--spacing-xs, 8px);
+  height: 64px;
+  padding: 0 var(--spacing-lg, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.my-qr-card__btn-text {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-primary, #FF4757);
+}
+
+/* ---- 底部安全区 ---- */
+.page-bottom-safe {
+  height: calc(env(safe-area-inset-bottom) + 24px);
+}

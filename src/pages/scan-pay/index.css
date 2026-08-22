@@ -1,0 +1,505 @@
+/* ============================================================
+   扫码支付 ScanPay
+   复用 app.css 设计变量：--color-primary / --color-bg-page /
+   --color-bg-card / --spacing-xs~xl / --radius-sm~lg
+   ============================================================ */
+
+.scan-pay-page {
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.scan-pay-page__body {
+  height: calc(100vh - 88px - env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+/* ========== 1. 顶部扫描框 ========== */
+.scan-pay-page__scan-wrap {
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.scan-pay-page__scan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #FF4757 0%, #FF6B81 50%, #7C4DFF 100%);
+  box-shadow: var(--shadow-primary);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.scan-pay-page__scan:active {
+  transform: scale(0.98);
+}
+
+.scan-pay-page__scan-icon {
+  font-size: 96px;
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.scan-pay-page__scan-title {
+  color: #fff;
+  font-size: var(--font-subhead);
+  font-weight: 600;
+  text-align: center;
+}
+.scan-pay-page__scan-sub {
+  margin-top: var(--spacing-xs);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-helper);
+}
+
+/* 扫描线动画 */
+.scan-pay-page__scan-line {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  animation: scan-move 1.6s ease-in-out infinite;
+}
+.scan-pay-page__scan--active {
+  animation: scan-pulse 1.6s ease-in-out infinite;
+}
+@keyframes scan-move {
+  0% { top: 12%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 88%; opacity: 0; }
+}
+@keyframes scan-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* ========== 2. 商户展示 ========== */
+.scan-pay-page__merchant {
+  display: flex;
+  align-items: center;
+  margin: 0 var(--spacing-md) var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.scan-pay-page__merchant-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-bg);
+  flex-shrink: 0;
+}
+.scan-pay-page__merchant-info {
+  flex: 1;
+  margin-left: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+}
+.scan-pay-page__merchant-name {
+  font-size: var(--font-subhead);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+.scan-pay-page__merchant-cat {
+  margin-top: 4px;
+  font-size: var(--font-helper);
+  color: var(--color-text-tertiary);
+}
+.scan-pay-page__amount {
+  display: flex;
+  align-items: baseline;
+  color: var(--color-primary);
+}
+.scan-pay-page__amount-symbol {
+  font-size: var(--font-title);
+  font-weight: 600;
+  margin-right: 2px;
+}
+.scan-pay-page__amount-value {
+  font-size: var(--font-hero);
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ========== 通用区块标题 ========== */
+.scan-pay-page__section-title {
+  display: block;
+  font-size: var(--font-helper);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--spacing-xs);
+  padding: 0 var(--spacing-md);
+}
+
+/* ========== 3. 支付方式 ========== */
+.scan-pay-page__methods {
+  margin: var(--spacing-md) 0;
+}
+.scan-pay-page__method {
+  display: flex;
+  align-items: center;
+  margin: 0 var(--spacing-md) var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+.scan-pay-page__method:active {
+  transform: scale(0.99);
+}
+.scan-pay-page__method--active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-bg);
+}
+.scan-pay-page__method--disabled {
+  opacity: 0.5;
+}
+.scan-pay-page__method-icon {
+  font-size: 44px;
+  margin-right: var(--spacing-md);
+}
+.scan-pay-page__method-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.scan-pay-page__method-label {
+  font-size: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.scan-pay-page__method-balance {
+  margin-top: 2px;
+  font-size: var(--font-helper);
+  color: var(--color-text-tertiary);
+}
+.scan-pay-page__radio {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.scan-pay-page__radio--on {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+.scan-pay-page__radio-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+}
+.scan-pay-page__warn {
+  display: block;
+  margin: 0 var(--spacing-md);
+  font-size: var(--font-helper);
+  color: var(--color-primary);
+}
+
+/* ========== 4. 支付密码 ========== */
+.scan-pay-page__password {
+  margin: var(--spacing-md) 0;
+}
+.scan-pay-page__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-md);
+}
+.scan-pay-page__dot {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.scan-pay-page__dot--filled {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-bg);
+}
+.scan-pay-page__dot-star {
+  font-size: 44px;
+  color: var(--color-primary);
+  line-height: 1;
+}
+.scan-pay-page__password-hint {
+  display: block;
+  margin-top: var(--spacing-xs);
+  text-align: center;
+  font-size: var(--font-helper);
+  color: var(--color-text-tertiary);
+}
+
+/* ========== 5. 确认支付按钮 ========== */
+.scan-pay-page__confirm {
+  margin: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+  height: 92px;
+  border-radius: var(--radius-full);
+  background: var(--color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-primary);
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+.scan-pay-page__confirm:active {
+  transform: scale(0.98);
+}
+.scan-pay-page__confirm--disabled {
+  background: var(--color-border);
+  box-shadow: none;
+  opacity: 0.7;
+}
+.scan-pay-page__confirm-text {
+  color: #fff;
+  font-size: var(--font-subhead);
+  font-weight: 700;
+}
+
+/* ========== 最近扫码记录 ========== */
+.scan-pay-page__history {
+  margin: var(--spacing-md) 0;
+}
+.scan-pay-page__record {
+  display: flex;
+  align-items: center;
+  margin: 0 var(--spacing-md) var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.scan-pay-page__record-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-border-light);
+  flex-shrink: 0;
+}
+.scan-pay-page__record-info {
+  flex: 1;
+  margin-left: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+}
+.scan-pay-page__record-name {
+  font-size: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.scan-pay-page__record-meta {
+  margin-top: 2px;
+  font-size: var(--font-helper);
+  color: var(--color-text-tertiary);
+}
+.scan-pay-page__record-pay {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+}
+.scan-pay-page__record-pay-text {
+  color: #fff;
+  font-size: var(--font-helper);
+  font-weight: 600;
+}
+.scan-pay-page__record-status {
+  font-size: var(--font-helper);
+  font-weight: 600;
+}
+.scan-pay-page__record-status--paid {
+  color: #22C55E;
+}
+.scan-pay-page__record-status--failed {
+  color: var(--color-primary);
+}
+.scan-pay-page__record-status--pending {
+  color: var(--color-text-tertiary);
+}
+.scan-pay-page__record-status--refunded {
+  color: var(--color-text-tertiary);
+}
+
+/* ========== 4-续. 模拟密码键盘 ========== */
+.scan-pay-page__keypad-mask {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg-mask);
+  z-index: 1500;
+  display: flex;
+  align-items: flex-end;
+}
+.scan-pay-page__keypad {
+  width: 100%;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding-top: var(--spacing-md);
+  animation: slide-up 0.3s ease both;
+}
+.scan-pay-page__keypad-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 var(--spacing-md) var(--spacing-sm);
+}
+.scan-pay-page__keypad-title {
+  font-size: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.scan-pay-page__keypad-close {
+  position: absolute;
+  right: var(--spacing-md);
+  font-size: var(--font-subhead);
+  color: var(--color-text-tertiary);
+}
+.scan-pay-page__keypad-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+}
+.scan-pay-page__keypad-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+}
+.scan-pay-page__keypad-dot--filled {
+  background-color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+.scan-pay-page__keypad-grid {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-border-light);
+  border-top: 1px solid var(--color-border);
+}
+.scan-pay-page__key {
+  width: 33.3333%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-card);
+  border-right: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+  transition: background-color 0.1s ease;
+}
+.scan-pay-page__key:active {
+  background-color: var(--color-bg-hover);
+}
+.scan-pay-page__key--empty {
+  background-color: var(--color-border-light);
+}
+.scan-pay-page__key-text {
+  font-size: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ========== 6. 支付结果 ========== */
+.scan-pay-page__result-mask {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg-mask);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.25s ease both;
+}
+.scan-pay-page__result-card {
+  width: 560px;
+  max-width: 84vw;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+}
+.scan-pay-page__result-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+.scan-pay-page__result-icon--success {
+  background-color: #E6F9ED;
+  animation: result-pop 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+}
+.scan-pay-page__result-icon--fail {
+  background-color: var(--color-primary-bg);
+  animation: result-shake 0.45s ease both;
+}
+.scan-pay-page__result-emoji {
+  font-size: 80px;
+  line-height: 1;
+}
+.scan-pay-page__result-title {
+  font-size: var(--font-headline);
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+.scan-pay-page__result-message {
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+.scan-pay-page__result-btn {
+  margin-top: var(--spacing-lg);
+  width: 100%;
+  height: 88px;
+  border-radius: var(--radius-full);
+  background: var(--color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-primary);
+}
+.scan-pay-page__result-btn:active {
+  opacity: 0.85;
+}
+.scan-pay-page__result-btn-text {
+  color: #fff;
+  font-size: var(--font-subhead);
+  font-weight: 700;
+}
+
+@keyframes result-pop {
+  0% { transform: scale(0.3); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes result-shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-14px) rotate(-4deg); }
+  30% { transform: translateX(14px) rotate(4deg); }
+  45% { transform: translateX(-10px) rotate(-3deg); }
+  60% { transform: translateX(10px) rotate(3deg); }
+  75% { transform: translateX(-5px); }
+}

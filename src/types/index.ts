@@ -563,3 +563,44 @@ export interface FortuneResult {
   luckyColor: string
   luckyNumber: number
 }
+
+// ===== 扫码支付 =====
+export interface PayOrder {
+  id: string
+  amount: number
+  merchantName: string
+  merchantAvatar: string
+  status: PayStatus
+  createdAt: string
+  desc?: string
+}
+export type PayStatus = 'pending' | 'paid' | 'failed' | 'refunded'
+export type PayMethod = 'balance' | 'points' | 'coupon'
+
+// ===== 付款码 =====
+export interface PaymentCode {
+  id: string
+  amount?: number  // 固定金额，无则为任意金额
+  note?: string
+  createdAt: string
+  expiredAt: string
+}
+
+// ===== 好友系统 =====
+export interface FriendRequest {
+  id: string
+  fromUser: User
+  toUserId: string
+  status: 'pending' | 'accepted' | 'rejected'
+  message?: string  // 申请留言
+  createdAt: string
+  updatedAt: string
+}
+export interface Friend extends User {
+  remark?: string      // 备注名
+  tag?: string         // 分组标签
+  isTop?: boolean      // 是否置顶
+  lastChatTime?: string
+  isOnline?: boolean
+  source: 'search' | 'qr' | 'nearby' | 'group' | 'recommend'
+}

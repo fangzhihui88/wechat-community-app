@@ -1,5 +1,6 @@
 export default defineAppConfig({
   pages: [
+    'pages/login/index',
     'pages/index/index',
     'pages/discover/index',
     'pages/publish/index',
@@ -46,6 +47,7 @@ export default defineAppConfig({
     'pages/language/index',          // 语言设置
     'pages/theme/index',             // 主题设置
     'pages/notifications/index',     // 通知中心
+    'pages/add-friend/index',        // 添加好友
     'pages/hot-posts/index',         // 热门动态
     'pages/nearby/index',            // 附近的人/动态
     'pages/follow-feed/index',       // 关注动态
@@ -82,7 +84,13 @@ export default defineAppConfig({
     'pages/course/index',             // 成长课堂
     'pages/collection/index',         // 内容合集
     'pages/feedback-list/index',      // 我的反馈
-    'pages/hub/index',                // 功能中心（预览总览）
+    'pages/hub/index',
+  'pages/scan-pay/index',
+  'pages/payment-code/index',
+  'pages/pay-history/index',
+  'pages/create-code/index',
+  'pages/friend-requests/index',
+  'pages/friend-list/index',
     // ===== 300 项功能扩展页面 =====
     'pages/health/index',              // 健康打卡
     'pages/study/index',               // 学习中心

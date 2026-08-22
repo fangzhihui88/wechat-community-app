@@ -134,6 +134,18 @@ const sections: HubSection[] = [
       { label: '工具箱', url: '/pages/tools-center/index' },
     ],
   },
+  // ===== 支付·钱包功能 =====
+  {
+    title: '支付·钱包',
+    emoji: '💳',
+    color: '#FF4757',
+    items: [
+      { label: '扫码支付', url: '/pages/scan-pay/index' },
+      { label: '付款码', url: '/pages/payment-code/index' },
+      { label: '支付记录', url: '/pages/pay-history/index' },
+      { label: '生成收款码', url: '/pages/create-code/index' },
+    ],
+  },
   // ===== 300 项功能新增导航 =====
   {
     title: '健康·生活',
@@ -203,7 +215,7 @@ const Hub = memo(() => {
         <Text className="hub-banner__emoji">🚀</Text>
         <View className="hub-banner__info">
           <Text className="hub-banner__title">源头社区</Text>
-          <Text className="hub-banner__sub">共 {total} 个功能页面 · 15 大模块</Text>
+          <Text className="hub-banner__sub">共 {total} 个功能页面 · 16 大模块</Text>
         </View>
         <View className="hub-banner__tag">v2.0</View>
       </View>

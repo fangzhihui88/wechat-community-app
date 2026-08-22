@@ -48,7 +48,7 @@ export default defineConfig(async (merge) => {
       },
     },
     h5: {
-      publicPath: '/yuantou-community/',
+      publicPath: './',
       staticDirectory: 'static',
       postcss: {
         autoprefixer: {

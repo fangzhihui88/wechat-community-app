@@ -23,6 +23,15 @@ const featureEntries = [
   { icon: '🚀', label: '全部', url: '/pages/hub/index' },
 ]
 
+// 5 大功能分组
+const featureGroups = [
+  { icon: '🏃', label: '健康生活', sub: '打卡·学习·美食·旅游', color: '#FF6B81' },
+  { icon: '🐾', label: '垂直社区', sub: '宠物·车·房产·婚庆', color: '#7C4DFF' },
+  { icon: '📚', label: '文化艺术', sub: '读书·音乐·摄影·艺术', color: '#00BCD4' },
+  { icon: '⭐', label: '兴趣圈层', sub: '追星·健身·母婴·心理·美妆', color: '#FF9500' },
+  { icon: '🌍', label: '公益·其他', sub: '公益·生活预测', color: '#4CAF50' },
+]
+
 const Discover = memo(() => {
   const [activeCat, setActiveCat] = useState('推荐')
   const { topics, posts } = useAppStore()
@@ -60,6 +69,30 @@ const Discover = memo(() => {
               >
                 <View className="discover-grid__icon"><Text>{f.icon}</Text></View>
                 <Text className="discover-grid__label">{f.label}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        {/* 5 大功能分组 */}
+        <View className="discover-section">
+          <View className="discover-section__header">
+            <Text className="discover-section__title">📦 全部功能（20 个新页面）</Text>
+          </View>
+          <View className="discover-groups">
+            {featureGroups.map((g) => (
+              <View
+                key={g.label}
+                className="discover-group-card"
+                style={{ borderLeftColor: g.color }}
+                onClick={() => Taro.navigateTo({ url: '/pages/hub/index' })}
+              >
+                <Text className="discover-group-card__icon">{g.icon}</Text>
+                <View className="discover-group-card__body">
+                  <Text className="discover-group-card__label">{g.label}</Text>
+                  <Text className="discover-group-card__sub">{g.sub}</Text>
+                </View>
+                <Text className="discover-group-card__arrow">›</Text>
               </View>
             ))}
           </View>
