@@ -1,0 +1,146 @@
+.pay-history-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: calc(88px + env(safe-area-inset-top));
+  background-color: var(--color-bg-page);
+}
+
+.pay-history-page__tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-card);
+}
+
+.pay-history-page__tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 9999px;
+  font-size: 26px;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-page);
+  transition: all 0.2s;
+}
+
+.pay-history-page__tab--active {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.pay-history-page__tab-text {
+  font-size: var(--font-size-sm);
+}
+
+.pay-history-page__body {
+  flex: 1;
+  height: calc(100vh - 88px - 56px);
+  padding: var(--spacing-md);
+}
+
+.pay-history-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 0;
+}
+
+.pay-history-page__empty-icon {
+  font-size: 80px;
+}
+
+.pay-history-page__empty-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-top: var(--spacing-sm);
+}
+
+.pay-history-page__list {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.pay-history-page__item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.pay-history-page__item:last-child {
+  border-bottom: none;
+}
+
+.pay-history-page__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-page);
+  flex-shrink: 0;
+  margin-right: var(--spacing-sm);
+}
+
+.pay-history-page__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pay-history-page__name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.pay-history-page__time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+.pay-history-page__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  margin-left: var(--spacing-sm);
+}
+
+.pay-history-page__amount {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pay-history-page__status {
+  font-size: var(--font-size-xs);
+  margin-top: 4px;
+  padding: 2px 12px;
+  border-radius: 9999px;
+  line-height: 1.4;
+}
+
+.pay-history-page__status--success {
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.12);
+}
+
+.pay-history-page__status--warning {
+  color: #F59E0B;
+  background-color: rgba(245, 158, 11, 0.12);
+}
+
+.pay-history-page__status--failed {
+  color: var(--color-text-tertiary);
+  background-color: rgba(150, 150, 150, 0.12);
+}
+
+.pay-history-page__status--info {
+  color: #3B82F6;
+  background-color: rgba(59, 130, 246, 0.12);
+}
