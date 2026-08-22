@@ -1,0 +1,158 @@
+.recipes-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-bg-page, #F7F7FB);
+  padding-top: calc(88px + env(safe-area-inset-top));
+  box-sizing: border-box;
+}
+
+.recipes-page__search {
+  padding: 0 16px;
+  margin-top: 8px;
+}
+
+.recipes-page__tabs-wrap {
+  margin-top: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.recipes-page__tabs-scroll {
+  overflow: hidden;
+}
+
+.recipes-page__tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 12px 0;
+  min-width: max-content;
+}
+
+.recipes-page__tab {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #F0F0F0;
+  transition: all 0.2s;
+}
+
+.recipes-page__tab--active {
+  background: #FF4757;
+}
+
+.recipes-page__tab-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary, #666);
+}
+
+.recipes-page__tab--active .recipes-page__tab-text {
+  color: #fff;
+}
+
+.recipes-page__body {
+  flex: 1;
+  height: calc(100vh - 88px - 60px - 56px);
+  padding: 16px;
+}
+
+.recipes-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.recipes-page__card {
+  background: var(--color-bg-card, #fff);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.recipes-page__card-cover {
+  width: 100%;
+  height: 130px;
+  display: block;
+}
+
+.recipes-page__card-body {
+  padding: 10px 12px 12px;
+}
+
+.recipes-page__card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333);
+  display: block;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.recipes-page__card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipes-page__card-author {
+  font-size: 11px;
+  color: var(--color-text-tertiary, #999);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recipes-page__card-likes {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.recipes-page__card-heart {
+  font-size: 11px;
+  color: #FF4757;
+}
+
+.recipes-page__card-like-num {
+  font-size: 11px;
+  color: var(--color-text-tertiary, #999);
+}
+
+/* Footer */
+.recipes-page__footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--color-bg-page, #F7F7FB);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.recipes-page__publish-btn {
+  background: linear-gradient(135deg, #FF4757, #FF6B81);
+  border-radius: 50px;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(255, 71, 87, 0.35);
+}
+
+.recipes-page__publish-btn-icon {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 300;
+}
+
+.recipes-page__publish-btn-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.recipes-page__safe-bottom {
+  height: 20px;
+}
