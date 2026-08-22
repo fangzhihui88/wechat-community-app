@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar'
 import './index.css'
 
 const sections = [
-  { title: '第一条 协议的接受', desc: '欢迎使用微信社区小程序。当您注册、登录或使用本产品时，即表示您已阅读、理解并同意本协议的全部内容。' },
+  { title: '第一条 协议的接受', desc: '欢迎使用源头社区。当您注册、登录或使用本产品时，即表示您已阅读、理解并同意本协议的全部内容。' },
   { title: '第二条 账号注册', desc: '您应使用真实、合法的信息注册账号。账号仅限本人使用，不得转让、出借或出售。因保管不善导致的损失由您自行承担。' },
   { title: '第三条 用户行为规范', desc: '您承诺在使用本产品过程中遵守法律法规，不得发布违法信息，不得利用本产品从事任何违法违规活动。' },
   { title: '第四条 内容版权', desc: '您在本平台发布的原创内容，著作权归您所有；您授权平台在合理范围内进行展示、传播与推广。' },
@@ -20,7 +20,7 @@ const UserAgreement = memo(() => {
       <NavBar title="用户协议" showBack />
       <ScrollView scrollY className="agreement-page__body">
         <View className="agreement-page__header">
-          <Text className="agreement-page__title">微信社区用户协议</Text>
+          <Text className="agreement-page__title">源头社区用户协议</Text>
           <Text className="agreement-page__meta">更新日期：2026 年 8 月 22 日</Text>
         </View>
         {sections.map((s) => (
