@@ -250,3 +250,357 @@ export type FeedTab = 'recommend' | 'follow' | 'nearby'
 export type ThemeMode = 'light' | 'dark'
 // 搜索类型
 export type SearchType = 'all' | 'post' | 'user' | 'topic'
+
+// ============== 健康打卡 ==============
+export interface HealthRecord {
+  id: string
+  date: string
+  steps: number
+  sleepHours: number
+  waterMl: number
+  checked: boolean
+}
+export interface HealthPlan {
+  id: string
+  streak: number
+  todayDone: boolean
+  totalDays: number
+  records: HealthRecord[]
+}
+
+// ============== 学习 ==============
+export interface StudyPlan {
+  id: string
+  title: string
+  cover: string
+  progress: number
+  totalHours: number
+  category: string
+}
+export interface Course {
+  id: string
+  title: string
+  teacher: string
+  cover: string
+  duration: string
+  students: number
+}
+
+// ============== 美食菜谱 ==============
+export type RecipeCategory = '早餐' | '午餐' | '晚餐' | '甜点' | '饮品'
+export interface Recipe {
+  id: string
+  title: string
+  author: string
+  cover: string
+  likes: number
+  category: RecipeCategory
+  cookTime: string
+  difficulty: string
+}
+
+// ============== 旅游攻略 ==============
+export interface Destination {
+  id: string
+  name: string
+  cover: string
+  desc: string
+  rating: number
+}
+export interface TravelArticle {
+  id: string
+  title: string
+  location: string
+  reads: number
+  cover: string
+  author: string
+  date: string
+}
+
+// ============== 宠物 ==============
+export type PetStatus = '待领养' | '已领养' | '救助中'
+export interface Pet {
+  id: string
+  name: string
+  species: string
+  breed: string
+  age: string
+  gender: string
+  weight: string
+  status: PetStatus
+  avatar: string
+  owner: string
+  images: string[]
+  notes: string[]
+}
+
+// ============== 车辆 ==============
+export type CarType = '轿车' | 'SUV' | '跑车' | '电动车' | '摩托'
+export interface Car {
+  id: string
+  brand: string
+  model: string
+  type: CarType
+  cover: string
+  ownerAvatar: string
+  ownerName: string
+  location: string
+  likes: number
+}
+
+// ============== 房产 ==============
+export interface Listing {
+  id: string
+  community: string
+  address: string
+  area: number
+  price: number
+  unitPrice: number
+  cover: string
+  rooms: string
+  floor: string
+ 朝向: string
+  decorated: boolean
+}
+
+// ============== 婚庆 ==============
+export type WeddingCategory = '摄影' | '化妆' | '场地' | '礼服' | '策划'
+export interface WeddingVendor {
+  id: string
+  name: string
+  category: WeddingCategory
+  cover: string
+  rating: number
+  priceRange: string
+  tags: string[]
+}
+export interface WeddingProgress {
+  step: string
+  done: boolean
+}
+
+// ============== 读书 ==============
+export interface Book {
+  id: string
+  title: string
+  author: string
+  cover: string
+  progress: number
+  totalPages: number
+}
+export interface BookReview {
+  id: string
+  bookTitle: string
+  rating: number
+  comment: string
+  userAvatar: string
+  userName: string
+}
+
+// ============== 音乐 ==============
+export interface Song {
+  id: string
+  title: string
+  artist: string
+  cover: string
+  duration: string
+}
+export interface Playlist {
+  id: string
+  name: string
+  cover: string
+  trackCount: number
+  creator: string
+}
+
+// ============== 摄影 ==============
+export type PhotoCategory = '人像' | '风景' | '纪实' | '建筑' | '夜景'
+export interface Photographer {
+  id: string
+  name: string
+  avatar: string
+  style: string
+  worksCount: number
+}
+export interface Photo {
+  id: string
+  url: string
+  photographer: string
+  likes: number
+  category: PhotoCategory
+}
+
+// ============== 艺术 ==============
+export type ArtCategory = '油画' | '水彩' | '雕塑' | '摄影' | '装置'
+export interface Artwork {
+  id: string
+  title: string
+  artist: string
+  year: number
+  cover: string
+  desc: string
+  category: ArtCategory
+}
+
+// ============== 追星 ==============
+export interface IdolSchedule {
+  date: string
+  event: string
+  location: string
+}
+export interface IdolGoods {
+  id: string
+  name: string
+  price: number
+  cover: string
+}
+export interface IdolNews {
+  id: string
+  title: string
+  time: string
+  cover: string
+}
+
+// ============== 健身 ==============
+export interface FitnessPlan {
+  id: string
+  name: string
+  difficulty: string
+  duration: string
+  members: number
+  cover: string
+}
+export interface Coach {
+  id: string
+  name: string
+  avatar: string
+  specialty: string
+  rating: number
+}
+
+// ============== 母婴 ==============
+export type BabyStage = '孕早期' | '孕中期' | '孕晚期' | '0-1岁' | '1-3岁'
+export interface BabyArticle {
+  id: string
+  title: string
+  category: string
+  reads: number
+  cover: string
+}
+export interface BabyProduct {
+  id: string
+  name: string
+  rating: number
+  price: number
+  cover: string
+}
+
+// ============== 心理健康 ==============
+export type MoodType = '😊开心' | '😐一般' | '😢难过' | '😠生气'
+export interface MentalTest {
+  id: string
+  name: string
+  participants: number
+  description: string
+}
+export interface MentalArticle {
+  id: string
+  title: string
+  category: string
+  reads: number
+  cover: string
+}
+
+// ============== 美容美妆 ==============
+export interface BeautyStep {
+  id: number
+  step: string
+  product: string
+  tip: string
+}
+export interface BeautyTutorial {
+  id: string
+  title: string
+  difficulty: string
+  cover: string
+  collects: number
+}
+export interface Ingredient {
+  id: string
+  name: string
+  effect: string
+  safetyLevel: number // 1-5
+}
+
+// ============== 公益 ==============
+export interface CharityProject {
+  id: string
+  name: string
+  org: string
+  participants: number
+  progress: number
+  cover: string
+  target: number
+}
+export interface CharityNews {
+  id: string
+  title: string
+  time: string
+  cover: string
+}
+
+// ============== 生活预测 ==============
+export type ZodiacSign = '白羊座' | '金牛座' | '双子座' | '巨蟹座' | '狮子座' | '处女座' | '天秤座' | '天蝎座' | '射手座' | '摩羯座' | '水瓶座' | '双鱼座'
+export type FortuneDimension = '爱情' | '事业' | '财运' | '健康'
+export interface FortuneRating {
+  dimension: FortuneDimension
+  star: number // 1-5
+}
+export interface FortuneResult {
+  sign: ZodiacSign
+  overall: string
+  ratings: FortuneRating[]
+  luckyColor: string
+  luckyNumber: number
+}
+
+// ===== 扫码支付 =====
+export interface PayOrder {
+  id: string
+  amount: number
+  merchantName: string
+  merchantAvatar: string
+  status: PayStatus
+  createdAt: string
+  desc?: string
+}
+export type PayStatus = 'pending' | 'paid' | 'failed' | 'refunded'
+export type PayMethod = 'balance' | 'points' | 'coupon'
+
+// ===== 付款码 =====
+export interface PaymentCode {
+  id: string
+  amount?: number  // 固定金额，无则为任意金额
+  note?: string
+  createdAt: string
+  expiredAt: string
+}
+
+// ===== 好友系统 =====
+export interface FriendRequest {
+  id: string
+  fromUser: User
+  toUserId: string
+  status: 'pending' | 'accepted' | 'rejected'
+  message?: string  // 申请留言
+  createdAt: string
+  updatedAt: string
+}
+export interface Friend extends User {
+  remark?: string      // 备注名
+  tag?: string         // 分组标签
+  isTop?: boolean      // 是否置顶
+  lastChatTime?: string
+  isOnline?: boolean
+  source: 'search' | 'qr' | 'nearby' | 'group' | 'recommend'
+}

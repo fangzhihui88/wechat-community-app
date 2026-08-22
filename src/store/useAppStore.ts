@@ -182,6 +182,16 @@ const mockFAQs: FAQItem[] = [
   { q: '私信功能如何使用？', a: '在他人主页点击「私信」按钮，或通过「消息」页的私信 Tab 进入聊天。' },
 ]
 
+// ============== 好友系统 Mock 用户 ==============
+const mockUsers: User[] = [
+  { ...mockCurrentUser },
+  mkUser('user_002', '产品经理小王', 1, { avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80', isVip: true }),
+  mkUser('user_003', '设计师阿美', 2, { avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80' }),
+  mkUser('user_004', '全栈工程师', 3, { avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80', isVip: true }),
+  mkUser('user_005', '技术大V', 4, { avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80', isVip: true }),
+  mkUser('user_006', '咖啡爱好者', 5, { avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80' }),
+]
+
 // ============== Store ==============
 interface AppState {
   currentUser: User | null
@@ -230,6 +240,13 @@ interface AppState {
 
   isLoading: boolean
   isRefreshing: boolean
+  // 扫码支付
+  payOrders: Array<{id:string;amount:number;merchantName:string;merchantAvatar:string;status:'pending'|'paid'|'failed'|'refunded';createdAt:string;desc?:string}>
+  paymentCodes: Array<{id:string;amount?:number;note?:string;createdAt:string;expiredAt:string}>
+  // 好友系统
+  friendRequests: Array<{id:string;fromUser:User;toUserId:string;status:'pending'|'accepted'|'rejected';message?:string;createdAt:string;updatedAt:string}>
+  friends: Array<User & {remark?:string;tag?:string;isTop?:boolean;lastChatTime?:string;isOnline?:boolean;source:string}>
+  unreadFriendReqCount: number
 
   // actions
   setCurrentUser: (u: User | null) => void
@@ -287,6 +304,26 @@ interface AppState {
 
   setLoading: (b: boolean) => void
   setRefreshing: (b: boolean) => void
+
+  // 扫码支付
+  addPayOrder: (order: {
+    id: string
+    amount: number
+    merchantName: string
+    merchantAvatar: string
+    status: 'pending' | 'paid' | 'failed' | 'refunded'
+    createdAt: string
+    desc?: string
+  }) => void
+  updatePayOrderStatus: (id: string, status: 'pending' | 'paid' | 'failed' | 'refunded') => void
+
+  // 好友系统 actions
+  sendFriendRequest: (toUserId: string, message?: string) => void
+  acceptFriendRequest: (id: string) => void
+  rejectFriendRequest: (id: string) => void
+  updateFriendRemark: (userId: string, remark: string) => void
+  toggleFriendTop: (userId: string) => void
+  removeFriend: (userId: string) => void
 }
 
 const findPost = (posts: Post[], id: string) => posts.find((p) => p.id === id)
@@ -338,6 +375,31 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   isLoading: false,
   isRefreshing: false,
+  // 扫码支付 mock
+  payOrders: [
+    { id: 'po_001', amount: 0.01, merchantName: '源头社区商户', merchantAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop', status: 'paid', createdAt: '2026-08-20T14:30:00Z', desc: '会员充值' },
+    { id: 'po_002', amount: 12.50, merchantName: '社区便利店', merchantAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop', status: 'paid', createdAt: '2026-08-19T18:00:00Z', desc: '商品购买' },
+    { id: 'po_003', amount: 88.00, merchantName: '源头咖啡馆', merchantAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop', status: 'paid', createdAt: '2026-08-18T12:00:00Z' },
+    { id: 'po_004', amount: 5.00, merchantName: '打印服务', merchantAvatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop', status: 'pending', createdAt: '2026-08-22T10:00:00Z', desc: '待支付' },
+    { id: 'po_005', amount: 200.00, merchantName: '社区物业', merchantAvatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop', status: 'failed', createdAt: '2026-08-17T09:00:00Z', desc: '物业费' },
+  ],
+  paymentCodes: [
+    { id: 'pc_001', amount: undefined, note: '任意金额收款码', createdAt: '2026-08-15T00:00:00Z', expiredAt: '2027-08-15T00:00:00Z' },
+    { id: 'pc_002', amount: 66.66, note: '六六大顺', createdAt: '2026-08-18T00:00:00Z', expiredAt: '2026-09-18T00:00:00Z' },
+  ],
+  // 好友系统 mock
+  friendRequests: [
+    { id: 'fr_001', fromUser: mockUsers[2], toUserId: 'user_001', status: 'pending', message: '你好，我是前端开发者，想和你交流技术', createdAt: '2026-08-21T10:00:00Z', updatedAt: '2026-08-21T10:00:00Z' },
+    { id: 'fr_002', fromUser: mockUsers[3], toUserId: 'user_001', status: 'pending', message: '看到你的作品很棒，申请加个好友', createdAt: '2026-08-22T08:00:00Z', updatedAt: '2026-08-22T08:00:00Z' },
+    { id: 'fr_003', fromUser: mockUsers[4], toUserId: 'user_001', status: 'accepted', message: '', createdAt: '2026-08-18T09:00:00Z', updatedAt: '2026-08-18T10:00:00Z' },
+  ],
+  friends: [
+    { ...mockUsers[1], remark: '老王', tag: '同事', isTop: true, lastChatTime: '2026-08-21T18:00:00Z', isOnline: true, source: 'search' },
+    { ...mockUsers[2], tag: '技术', isOnline: false, lastChatTime: '2026-08-20T20:30:00Z', source: 'recommend' },
+    { ...mockUsers[4], remark: '大V', tag: '行业', isTop: false, isOnline: true, source: 'qr' },
+    { ...mockUsers[5], tag: '生活', isOnline: false, source: 'nearby' },
+  ],
+  unreadFriendReqCount: 2,
 
   setCurrentUser: (u) => set({ currentUser: u }),
   setLoginStatus: (s) => set({ isLoggedIn: s }),
@@ -471,4 +533,56 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   setLoading: (b) => set({ isLoading: b }),
   setRefreshing: (b) => set({ isRefreshing: b }),
+
+  // 扫码支付 actions
+  addPayOrder: (order) => set((s) => ({
+    payOrders: [{ ...order, id: `po_${Date.now()}` }, ...s.payOrders],
+    walletBalance: order.status === 'paid' ? s.walletBalance - order.amount : s.walletBalance,
+  })),
+  updatePayOrderStatus: (id, status) => set((s) => ({
+    payOrders: s.payOrders.map((o) => o.id === id ? { ...o, status } : o),
+    walletBalance: status === 'paid' ? s.walletBalance - (s.payOrders.find(o=>o.id===id)?.amount||0) : s.walletBalance,
+  })),
+  addPaymentCode: (code) => set((s) => ({
+    paymentCodes: [{ ...code, id: `pc_${Date.now()}` }, ...s.paymentCodes],
+  })),
+  removePaymentCode: (id) => set((s) => ({
+    paymentCodes: s.paymentCodes.filter((c) => c.id !== id),
+  })),
+
+  // 好友系统 actions
+  sendFriendRequest: (toUserId, message) => set((s) => ({
+    friendRequests: [{
+      id: `fr_${Date.now()}`,
+      fromUser: s.currentUser as User,
+      toUserId,
+      status: 'pending',
+      message,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    }, ...s.friendRequests],
+  })),
+  acceptFriendRequest: (id) => set((s) => {
+    const req = s.friendRequests.find(r => r.id === id)
+    if (!req) return s
+    const newFriend = { ...req.fromUser, source: 'recommend' as const }
+    return {
+      friendRequests: s.friendRequests.map(r => r.id === id ? { ...r, status: 'accepted', updatedAt: new Date().toISOString() } : r),
+      friends: [newFriend, ...s.friends],
+      unreadFriendReqCount: Math.max(0, s.unreadFriendReqCount - 1),
+    }
+  }),
+  rejectFriendRequest: (id) => set((s) => ({
+    friendRequests: s.friendRequests.map(r => r.id === id ? { ...r, status: 'rejected', updatedAt: new Date().toISOString() } : r),
+    unreadFriendReqCount: Math.max(0, s.unreadFriendReqCount - 1),
+  })),
+  updateFriendRemark: (userId, remark) => set((s) => ({
+    friends: s.friends.map(f => f.id === userId ? { ...f, remark } : f),
+  })),
+  toggleFriendTop: (userId) => set((s) => ({
+    friends: s.friends.map(f => f.id === userId ? { ...f, isTop: !f.isTop } : f),
+  })),
+  removeFriend: (userId) => set((s) => ({
+    friends: s.friends.filter(f => f.id !== userId),
+  })),
 }))

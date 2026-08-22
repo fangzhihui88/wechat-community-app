@@ -1,13 +1,13 @@
-# 微信社区小程序 - WeChat Community Mini Program
+# 源头社区 - WeChat Community Mini Program
 
 ## 技术栈
 
-- **框架**：Taro 4.x（React 语法，跨端支持微信小程序）
+- **框架**：Taro 4.x（React 语法，跨端支持小程序）
 - **语言**：TypeScript
 - **样式**：Tailwind CSS + Taro UI
 - **状态管理**：Zustand
 - **路由**：Taro Router
-- **目标平台**：微信小程序
+- **目标平台**：小程序
 
 ## 项目结构
 
@@ -97,10 +97,10 @@ src/
 # 安装依赖（Taro 项目需跳过 peer 依赖检查）
 npm install --legacy-peer-deps
 
-# 开发微信小程序（微信开发者工具导入项目根目录，产物在 dist/）
+# 开发小程序（开发者工具导入项目根目录，产物在 dist/）
 npm run dev:weapp
 
-# 构建微信小程序
+# 构建小程序
 npm run build:weapp
 
 # 构建 H5 并在浏览器预览
@@ -131,11 +131,11 @@ npm run preview:h5
 
 然后浏览器打开 **http://localhost:8848/** 即可体验完整页面（首页 Feed 流、点赞/评论交互、发布、消息、我的）。
 
-### 方式二：微信开发者工具（真机效果）
+### 方式二：开发者工具（真机效果）
 
-1. 安装[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+1. 安装[开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 2. 启动项目构建：`npm run dev:weapp`（保持运行，支持热更新）
-3. 微信开发者工具 → 导入项目 → 选择本项目根目录
+3. 开发者工具 → 导入项目 → 选择本项目根目录
 4. AppID 选择「测试号」（project.config.json 已配置 touristappid）
 5. 即可在模拟器/真机预览
 
@@ -157,7 +157,7 @@ npm run preview:h5
 - [ ] 小程序 AppID 正式配置
 - [ ] 替换占位 tabBar 图标为设计稿图标
 
-## 主要功能（300 项）
+## 主要功能（307 项）
 
 **首页 / Feed 流**
 1. 多 Tab 首页（推荐 / 关注 / 附近）
@@ -314,6 +314,10 @@ npm run preview:h5
 116. 优惠券（满减券 / 体验券）
 117. 领取优惠券
 118. 使用优惠券
+119. 扫码支付（模拟商户扫码付款流程）
+120. 付款码（动态收款码 + 金额选择）
+121. 支付记录（全部/已完成/待支付/已退款）
+122. 生成收款码（自定义金额收款码）
 
 **会员体系**
 119. VIP 会员页（多档位套餐）
@@ -411,9 +415,9 @@ npm run preview:h5
 
 **双端构建**
 191. H5 端构建（npm run build:h5）
-192. 微信小程序端构建（npm run dev:weapp）
+192. 小程序端构建（npm run dev:weapp）
 193. 永久预览链接（GitHub Pages）
-194. 微信开发者工具导入
+194. 开发者工具导入
 195. PX → RPX 自动转换（designWidth 750）
 196. TabBar 5 项导航（首页 / 发现 / 发布 / 消息 / 我的）
 197. 非 TabBar 页面自定义导航栏
@@ -533,8 +537,17 @@ npm run preview:h5
 299. CI/CD 自动化构建（GitHub Actions）
 300. 多环境配置（dev/build + H5/WeApp）
 
+**好友与消息（301-307）**
+301. 好友申请列表（待处理/已处理分组）
+302. 同意/拒绝好友申请（操作后更新列表状态）
+303. 通讯录好友列表（字母索引+搜索+置顶）
+304. 好友备注名设置（修改后即时更新）
+305. 好友资料卡（发消息/备注/置顶/删除操作面板）
+306. 添加好友（搜索/扫码/推荐列表/来源标签）
+307. 消息中心 5Tab（互动/关注/好友/私信/系统）
+
 > 💡 数据均为 `src/store/useAppStore.ts` 中的 mock 数据，便于本地体验全部交互。
-> 🔗 永久预览：https://fangzhihui88.github.io/wechat-community-app/
+> 🔗 永久预览：https://fangzhihui88.github.io/yuantou-community/
 
 ## 设计规范
 
