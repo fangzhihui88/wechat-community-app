@@ -6,7 +6,7 @@ import './index.css'
 
 const About = memo(() => {
   const handleCopy = useCallback(() => {
-    Taro.setClipboardData({ data: 'https://github.com/fangzhihui88/wechat-community-app' })
+    Taro.setClipboardData({ data: 'https://github.com/fangzhihui88/yuantou-community' })
   }, [])
 
   const handleCheckUpdate = useCallback(() => {
@@ -20,7 +20,7 @@ const About = memo(() => {
         <View className="about-page__logo">
           <Text className="about-page__logo-text">👥</Text>
         </View>
-        <Text className="about-page__name">微信社区</Text>
+        <Text className="about-page__name">源头社区</Text>
         <Text className="about-page__version">版本 2.0.0</Text>
         <Text className="about-page__desc">
           一个集社交、内容分享、同城活动于一体的社区小程序。
