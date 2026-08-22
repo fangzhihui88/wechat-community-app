@@ -1,0 +1,73 @@
+.star-page { background: var(--color-bg-page, #F6F7FB); }
+.star-page__scroll { height: calc(100vh - 88px - env(safe-area-inset-top)); }
+
+.star-hero {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 32px 24px; background: linear-gradient(135deg, #FF4757, #7C4DFF);
+  color: #fff; gap: 8px;
+}
+.star-hero__avatar {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.6);
+}
+.star-hero__name { font-size: 36px; font-weight: 700; }
+.star-hero__fans { font-size: 24px; opacity: 0.85; }
+.star-hero__follow-btn {
+  margin-top: 8px; padding: 8px 32px; border-radius: 40px;
+  background: rgba(255,255,255,0.2); font-size: 26px;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.star-section { padding: 24px; }
+.star-section__title { font-size: 30px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 16px; display: block; }
+
+/* 日历 */
+.star-calendar { background: var(--color-bg-card); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+.star-calendar__weekdays {
+  display: flex; margin-bottom: 8px;
+}
+.star-calendar__wd {
+  flex: 1; text-align: center; font-size: 22px;
+  color: var(--color-text-tertiary); font-weight: 500;
+}
+.star-calendar__grid { display: flex; flex-wrap: wrap; }
+.star-calendar__cell {
+  width: calc(100% / 7); aspect-ratio: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; font-size: 24px;
+  color: var(--color-text-primary); position: relative; gap: 2px;
+}
+.star-calendar__cell--empty { }
+.star-calendar__cell--schedule { color: #FF4757; font-weight: 700; }
+.star-calendar__cell--today { background: rgba(255,71,87,0.12); border-radius: 50%; }
+.star-calendar__dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #FF4757;
+}
+
+.star-schedule-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; background: var(--color-bg-card); border-radius: 12px; margin-bottom: 8px;
+}
+.star-schedule-item__date { font-size: 22px; color: #FF4757; font-weight: 600; min-width: 140px; }
+.star-schedule-item__event { flex: 1; font-size: 26px; color: var(--color-text-primary); font-weight: 500; }
+.star-schedule-item__loc { font-size: 22px; color: var(--color-text-tertiary); }
+
+/* 商品 */
+.star-goods-scroll { white-space: nowrap; }
+.star-goods-card {
+  display: inline-block; width: 200px; margin-right: 12px; vertical-align: top;
+  background: var(--color-bg-card); border-radius: 12px; overflow: hidden;
+}
+.star-goods-card__img { width: 200px; height: 200px; }
+.star-goods-card__name { font-size: 24px; padding: 8px 12px; color: var(--color-text-primary); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.star-goods-card__footer { display: flex; align-items: center; justify-content: space-between; padding: 0 12px 12px; }
+.star-goods-card__price { font-size: 28px; color: #FF4757; font-weight: 700; }
+.star-goods-card__cart {
+  padding: 4px 12px; border-radius: 20px; background: #FF4757; color: #fff; font-size: 22px;
+}
+
+/* 资讯 */
+.star-news-item { display: flex; gap: 12px; padding: 12px; background: var(--color-bg-card); border-radius: 12px; margin-bottom: 8px; }
+.star-news-item__cover { width: 160px; height: 100px; border-radius: 8px; flex-shrink: 0; }
+.star-news-item__body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.star-news-item__title { font-size: 26px; color: var(--color-text-primary); font-weight: 500; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.star-news-item__time { font-size: 22px; color: var(--color-text-tertiary); }
