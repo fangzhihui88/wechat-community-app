@@ -20,10 +20,10 @@ const fetchMorePosts = async (page: number): Promise<Post[]> => {
       ]
       const newPosts: Post[] = [{
         id: `post_new_${page}_${Date.now()}`,
-        user: { id: `u_${page}`, nickname: `用户${page}`, avatar: `https://picsum.photos/${210 + page}`, following: 0, followers: Math.floor(Math.random() * 1000) },
+        user: { id: `u_${page}`, nickname: `用户${page}`, avatar: `https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&q=80`, following: 0, followers: Math.floor(Math.random() * 1000) },
         content: pool[page % pool.length],
         type: 'text',
-        images: page % 2 === 0 ? [`https://picsum.photos/400/30${page % 10}`] : undefined,
+        images: page % 2 === 0 ? [`https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80`] : undefined,
         likes: Math.floor(Math.random() * 500),
         comments: Math.floor(Math.random() * 50),
         shares: Math.floor(Math.random() * 20),

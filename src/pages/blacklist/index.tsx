@@ -7,8 +7,8 @@ import EmptyState from '../../components/EmptyState'
 import './index.css'
 
 const mockBlocked = [
-  { id: 'user_099', nickname: '广告机器人', avatar: 'https://picsum.photos/299' },
-  { id: 'user_098', nickname: '杠精本精', avatar: 'https://picsum.photos/298' },
+  { id: 'user_099', nickname: '广告机器人', avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&h=200&fit=crop&q=80' },
+  { id: 'user_098', nickname: '杠精本精', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&q=80' },
 ]
 
 const Blacklist = memo(() => {

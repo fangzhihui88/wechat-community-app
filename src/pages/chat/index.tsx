@@ -12,7 +12,7 @@ import './index.css'
 const mockConversationList: Conversation[] = [
   {
     id: 'conv_001',
-    user: { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', following: 0, followers: 5200, posts: 0 },
+    user: { id: 'user_002', nickname: '产品经理小王', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80', following: 0, followers: 5200, posts: 0 },
     lastMessage: '那个需求文档你看了吗？',
     lastTime: '2026-08-21T18:00:00Z',
     unread: 2,
@@ -23,7 +23,7 @@ const mockConversationList: Conversation[] = [
   },
   {
     id: 'conv_002',
-    user: { id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202', following: 0, followers: 8900, posts: 0 },
+    user: { id: 'user_003', nickname: '设计师阿美', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80', following: 0, followers: 8900, posts: 0 },
     lastMessage: '[图片]',
     lastTime: '2026-08-20T20:30:00Z',
     unread: 0,
@@ -34,7 +34,7 @@ const mockConversationList: Conversation[] = [
   },
   {
     id: 'conv_003',
-    user: { id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203', following: 0, followers: 3200, posts: 0 },
+    user: { id: 'user_004', nickname: '全栈工程师', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80', following: 0, followers: 3200, posts: 0 },
     lastMessage: '好的，线上见！',
     lastTime: '2026-08-19T14:20:00Z',
     unread: 0,
@@ -45,7 +45,7 @@ const mockConversationList: Conversation[] = [
   },
   {
     id: 'conv_004',
-    user: { id: 'user_005', nickname: '社区运营小李', avatar: 'https://picsum.photos/204', following: 0, followers: 2100, posts: 0 },
+    user: { id: 'user_005', nickname: '社区运营小李', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80', following: 0, followers: 2100, posts: 0 },
     lastMessage: '欢迎加入我们社区！',
     lastTime: '2026-08-18T09:00:00Z',
     unread: 1,

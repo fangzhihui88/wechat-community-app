@@ -7,7 +7,7 @@ const MOCK = {
   id: '1',
   title: '前端开发工程师',
   company: '字节跳动',
-  logo: 'https://picsum.photos/200/200?random=job1',
+  logo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=job1',
   salary: '25-45K',
   location: '北京·海淀区',
   size: '10000人以上',

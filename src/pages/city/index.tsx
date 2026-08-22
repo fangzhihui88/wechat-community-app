@@ -22,14 +22,14 @@ interface CityContent {
 }
 
 const MOCK_CONTENTS: CityContent[] = [
-  { id: '1', type: 'article', title: '周末去哪玩？探秘城市艺术街区', content: '发现了一个超美的艺术街区，适合拍照打卡...', likes: 128, comments: 32, image: 'https://picsum.photos/seed/c1/400' },
+  { id: '1', type: 'article', title: '周末去哪玩？探秘城市艺术街区', content: '发现了一个超美的艺术街区，适合拍照打卡...', likes: 128, comments: 32, image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=400&fit=crop&q=80' },
   { id: '2', type: 'topic', title: '大家周末都做什么？', content: '分享你的周末生活方式', likes: 256, comments: 89 },
-  { id: '3', type: 'user', nickname: '本地达人小明', avatar: 'https://picsum.photos/seed/u1/200', signature: '专注本地生活服务10年' },
-  { id: '4', type: 'article', title: '这家隐藏餐厅绝了！', content: '人均50吃得超满足，关键是环境还很好...', likes: 89, comments: 15, image: 'https://picsum.photos/seed/c2/400' },
-  { id: '5', type: 'user', nickname: '城市探索者', avatar: 'https://picsum.photos/seed/u2/200', signature: '用脚步丈量这座城市的每一个角落' },
+  { id: '3', type: 'user', nickname: '本地达人小明', avatar: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=200&h=200&fit=crop&q=80', signature: '专注本地生活服务10年' },
+  { id: '4', type: 'article', title: '这家隐藏餐厅绝了！', content: '人均50吃得超满足，关键是环境还很好...', likes: 89, comments: 15, image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=400&fit=crop&q=80' },
+  { id: '5', type: 'user', nickname: '城市探索者', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&q=80', signature: '用脚步丈量这座城市的每一个角落' },
   { id: '6', type: 'topic', title: '租房避坑指南', content: '分享租房经验，避免踩坑', likes: 167, comments: 45 },
-  { id: '7', type: 'article', title: '周末徒步好去处', content: '推荐几条适合周末徒步的路线...', likes: 234, comments: 67, image: 'https://picsum.photos/seed/c3/400' },
-  { id: '8', type: 'user', nickname: '美食侦探', avatar: 'https://picsum.photos/seed/u3/200', signature: '分享最地道的本地美食' },
+  { id: '7', type: 'article', title: '周末徒步好去处', content: '推荐几条适合周末徒步的路线...', likes: 234, comments: 67, image: 'https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=400&h=400&fit=crop&q=80' },
+  { id: '8', type: 'user', nickname: '美食侦探', avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&h=200&fit=crop&q=80', signature: '分享最地道的本地美食' },
 ]
 
 const City = memo(() => {

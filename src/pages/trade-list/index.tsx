@@ -54,7 +54,7 @@ function TradeList() {
               >
                 <Image
                   className="goods-card__pic"
-                  src={`https://picsum.photos/300/300?random=${item.id}`}
+                  src={`https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&q=80?random=${item.id}`}
                   mode="aspectFill"
                 />
                 <View className="goods-card__info">

@@ -9,12 +9,12 @@ import './index.css'
 
 // 本地 mock 粉丝数据
 const mockFollowers: User[] = [
-  { id: 'f1', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://picsum.photos/200', bio: '这个人很懒~', following: 120, followers: 320, posts: 24, isVip: true, isFollowing: false },
-  { id: 'f2', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://picsum.photos/201', bio: '这个人很懒~', following: 58, followers: 12, posts: 5, isVip: false, isFollowing: true },
-  { id: 'f3', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://picsum.photos/202', bio: '这个人很懒~', following: 980, followers: 12000, posts: 312, isVip: true, isFollowing: true },
-  { id: 'f4', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://picsum.photos/203', bio: '这个人很懒~', following: 11, followers: 6, posts: 1, isVip: false, isFollowing: false },
-  { id: 'f5', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://picsum.photos/204', bio: '这个人很懒~', following: 233, followers: 89, posts: 47, isVip: false, isFollowing: false },
-  { id: 'f6', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://picsum.photos/205', bio: '这个人很懒~', following: 45, followers: 200, posts: 18, isVip: true, isFollowing: true },
+  { id: 'f1', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80', bio: '这个人很懒~', following: 120, followers: 320, posts: 24, isVip: true, isFollowing: false },
+  { id: 'f2', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80', bio: '这个人很懒~', following: 58, followers: 12, posts: 5, isVip: false, isFollowing: true },
+  { id: 'f3', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80', bio: '这个人很懒~', following: 980, followers: 12000, posts: 312, isVip: true, isFollowing: true },
+  { id: 'f4', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80', bio: '这个人很懒~', following: 11, followers: 6, posts: 1, isVip: false, isFollowing: false },
+  { id: 'f5', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80', bio: '这个人很懒~', following: 233, followers: 89, posts: 47, isVip: false, isFollowing: false },
+  { id: 'f6', nickname: `用户${Math.floor(Math.random() * 9000) + 1000}`, avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80', bio: '这个人很懒~', following: 45, followers: 200, posts: 18, isVip: true, isFollowing: true },
 ]
 
 const Followers = memo(() => {

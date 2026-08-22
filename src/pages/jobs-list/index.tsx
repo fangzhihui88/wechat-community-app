@@ -7,14 +7,14 @@ import './index.css'
 const INDUSTRIES = ['全部', '互联网', '金融', '教育', '医疗', '制造']
 
 const MOCK_JOBS = [
-  { id: '1', title: '前端开发工程师', company: '字节跳动', logo: 'https://picsum.photos/120/120?random=job1', salary: '25-45K', location: '北京·海淀区', exp: '3-5年' },
-  { id: '2', title: 'UI设计师', company: '阿里巴巴', logo: 'https://picsum.photos/120/120?random=job2', salary: '18-30K', location: '杭州·西湖区', exp: '1-3年' },
-  { id: '3', title: '产品经理', company: '腾讯', logo: 'https://picsum.photos/120/120?random=job3', salary: '30-50K', location: '深圳·南山区', exp: '5-10年' },
-  { id: '4', title: '后端开发工程师', company: '美团', logo: 'https://picsum.photos/120/120?random=job4', salary: '22-40K', location: '北京·朝阳区', exp: '3-5年' },
-  { id: '5', title: '数据分析师', company: '京东', logo: 'https://picsum.photos/120/120?random=job5', salary: '15-25K', location: '北京·亦庄', exp: '1-3年' },
-  { id: '6', title: '运营专员', company: '拼多多', logo: 'https://picsum.photos/120/120?random=job6', salary: '10-18K', location: '上海·长宁区', exp: '1年以下' },
-  { id: '7', title: '测试工程师', company: '网易', logo: 'https://picsum.photos/120/120?random=job7', salary: '18-30K', location: '杭州·滨江区', exp: '2-5年' },
-  { id: '8', title: '算法工程师', company: '百度', logo: 'https://picsum.photos/120/120?random=job8', salary: '35-60K', location: '北京·海淀区', exp: '3-5年' },
+  { id: '1', title: '前端开发工程师', company: '字节跳动', logo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop&q=80', salary: '25-45K', location: '北京·海淀区', exp: '3-5年' },
+  { id: '2', title: 'UI设计师', company: '阿里巴巴', logo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=240&h=240&fit=crop&q=80', salary: '18-30K', location: '杭州·西湖区', exp: '1-3年' },
+  { id: '3', title: '产品经理', company: '腾讯', logo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&h=240&fit=crop&q=80', salary: '30-50K', location: '深圳·南山区', exp: '5-10年' },
+  { id: '4', title: '后端开发工程师', company: '美团', logo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&h=240&fit=crop&q=80', salary: '22-40K', location: '北京·朝阳区', exp: '3-5年' },
+  { id: '5', title: '数据分析师', company: '京东', logo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=240&h=240&fit=crop&q=80', salary: '15-25K', location: '北京·亦庄', exp: '1-3年' },
+  { id: '6', title: '运营专员', company: '拼多多', logo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=240&h=240&fit=crop&q=80', salary: '10-18K', location: '上海·长宁区', exp: '1年以下' },
+  { id: '7', title: '测试工程师', company: '网易', logo: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=240&h=240&fit=crop&q=80', salary: '18-30K', location: '杭州·滨江区', exp: '2-5年' },
+  { id: '8', title: '算法工程师', company: '百度', logo: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=240&h=240&fit=crop&q=80', salary: '35-60K', location: '北京·海淀区', exp: '3-5年' },
 ]
 
 const INDUSTRY_MAP: Record<string, string[]> = {

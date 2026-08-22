@@ -13,12 +13,12 @@ interface LiveItem {
 }
 
 const mockLives: LiveItem[] = [
-  { id: 1, title: '深夜唱歌陪你入眠', streamer: '小甜心', viewers: 2341, cover: 'https://picsum.photos/400/400?random=11' },
-  { id: 2, title: '王者巅峰赛冲分中', streamer: '游戏大神', viewers: 8932, cover: 'https://picsum.photos/400/400?random=12' },
-  { id: 3, title: '美妆教程：日常通勤妆', streamer: '化妆师Mia', viewers: 1567, cover: 'https://picsum.photos/400/400?random=13' },
-  { id: 4, title: '健身打卡第100天', streamer: '肌肉小哥', viewers: 3456, cover: 'https://picsum.photos/400/400?random=14' },
-  { id: 5, title: '夜宵探店：烤串摊', streamer: '吃货小分队', viewers: 789, cover: 'https://picsum.photos/400/400?random=15' },
-  { id: 6, title: '钢琴即兴演奏', streamer: '音乐人阿浩', viewers: 1234, cover: 'https://picsum.photos/400/400?random=16' },
+  { id: 1, title: '深夜唱歌陪你入眠', streamer: '小甜心', viewers: 2341, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop&q=80' },
+  { id: 2, title: '王者巅峰赛冲分中', streamer: '游戏大神', viewers: 8932, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop&q=80' },
+  { id: 3, title: '美妆教程：日常通勤妆', streamer: '化妆师Mia', viewers: 1567, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop&q=80' },
+  { id: 4, title: '健身打卡第100天', streamer: '肌肉小哥', viewers: 3456, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop&q=80' },
+  { id: 5, title: '夜宵探店：烤串摊', streamer: '吃货小分队', viewers: 789, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop&q=80' },
+  { id: 6, title: '钢琴即兴演奏', streamer: '音乐人阿浩', viewers: 1234, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop&q=80' },
 ]
 
 const LiveList = memo(() => {

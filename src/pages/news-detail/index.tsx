@@ -9,7 +9,7 @@ const mockArticle = {
   title: 'AI大模型迎来新突破，多模态能力大幅提升',
   source: '科技日报',
   time: '2024-01-15 10:30',
-  cover: 'https://picsum.photos/800/400?random=41',
+  cover: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&h=800&fit=crop&q=80',
   content: [
     '近日，全球领先的AI研究机构发布了最新一代大语言模型，该模型在多模态理解与生成方面取得了重大突破。',
     '据了解，新模型不仅能够处理文本、图像、音频等多种模态的输入，还能够实现跨模态的联合推理，大幅提升了AI系统的综合能力。',
@@ -19,9 +19,9 @@ const mockArticle = {
 }
 
 const relatedNews = [
-  { id: 2, title: 'GPT-5传闻再起，OpenAI回应：持续创新', cover: 'https://picsum.photos/200/150?random=42' },
-  { id: 3, title: '国内AI大模型盘点：谁将脱颖而出', cover: 'https://picsum.photos/200/150?random=43' },
-  { id: 4, title: 'AI芯片市场竞争加剧，格局重塑', cover: 'https://picsum.photos/200/150?random=44' },
+  { id: 2, title: 'GPT-5传闻再起，OpenAI回应：持续创新', cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/150?random=42' },
+  { id: 3, title: '国内AI大模型盘点：谁将脱颖而出', cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/150?random=43' },
+  { id: 4, title: 'AI芯片市场竞争加剧，格局重塑', cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/150?random=44' },
 ]
 
 const NewsDetail = memo(() => {

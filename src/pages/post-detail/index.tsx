@@ -19,14 +19,14 @@ const PostDetail = memo(() => {
 
   const [comments, setComments] = useState<Comment[]>([
     {
-      id: 'c_001', user: { id: 'u_1', nickname: '热心网友', avatar: 'https://picsum.photos/210', following: 0, followers: 200 },
+      id: 'c_001', user: { id: 'u_1', nickname: '热心网友', avatar: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=200&h=200&fit=crop&q=80', following: 0, followers: 200 },
       content: '写得太好了，收藏起来慢慢看！', likes: 12, createdAt: '2026-08-21T15:00:00Z',
     },
     {
-      id: 'c_002', user: { id: 'u_2', nickname: '前端萌新', avatar: 'https://picsum.photos/211', following: 0, followers: 50 },
+      id: 'c_002', user: { id: 'u_2', nickname: '前端萌新', avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&h=200&fit=crop&q=80', following: 0, followers: 50 },
       content: '请问有源码吗？想学习一下~', likes: 5, createdAt: '2026-08-21T16:30:00Z',
       replies: [
-        { id: 'c_002_1', user: { id: 'u_1', nickname: '热心网友', avatar: 'https://picsum.photos/210', following: 0, followers: 200 }, content: '同求！', likes: 2, createdAt: '2026-08-21T17:00:00Z' },
+        { id: 'c_002_1', user: { id: 'u_1', nickname: '热心网友', avatar: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=200&h=200&fit=crop&q=80', following: 0, followers: 200 }, content: '同求！', likes: 2, createdAt: '2026-08-21T17:00:00Z' },
       ],
     },
   ])
@@ -40,7 +40,7 @@ const PostDetail = memo(() => {
       Taro.showToast({ title: '说点什么吧~', icon: 'none' })
       return
     }
-    const currentUser: User = useAppStore.getState().currentUser || { id: 'me', nickname: '我', avatar: 'https://picsum.photos/200', following: 0, followers: 0 }
+    const currentUser: User = useAppStore.getState().currentUser || { id: 'me', nickname: '我', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80', following: 0, followers: 0 }
     const newComment: Comment = {
       id: `c_${Date.now()}`, user: currentUser, content: inputValue.trim(), likes: 0, createdAt: new Date().toISOString(),
     }

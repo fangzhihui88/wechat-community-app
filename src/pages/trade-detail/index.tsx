@@ -40,7 +40,7 @@ function TradeDetail() {
             <SwiperItem key={n}>
               <Image
                 className="detail-swiper__img"
-                src={`https://picsum.photos/750/500?random=trade${id}${n}`}
+                src={`https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1500&h=1000&fit=crop&q=80${id}${n}`}
                 mode="aspectFill"
               />
             </SwiperItem>

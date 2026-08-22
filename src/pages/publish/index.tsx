@@ -7,9 +7,9 @@ import type { Topic, User } from '../../types'
 import './index.css'
 
 const mockMentionUsers: User[] = [
-  { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', following: 0, followers: 5200 },
-  { id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202', following: 0, followers: 8900 },
-  { id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203', following: 0, followers: 3200 },
+  { id: 'user_002', nickname: '产品经理小王', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80', following: 0, followers: 5200 },
+  { id: 'user_003', nickname: '设计师阿美', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80', following: 0, followers: 8900 },
+  { id: 'user_004', nickname: '全栈工程师', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80', following: 0, followers: 3200 },
 ]
 const hotTopics: Topic[] = [
   { id: 'topic_001', name: '前端', posts: 10000 },

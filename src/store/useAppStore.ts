@@ -11,7 +11,7 @@ import type {
 const mockCurrentUser: User = {
   id: 'user_001',
   nickname: '前端开发者',
-  avatar: 'https://picsum.photos/200',
+  avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80',
   bio: '热爱前端技术，追求卓越用户体验',
   gender: 'male',
   location: '深圳',
@@ -23,7 +23,7 @@ const mockCurrentUser: User = {
 }
 
 const mkUser = (id: string, nickname: string, seed: number, extra: Partial<User> = {}): User => ({
-  id, nickname, avatar: `https://picsum.photos/${200 + seed}`, following: 0, followers: 100 + seed * 37,
+  id, nickname, avatar: `https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&q=80`, following: 0, followers: 100 + seed * 37,
   posts: 1, ...extra,
 })
 
@@ -38,29 +38,29 @@ const mkPost = (
 
 const mockPosts: Post[] = [
   mkPost('post_001',
-    { id: 'user_002', nickname: '产品经理小王', avatar: 'https://picsum.photos/201', followers: 5200, isVip: true },
+    { id: 'user_002', nickname: '产品经理小王', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80', followers: 5200, isVip: true },
     '今天分享一个 React 性能优化的技巧 —— 使用 useMemo 和 useCallback 来避免不必要的重新渲染。#前端 #React',
-    { images: ['https://picsum.photos/400/300', 'https://picsum.photos/400/301'], topics: [{ id: 'topic_001', name: '前端', posts: 10000 }], likes: 328, comments: 45, shares: 12, isHot: true }),
+    { images: ['https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80', 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop&q=80'], topics: [{ id: 'topic_001', name: '前端', posts: 10000 }], likes: 328, comments: 45, shares: 12, isHot: true }),
   mkPost('post_002',
-    { id: 'user_003', nickname: '设计师阿美', avatar: 'https://picsum.photos/202', followers: 8900 },
+    { id: 'user_003', nickname: '设计师阿美', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80', followers: 8900 },
     '分享一组极简风格的 UI 设计稿，大家觉得怎么样？',
-    { images: ['https://picsum.photos/400/302', 'https://picsum.photos/400/303', 'https://picsum.photos/400/304'], topics: [{ id: 'topic_002', name: 'UI设计', posts: 8500 }], likes: 567, comments: 89, shares: 34, location: '深圳·南山', isHot: true }),
+    { images: ['https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&h=600&fit=crop&q=80', 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop&q=80', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=600&fit=crop&q=80'], topics: [{ id: 'topic_002', name: 'UI设计', posts: 8500 }], likes: 567, comments: 89, shares: 34, location: '深圳·南山', isHot: true }),
   mkPost('post_003',
-    { id: 'user_004', nickname: '全栈工程师', avatar: 'https://picsum.photos/203', followers: 3200, isVip: true },
+    { id: 'user_004', nickname: '全栈工程师', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80', followers: 3200, isVip: true },
     'TypeScript 4.9 发布！这些新特性你一定要知道...',
-    { images: ['https://picsum.photos/400/305'], topics: [{ id: 'topic_003', name: 'TypeScript', posts: 5200 }], likes: 234, comments: 67, shares: 45 }),
+    { images: ['https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=600&fit=crop&q=80'], topics: [{ id: 'topic_003', name: 'TypeScript', posts: 5200 }], likes: 234, comments: 67, shares: 45 }),
   mkPost('post_004',
-    { id: 'user_005', nickname: '技术大V', avatar: 'https://picsum.photos/204', followers: 50000, isVip: true },
+    { id: 'user_005', nickname: '技术大V', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80', followers: 50000, isVip: true },
     '一分钟看懂前端工程化演进 🚀',
-    { videos: ['https://www.w3schools.com/html/mov_bbb.mp4'], type: 'video', topics: [{ id: 'topic_004', name: '工程化', posts: 3100 }], likes: 1203, comments: 156, shares: 89, isHot: true }),
+    { videos: ['https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'], type: 'video', topics: [{ id: 'topic_004', name: '工程化', posts: 3100 }], likes: 1203, comments: 156, shares: 89, isHot: true }),
   mkPost('post_005',
-    { id: 'user_006', nickname: '咖啡爱好者', avatar: 'https://picsum.photos/205', followers: 860 },
+    { id: 'user_006', nickname: '咖啡爱好者', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80', followers: 860 },
     '周末手冲咖啡日记 ☕ 今天的豆子是埃塞俄比亚耶加雪菲，花果香很足！',
-    { images: ['https://picsum.photos/400/306'], topics: [{ id: 'topic_009', name: '生活方式', posts: 2600 }], likes: 89, comments: 12, shares: 3, location: '深圳·福田' }),
+    { images: ['https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop&q=80'], topics: [{ id: 'topic_009', name: '生活方式', posts: 2600 }], likes: 89, comments: 12, shares: 3, location: '深圳·福田' }),
   mkPost('post_006',
-    { id: 'user_007', nickname: '摄影达人', avatar: 'https://picsum.photos/206', followers: 15600, isVip: true },
+    { id: 'user_007', nickname: '摄影达人', avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&h=200&fit=crop&q=80', followers: 15600, isVip: true },
     '黄昏时分的深圳湾，绝美！📷',
-    { images: ['https://picsum.photos/400/307', 'https://picsum.photos/400/308'], topics: [{ id: 'topic_010', name: '摄影', posts: 4100 }], likes: 890, comments: 45, shares: 23, location: '深圳·南山' }),
+    { images: ['https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&h=600&fit=crop&q=80', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop&q=80'], topics: [{ id: 'topic_010', name: '摄影', posts: 4100 }], likes: 890, comments: 45, shares: 23, location: '深圳·南山' }),
 ]
 
 const mockTopics: Topic[] = [
@@ -94,9 +94,9 @@ const mockConversations: Conversation[] = [
 
 // ============== 新功能域 Mock ==============
 const mockActivities: Activity[] = [
-  { id: 'act_001', title: '深圳前端技术 Meetup 2026', cover: 'https://picsum.photos/500/300', location: '深圳·南山区科兴科学园', startTime: '2026-09-05T14:00:00Z', participants: 86, maxParticipants: 120, joined: false, host: mkUser('user_005', '技术大V', 4), desc: '前端新技术趋势分享，现场交流，免费参加' },
-  { id: 'act_002', title: 'UI 设计工作坊：从 0 到 1', cover: 'https://picsum.photos/500/301', location: '深圳·福田区设计产业园', startTime: '2026-09-12T09:30:00Z', participants: 32, maxParticipants: 40, joined: true, host: mkUser('user_003', '设计师阿美', 2), desc: '手把手带你完成一个完整的设计项目' },
-  { id: 'act_003', title: '周末摄影外拍活动', cover: 'https://picsum.photos/500/302', location: '深圳·深圳湾公园', startTime: '2026-08-30T16:00:00Z', participants: 18, maxParticipants: 30, joined: false, host: mkUser('user_007', '摄影达人', 6), desc: '一起拍日落，交流摄影技巧' },
+  { id: 'act_001', title: '深圳前端技术 Meetup 2026', cover: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1000&h=600&fit=crop&q=80', location: '深圳·南山区科兴科学园', startTime: '2026-09-05T14:00:00Z', participants: 86, maxParticipants: 120, joined: false, host: mkUser('user_005', '技术大V', 4), desc: '前端新技术趋势分享，现场交流，免费参加' },
+  { id: 'act_002', title: 'UI 设计工作坊：从 0 到 1', cover: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1000&h=600&fit=crop&q=80', location: '深圳·福田区设计产业园', startTime: '2026-09-12T09:30:00Z', participants: 32, maxParticipants: 40, joined: true, host: mkUser('user_003', '设计师阿美', 2), desc: '手把手带你完成一个完整的设计项目' },
+  { id: 'act_003', title: '周末摄影外拍活动', cover: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&h=600&fit=crop&q=80', location: '深圳·深圳湾公园', startTime: '2026-08-30T16:00:00Z', participants: 18, maxParticipants: 30, joined: false, host: mkUser('user_007', '摄影达人', 6), desc: '一起拍日落，交流摄影技巧' },
 ]
 
 const mockRankings: RankingItem[] = [
@@ -119,10 +119,10 @@ const mockCoupons: Coupon[] = [
 ]
 
 const mockMallProducts: MallProduct[] = [
-  { id: 'mp_001', name: '社区定制帆布袋', image: 'https://picsum.photos/300/300', points: 1500, stock: 20 },
-  { id: 'mp_002', name: '限量版社区徽章', image: 'https://picsum.photos/300/301', points: 800, stock: 50 },
-  { id: 'mp_003', name: '咖啡兑换券', image: 'https://picsum.photos/300/302', points: 3000, stock: 10 },
-  { id: 'mp_004', name: '社区会员月卡', image: 'https://picsum.photos/300/303', points: 5000, stock: 5 },
+  { id: 'mp_001', name: '社区定制帆布袋', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&q=80', points: 1500, stock: 20 },
+  { id: 'mp_002', name: '限量版社区徽章', image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=600&fit=crop&q=80', points: 800, stock: 50 },
+  { id: 'mp_003', name: '咖啡兑换券', image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=600&fit=crop&q=80', points: 3000, stock: 10 },
+  { id: 'mp_004', name: '社区会员月卡', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop&q=80', points: 5000, stock: 5 },
 ]
 
 const mockExchangeRecords: ExchangeRecord[] = [
@@ -159,8 +159,8 @@ const mockLotteryPrizes: LotteryPrize[] = [
 ]
 
 const mockDrafts: Draft[] = [
-  { id: 'dr_001', content: '今天要发一篇关于 Taro 跨端开发的文章...', images: ['https://picsum.photos/200/200'], updatedAt: '2026-08-21T22:00:00Z' },
-  { id: 'dr_002', content: '周末爬山的照片，晚点配文', images: ['https://picsum.photos/200/201'], updatedAt: '2026-08-20T18:30:00Z' },
+  { id: 'dr_001', content: '今天要发一篇关于 Taro 跨端开发的文章...', images: ['https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200'], updatedAt: '2026-08-21T22:00:00Z' },
+  { id: 'dr_002', content: '周末爬山的照片，晚点配文', images: ['https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/201'], updatedAt: '2026-08-20T18:30:00Z' },
 ]
 
 const mockVisitors: Visitor[] = [
@@ -399,7 +399,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const knownUser = s.followingList.find((u) => u.id === userId)
     const newConv: Conversation = {
       id: convId,
-      user: knownUser ?? { id: userId, nickname: '用户' + userId.slice(-3), avatar: `https://picsum.photos/${200 + (userId.charCodeAt(userId.length - 1) % 40)}`, following: 0, followers: 0, posts: 0 },
+      user: knownUser ?? { id: userId, nickname: '用户' + userId.slice(-3), avatar: `https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&q=80`, following: 0, followers: 0, posts: 0 },
       lastMessage: content,
       lastTime: new Date().toISOString(),
       unread: 0,

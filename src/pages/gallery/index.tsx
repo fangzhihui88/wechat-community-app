@@ -6,15 +6,15 @@ import EmptyState from '../../components/EmptyState'
 import './index.css'
 
 const mockImages = [
-  'https://picsum.photos/400/400?random=1',
-  'https://picsum.photos/400/400?random=2',
-  'https://picsum.photos/400/400?random=3',
-  'https://picsum.photos/400/400?random=4',
-  'https://picsum.photos/400/400?random=5',
-  'https://picsum.photos/400/400?random=6',
-  'https://picsum.photos/400/400?random=7',
-  'https://picsum.photos/400/400?random=8',
-  'https://picsum.photos/400/400?random=9',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&h=600&fit=crop&q=80',
 ]
 
 const Gallery = memo(() => {

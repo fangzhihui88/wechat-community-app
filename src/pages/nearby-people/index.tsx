@@ -13,12 +13,12 @@ interface NearbyUser {
 }
 
 const MOCK_USERS: NearbyUser[] = [
-  { id: '1', avatar: 'https://picsum.photos/seed/n1/200', nickname: '小明同学', signature: '热爱生活，喜欢运动', distance: '120m' },
-  { id: '2', avatar: 'https://picsum.photos/seed/n2/200', nickname: '咖啡爱好者', signature: '每一天都值得被认真对待', distance: '350m' },
-  { id: '3', avatar: 'https://picsum.photos/seed/n3/200', nickname: '读书笔记', signature: '书中自有黄金屋', distance: '580m' },
-  { id: '4', avatar: 'https://picsum.photos/seed/n4/200', nickname: '跑步达人', signature: '坚持跑步第三年', distance: '720m' },
-  { id: '5', avatar: 'https://picsum.photos/seed/n5/200', nickname: '摄影师小王', signature: '用镜头记录美好瞬间', distance: '1.2km' },
-  { id: '6', avatar: 'https://picsum.photos/seed/n6/200', nickname: '美食探店', signature: '寻找城市里的味道', distance: '1.5km' },
+  { id: '1', avatar: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=200&h=200&fit=crop&q=80', nickname: '小明同学', signature: '热爱生活，喜欢运动', distance: '120m' },
+  { id: '2', avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&h=200&fit=crop&q=80', nickname: '咖啡爱好者', signature: '每一天都值得被认真对待', distance: '350m' },
+  { id: '3', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop&q=80', nickname: '读书笔记', signature: '书中自有黄金屋', distance: '580m' },
+  { id: '4', avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&q=80', nickname: '跑步达人', signature: '坚持跑步第三年', distance: '720m' },
+  { id: '5', avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&h=200&fit=crop&q=80', nickname: '摄影师小王', signature: '用镜头记录美好瞬间', distance: '1.2km' },
+  { id: '6', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&q=80', nickname: '美食探店', signature: '寻找城市里的味道', distance: '1.5km' },
 ]
 
 const NearbyPeople = memo(() => {

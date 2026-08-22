@@ -5,15 +5,15 @@ import NavBar from '../../components/NavBar'
 import './index.css'
 
 const MOCK_MEMBERS = [
-  { id: '1', avatar: 'https://picsum.photos/seed/m1/200' },
-  { id: '2', avatar: 'https://picsum.photos/seed/m2/200' },
-  { id: '3', avatar: 'https://picsum.photos/seed/m3/200' },
-  { id: '4', avatar: 'https://picsum.photos/seed/m4/200' },
-  { id: '5', avatar: 'https://picsum.photos/seed/m5/200' },
-  { id: '6', avatar: 'https://picsum.photos/seed/m6/200' },
-  { id: '7', avatar: 'https://picsum.photos/seed/m7/200' },
-  { id: '8', avatar: 'https://picsum.photos/seed/m8/200' },
-  { id: '9', avatar: 'https://picsum.photos/seed/m9/200' },
+  { id: '1', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80' },
+  { id: '2', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80' },
+  { id: '3', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80' },
+  { id: '4', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80' },
+  { id: '5', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80' },
+  { id: '6', avatar: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=200&h=200&fit=crop&q=80' },
+  { id: '7', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80' },
+  { id: '8', avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&h=200&fit=crop&q=80' },
+  { id: '9', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&q=80' },
 ]
 
 const GroupDetail = memo(() => {

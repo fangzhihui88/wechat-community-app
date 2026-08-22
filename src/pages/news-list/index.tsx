@@ -16,12 +16,12 @@ interface NewsItem {
 const categories = ['推荐', '科技', '财经', '社会', '体育']
 
 const mockNews: NewsItem[] = [
-  { id: 1, title: 'AI大模型迎来新突破，多模态能力大幅提升', source: '科技日报', time: '2小时前', comments: 234, cover: 'https://picsum.photos/200/200?random=31' },
-  { id: 2, title: '新能源汽车销量创新高，电动化转型加速', source: '财经周刊', time: '3小时前', comments: 156, cover: 'https://picsum.photos/200/200?random=32' },
-  { id: 3, title: '城市绿地建设成效显著，居民幸福感提升', source: '都市报', time: '4小时前', comments: 89, cover: 'https://picsum.photos/200/200?random=33' },
-  { id: 4, title: '中国航天再创佳绩，探月工程新进展', source: '新华社', time: '5小时前', comments: 567, cover: 'https://picsum.photos/200/200?random=34' },
-  { id: 5, title: '全国游泳锦标赛落幕，多项纪录被打破', source: '体育频道', time: '6小时前', comments: 321, cover: 'https://picsum.photos/200/200?random=35' },
-  { id: 6, title: '数字人民币试点扩大，应用场景更加丰富', source: '金融时报', time: '7小时前', comments: 198, cover: 'https://picsum.photos/200/200?random=36' },
+  { id: 1, title: 'AI大模型迎来新突破，多模态能力大幅提升', source: '科技日报', time: '2小时前', comments: 234, cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=31' },
+  { id: 2, title: '新能源汽车销量创新高，电动化转型加速', source: '财经周刊', time: '3小时前', comments: 156, cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=32' },
+  { id: 3, title: '城市绿地建设成效显著，居民幸福感提升', source: '都市报', time: '4小时前', comments: 89, cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=33' },
+  { id: 4, title: '中国航天再创佳绩，探月工程新进展', source: '新华社', time: '5小时前', comments: 567, cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=34' },
+  { id: 5, title: '全国游泳锦标赛落幕，多项纪录被打破', source: '体育频道', time: '6小时前', comments: 321, cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=35' },
+  { id: 6, title: '数字人民币试点扩大，应用场景更加丰富', source: '金融时报', time: '7小时前', comments: 198, cover: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80/200?random=36' },
 ]
 
 const NewsList = memo(() => {

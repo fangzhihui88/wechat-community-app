@@ -16,12 +16,12 @@ interface Course {
 const CATEGORIES = ['全部', '内容创作', '运营技巧', '数据分析', '用户增长']
 
 const COURSES: Course[] = [
-  { id: 1, title: '爆款内容的底层逻辑', duration: '12:35', progress: 80, cover: 'https://picsum.photos/seed/c1/240/160', tag: '内容创作' },
-  { id: 2, title: '提高粉丝粘性的技巧', duration: '08:20', progress: 45, cover: 'https://picsum.photos/seed/c2/240/160', tag: '运营技巧' },
-  { id: 3, title: '数据驱动内容优化', duration: '15:10', progress: 0, cover: 'https://picsum.photos/seed/c3/240/160', tag: '数据分析' },
-  { id: 4, title: '用户增长实战案例', duration: '20:45', progress: 30, cover: 'https://picsum.photos/seed/c4/240/160', tag: '用户增长' },
-  { id: 5, title: '选题与标题写法', duration: '10:00', progress: 100, cover: 'https://picsum.photos/seed/c5/240/160', tag: '内容创作' },
-  { id: 6, title: '社区氛围运营指南', duration: '14:25', progress: 0, cover: 'https://picsum.photos/seed/c6/240/160', tag: '运营技巧' },
+  { id: 1, title: '爆款内容的底层逻辑', duration: '12:35', progress: 80, cover: 'https://images.unsplash.com/photo-1493815793585-d91a9e6c1b13?w=480&h=320&fit=crop&q=80', tag: '内容创作' },
+  { id: 2, title: '提高粉丝粘性的技巧', duration: '08:20', progress: 45, cover: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=480&h=320&fit=crop&q=80', tag: '运营技巧' },
+  { id: 3, title: '数据驱动内容优化', duration: '15:10', progress: 0, cover: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=480&h=320&fit=crop&q=80', tag: '数据分析' },
+  { id: 4, title: '用户增长实战案例', duration: '20:45', progress: 30, cover: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=480&h=320&fit=crop&q=80', tag: '用户增长' },
+  { id: 5, title: '选题与标题写法', duration: '10:00', progress: 100, cover: 'https://images.unsplash.com/photo-1560472355-536de3962603?w=480&h=320&fit=crop&q=80', tag: '内容创作' },
+  { id: 6, title: '社区氛围运营指南', duration: '14:25', progress: 0, cover: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=480&h=320&fit=crop&q=80', tag: '运营技巧' },
 ]
 
 const CoursePage: React.FC = () => {

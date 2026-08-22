@@ -19,7 +19,7 @@ const MOCK_USERS: User[] = [
   {
     id: 'user_mock_1',
     nickname: '小森林',
-    avatar: 'https://picsum.photos/seed/forest/200',
+    avatar: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&h=400&fit=crop&q=80',
     following: 120,
     followers: 3245,
     posts: 86,
@@ -27,7 +27,7 @@ const MOCK_USERS: User[] = [
   {
     id: 'user_mock_2',
     nickname: '城市漫游者',
-    avatar: 'https://picsum.photos/seed/city/200',
+    avatar: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=200&h=200&fit=crop&q=80',
     following: 89,
     followers: 12500,
     posts: 210,
@@ -35,7 +35,7 @@ const MOCK_USERS: User[] = [
   {
     id: 'user_mock_3',
     nickname: '美食研究所',
-    avatar: 'https://picsum.photos/seed/food/200',
+    avatar: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop&q=80',
     following: 230,
     followers: 45800,
     posts: 540,
@@ -43,7 +43,7 @@ const MOCK_USERS: User[] = [
   {
     id: 'user_mock_4',
     nickname: '深夜电台',
-    avatar: 'https://picsum.photos/seed/radio/200',
+    avatar: 'https://images.unsplash.com/photo-1487180144341-e11edae8f3f1?w=200&h=200&fit=crop&q=80',
     following: 45,
     followers: 8900,
     posts: 73,
@@ -51,7 +51,7 @@ const MOCK_USERS: User[] = [
   {
     id: 'user_mock_5',
     nickname: '山野之间',
-    avatar: 'https://picsum.photos/seed/mountain/200',
+    avatar: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&h=200&fit=crop&q=80',
     following: 67,
     followers: 2310,
     posts: 134,

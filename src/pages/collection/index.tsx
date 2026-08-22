@@ -12,12 +12,12 @@ interface Collection {
 }
 
 const COLLECTIONS: Collection[] = [
-  { id: 1, title: '内容创作干货合集', count: 24, cover: 'https://picsum.photos/seed/col1/300/300' },
-  { id: 2, title: '运营技巧分享', count: 18, cover: 'https://picsum.photos/seed/col2/300/300' },
-  { id: 3, title: '涨粉实战案例', count: 32, cover: 'https://picsum.photos/seed/col3/300/300' },
-  { id: 4, title: '社区活动回顾', count: 12, cover: 'https://picsum.photos/seed/col4/300/300' },
-  { id: 5, title: '优秀创作者访谈', count: 9, cover: 'https://picsum.photos/seed/col5/300/300' },
-  { id: 6, title: '每周热点分析', count: 45, cover: 'https://picsum.photos/seed/col6/300/300' },
+  { id: 1, title: '内容创作干货合集', count: 24, cover: 'https://images.unsplash.com/photo-1493815793585-d91a9e6c1b13?w=300&h=300&fit=crop&q=80/300' },
+  { id: 2, title: '运营技巧分享', count: 18, cover: 'https://images.unsplash.com/photo-1504805572947-34fad45a6b0f?w=300&h=300&fit=crop&q=80/300' },
+  { id: 3, title: '涨粉实战案例', count: 32, cover: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=300&h=300&fit=crop&q=80/300' },
+  { id: 4, title: '社区活动回顾', count: 12, cover: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&h=300&fit=crop&q=80/300' },
+  { id: 5, title: '优秀创作者访谈', count: 9, cover: 'https://images.unsplash.com/photo-1517686469639-549f10a8b783?w=300&h=300&fit=crop&q=80/300' },
+  { id: 6, title: '每周热点分析', count: 45, cover: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=300&h=300&fit=crop&q=80/300' },
 ]
 
 const CollectionPage: React.FC = () => {
