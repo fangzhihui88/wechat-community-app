@@ -2,12 +2,9 @@ import Taro from '@tarojs/taro'
 import type { ApiResponse } from '../types'
 
 // API 基础地址
-// 开发环境（H5/模拟器调试）：使用本地后端
-// 生产环境：使用线上地址
-const isDev = process.env.NODE_ENV !== 'production'
-const BASE_URL = isDev
-  ? 'http://localhost:3000'
-  : 'https://api.yuantou.community'
+// 当前后端运行在本机 localhost:3000（开发/预览均连此地址）。
+// 如需部署公网后端，将此处改为对应的公网地址即可。
+const BASE_URL = 'http://localhost:3000'
 
 // 请求封装
 interface RequestOptions {

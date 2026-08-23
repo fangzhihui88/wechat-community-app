@@ -31,6 +31,19 @@ export default function LoginPage() {
     setError('')
   }
 
+  // 演示模式：不依赖后端，直接以本地 mock 用户进入首页
+  const enterDemoMode = () => {
+    Taro.setStorageSync('token', 'demo-token')
+    Taro.setStorageSync('currentUser', {
+      id: 'user_001',
+      nickname: '前端开发者',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop',
+      is_vip: 1,
+    })
+    Taro.showToast({ title: '已进入演示模式', icon: 'none' })
+    setTimeout(() => Taro.switchTab({ url: '/pages/index/index' }), 600)
+  }
+
   const handleLogin = async () => {
     if (!form.username.trim()) return setError('请输入用户名')
     if (!form.password) return setError('请输入密码')
@@ -50,6 +63,20 @@ export default function LoginPage() {
       Taro.showToast({ title: '登录成功', icon: 'success' })
       setTimeout(() => Taro.switchTab({ url: '/pages/index/index' }), 800)
     } catch (e: any) {
+      const msg = e?.message || ''
+      // 网络不可达时（后端未启动/跨设备访问），降级到演示模式，保证可进入首页
+      if (msg.includes('fail') || msg.includes('网络') || msg.includes('Network') || msg.includes('timeout')) {
+        Taro.showToast({ title: '已切换演示模式', icon: 'none', duration: 1500 })
+        Taro.setStorageSync('token', 'demo-token')
+        Taro.setStorageSync('currentUser', {
+          id: 'user_001',
+          nickname: '前端开发者',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop',
+          is_vip: 1,
+        })
+        setTimeout(() => Taro.switchTab({ url: '/pages/index/index' }), 800)
+        return
+      }
       setError(e?.message || '登录失败，请检查用户名和密码')
     } finally {
       setLoading(false)
@@ -165,6 +192,12 @@ export default function LoginPage() {
               onClick={() => setForm({ username: 'dev_frontend', password: '123456' })}
             >
               一键填充
+            </View>
+            <View
+              className="demo-btn demo-btn--ghost"
+              onClick={enterDemoMode}
+            >
+              演示模式直接进入
             </View>
           </View>
         )}
